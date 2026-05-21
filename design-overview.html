@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rhyme Game · Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #161618;
+    --surface: #1f1f23;
+    --surface-2: #2a2a30;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f5f3ef;
+    --text-secondary: #b8b3c0;
+    --text-tertiary: #7e7888;
+    --accent: #B8A4FF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%);
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    color: #B8A4FF;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .hero-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #FFF8DC;
+    margin-bottom: 4px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: #DCD2FF;
+  }
+
+  /* ─── Read this first callout ─── */
+  .callout {
+    background: rgba(184, 164, 255, 0.06);
+    border: 1.5px solid rgba(184, 164, 255, 0.25);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .callout-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .callout-question {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .callout-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .vocab-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .vocab-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .vocab-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .vocab-preview {
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .vocab-preview-gameplay { background: linear-gradient(to bottom, #4A2BA8 0%, #3D1F8F 100%); display: flex; gap: 6px; }
+  .vocab-preview-nongameplay { background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%); display: flex; flex-direction: column; gap: 6px; }
+  .mini-block-orange { flex: 1; background: #F08838; border-radius: 6px; padding: 8px 0; text-align: center; box-shadow: 0 3px 0 #B85A1A; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #3D1A05; }
+  .mini-block-blue { flex: 1; background: #4FA8E8; border-radius: 6px; padding: 8px 0; text-align: center; box-shadow: 0 3px 0 #2872A8; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #0A2E52; }
+  .mini-card-row { background: rgba(42,20,102,0.4); border-radius: 6px; padding: 8px 10px; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC; }
+  .callout-note { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+  .callout-note strong { font-weight: 600; color: var(--text); }
+
+  /* ─── Section headings ─── */
+  h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 56px 0 8px;
+    color: var(--text);
+  }
+  h2:first-of-type { margin-top: 0; }
+  .section-lead {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .subsection-label {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+
+  /* ─── Principle cards ─── */
+  .principles { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .principle {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border-left: 3px solid;
+  }
+  .principle-1 { border-left-color: #7B4FFF; }
+  .principle-2 { border-left-color: #FFC72C; }
+  .principle-3 { border-left-color: #FF6AB8; }
+  .principle h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .principle p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ─── Color swatches ─── */
+  .swatch-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .swatch {
+    border-radius: 10px;
+    padding: 10px 8px;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .swatch-label { font-size: 11px; font-weight: 600; }
+  .swatch-hex { font-size: 10px; }
+  .swatch-light { border: 1px solid var(--border); }
+  .swatch-note { font-size: 12px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+  .swatch-note strong { color: var(--text); font-weight: 600; }
+
+  .rhyme-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+  .rhyme-swatch { border-radius: 10px; padding: 14px 12px; min-height: 80px; display: flex; flex-direction: column; justify-content: space-between; }
+  .rhyme-name { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; }
+  .rhyme-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+  .flare-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .flare-swatch { border-radius: 10px; padding: 14px 12px; min-height: 80px; display: flex; align-items: flex-end; }
+  .flare-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #4A1545; }
+
+  .semantic-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 32px; }
+  .semantic-swatch { border-radius: 10px; padding: 14px; min-height: 70px; display: flex; flex-direction: column; justify-content: space-between; color: white; }
+  .semantic-name { font-size: 13px; font-weight: 600; }
+  .semantic-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; opacity: 0.8; }
+
+  /* ─── Gradient previews ─── */
+  .gradient-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+  .gradient-preview { border-radius: 12px; padding: 32px 20px; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between; }
+  .gradient-name { font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 600; color: #FFF8DC; }
+  .gradient-hex { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #DCD2FF; }
+  .gradient-tag { font-size: 11px; color: #B8A4FF; margin-top: 6px; }
+
+  /* ─── Typography demo ─── */
+  .typo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .typo-card { background: var(--surface); border-radius: 12px; padding: 20px; }
+  .typo-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .typo-sample { font-size: 32px; margin-bottom: 12px; }
+  .typo-fredoka { font-family: 'Fredoka', sans-serif; font-weight: 600; }
+  .typo-system { font-family: 'Inter', sans-serif; font-weight: 500; }
+  .typo-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  .scale-table { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+  .scale-row { display: flex; align-items: baseline; gap: 16px; padding: 6px 0; }
+  .scale-sample { font-family: 'Fredoka', sans-serif; font-weight: 600; min-width: 140px; }
+  .scale-sample-system { font-family: 'Inter', sans-serif; font-weight: 400; }
+  .scale-caption-sample { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); min-width: 140px; }
+  .scale-use { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-tertiary); }
+
+  /* ─── Block physics demo ─── */
+  .demo-card { background: var(--surface); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+  .demo-block-rest { background: #F08838; border-radius: 10px; padding: 18px 0; text-align: center; box-shadow: 0 4px 0 #B85A1A; font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: #3D1A05; }
+  .demo-list { font-size: 12px; line-height: 1.8; color: var(--text-secondary); }
+  .demo-list code { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--surface-2); padding: 1px 6px; border-radius: 4px; color: var(--text); }
+
+  .press-demo { background: var(--surface); border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+  .press-row { display: flex; gap: 20px; align-items: flex-end; }
+  .press-col { flex: 1; }
+  .press-rest, .press-pushed {
+    background: #F08838;
+    border-radius: 10px;
+    padding: 14px 0;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3D1A05;
+    margin-bottom: 8px;
+  }
+  .press-rest { box-shadow: 0 4px 0 #B85A1A; }
+  .press-pushed { transform: translateY(4px); }
+  .press-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-tertiary); text-align: center; }
+
+  /* ─── Translucent card demo ─── */
+  .card-demo-wrapper { background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card-demo {
+    background: rgba(42, 20, 102, 0.4);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-demo-title { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFF8DC; }
+  .card-demo-desc { font-size: 11px; color: #B8A4FF; margin-top: 2px; }
+  .card-demo-chevron { font-size: 16px; color: #B8A4FF; }
+
+  /* ─── Gameplay grid ─── */
+  .grid-frame { background: linear-gradient(to bottom, #4A2BA8 0%, #3D1F8F 100%); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 8px; }
+  .cell-empty { background: rgba(200,200,220,0.22); border: 1.5px solid rgba(200,200,220,0.35); border-radius: 10px; padding: 18px 0; }
+  .cell-cream { background: #EDE4D0; border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 4px; }
+  .cell-rhyme { border-radius: 10px; padding: 18px 0; text-align: center; margin-bottom: 4px; font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 600; }
+  .cell-orange { background: #F08838; box-shadow: 0 4px 0 #B85A1A; color: #3D1A05; }
+  .cell-blue { background: #4FA8E8; box-shadow: 0 4px 0 #2872A8; color: #0A2E52; }
+  .cell-yellow { background: #FFC72C; box-shadow: 0 4px 0 #C49000; color: #3D2400; }
+  .cell-green { background: #4FCC85; box-shadow: 0 4px 0 #289054; color: #0A3D1F; }
+  .cell-flare-1 { background: linear-gradient(135deg, #FF7DBE 0%, #FF6AB8 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #B83889; margin-bottom: 4px; }
+  .cell-flare-2 { background: linear-gradient(135deg, #FF6AB8 0%, #EC6BC4 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #A8408F; margin-bottom: 4px; }
+  .cell-flare-3 { background: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #9145A0; margin-bottom: 4px; }
+
+  .legend { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .legend-item { display: flex; gap: 16px; align-items: center; }
+  .legend-swatch { width: 60px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+  .legend-empty { background: rgba(184,164,255,0.22); border: 1.5px solid rgba(184,164,255,0.35); }
+  .legend-cream { background: #EDE4D0; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 4px; }
+  .legend-blue { background: #4FA8E8; box-shadow: 0 4px 0 #2872A8; margin-bottom: 4px; }
+  .legend-flare { background: linear-gradient(135deg, #FF7DBE 0%, #D070D8 100%); box-shadow: 0 4px 0 #A8408F; margin-bottom: 4px; }
+  .legend-text strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .legend-text span { font-size: 12px; color: var(--text-secondary); }
+
+  /* ─── Screen examples ─── */
+  .screens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  @media (max-width: 720px) { .screens-grid { grid-template-columns: 1fr; } }
+  .screen-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 8px; }
+
+  .screen-menu, .screen-play, .screen-words, .screen-settings {
+    background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%);
+    border-radius: 20px;
+    padding: 24px 18px;
+  }
+  .screen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .screen-back, .screen-title-text { font-family: 'Fredoka', sans-serif; color: #FFF8DC; }
+  .screen-back { font-size: 16px; font-weight: 600; }
+  .screen-title-text { font-size: 17px; font-weight: 600; }
+  .screen-title-hero { font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 600; color: #FFF8DC; text-align: center; margin-bottom: 4px; }
+  .screen-sub { font-size: 12px; color: #DCD2FF; text-align: center; margin-bottom: 20px; }
+
+  .menu-btn-primary { background: #FFC72C; border-radius: 14px; padding: 16px 0; text-align: center; box-shadow: 0 5px 0 #C49000; margin-bottom: 13px; font-family: 'Fredoka', sans-serif; font-size: 19px; font-weight: 600; color: #3D2400; }
+  .menu-btn-secondary { background: #EDE4D0; border-radius: 14px; padding: 14px 0; text-align: center; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 10px; font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #3D2D52; }
+  .menu-btn-tertiary { background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,248,220,0.4); border-radius: 14px; padding: 12px 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; margin-bottom: 16px; }
+  .streak-card { background: rgba(42,20,102,0.4); border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .streak-left { display: flex; gap: 10px; align-items: center; }
+  .streak-flame { width: 32px; height: 32px; background: #FFC72C; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .streak-title { font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: #FFF8DC; }
+  .streak-desc { font-size: 10px; color: #B8A4FF; }
+  .streak-arrow { font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFE99A; }
+
+  .setting-card { background: rgba(42,20,102,0.4); border-radius: 12px; padding: 12px 16px; margin-bottom: 6px; }
+  .setting-row { display: flex; justify-content: space-between; align-items: center; }
+  .setting-title { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; }
+  .setting-eyebrow { font-size: 10px; color: #B8A4FF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .setting-value { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; margin-top: 2px; }
+  .setting-desc { font-size: 10px; color: #B8A4FF; margin-top: 2px; }
+  .setting-chevron { font-size: 14px; color: #B8A4FF; }
+  .toggle { width: 32px; height: 18px; background: #FFC72C; border-radius: 9px; position: relative; flex-shrink: 0; }
+  .toggle-knob { width: 14px; height: 14px; background: white; border-radius: 50%; position: absolute; right: 2px; top: 2px; }
+  .nav-arrows { display: flex; gap: 8px; }
+  .nav-arrows span { font-size: 14px; color: #B8A4FF; }
+  .section-label { font-size: 10px; color: #B8A4FF; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin: 10px 0 6px; }
+  .center-meta { font-size: 11px; color: #B8A4FF; text-align: center; margin-bottom: 14px; }
+
+  .word-row { background: rgba(42,20,102,0.4); border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .word-prompt { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFC72C; }
+  .word-rhymes { font-size: 11px; color: #DCD2FF; text-align: right; }
+  .generate-btn { background: #4FCC85; border-radius: 12px; padding: 12px 0; text-align: center; box-shadow: 0 4px 0 #289054; font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: #0A3D1F; margin-top: 8px; margin-bottom: 4px; }
+
+  .mini-preview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .mini-cell-empty { background: rgba(184,164,255,0.18); border-radius: 3px; height: 12px; }
+  .mini-cell-orange { background: #F08838; border-radius: 3px; height: 12px; }
+  .mini-cell-blue { background: #4FA8E8; border-radius: 3px; height: 12px; }
+  .mini-cell-yellow { background: #FFC72C; border-radius: 3px; height: 12px; }
+  .mini-cell-green { background: #4FCC85; border-radius: 3px; height: 12px; }
+  .play-cta { background: #FFC72C; border-radius: 14px; padding: 13px 0; text-align: center; box-shadow: 0 5px 0 #C49000; margin-top: 14px; margin-bottom: 5px; font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #3D2400; }
+
+  .volume-slider { height: 4px; background: rgba(184,164,255,0.25); border-radius: 2px; overflow: hidden; margin-top: 8px; }
+  .volume-fill { height: 100%; width: 100%; background: #FFC72C; }
+
+  /* ─── Spec table ─── */
+  .spec-table { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; font-size: 13px; line-height: 1.9; }
+  .spec-label { color: var(--text-secondary); }
+  .spec-value { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+
+  /* ─── Do / don't ─── */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+  .rule-do, .rule-dont { border-radius: 12px; padding: 16px 20px; border-left: 3px solid; }
+  .rule-do { background: rgba(31, 143, 92, 0.15); border-left-color: #1F8F5C; }
+  .rule-dont { background: rgba(214, 56, 72, 0.15); border-left-color: #D63848; }
+  .rule-header { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .rule-do .rule-header { color: #4FCC85; }
+  .rule-dont .rule-header { color: #FF7785; }
+  .rule-body { font-size: 13px; line-height: 1.7; }
+
+  .summary { background: var(--surface); border-radius: 12px; padding: 20px 24px; }
+  .summary-label { font-size: 11px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .summary-text { font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 500; line-height: 1.6; }
+
+  /* ─── Footer ─── */
+  .footer {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+  }
+  .footer code { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--surface-2); padding: 2px 6px; border-radius: 4px; color: var(--text-secondary); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 640px) {
+    .container { padding: 24px 16px 64px; }
+    .hero { padding: 32px 20px; }
+    .hero-title { font-size: 28px; }
+    .vocab-grid { grid-template-columns: 1fr; }
+    .swatch-row { grid-template-columns: repeat(4, 1fr); }
+    .rhyme-row { grid-template-columns: repeat(2, 1fr); }
+    .semantic-row { grid-template-columns: 1fr; }
+    .gradient-row { grid-template-columns: 1fr; }
+    .typo-grid { grid-template-columns: 1fr; }
+    .rules { grid-template-columns: 1fr; }
+    .demo-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ─── Hero ─── -->
+  <div class="hero">
+    <div class="hero-eyebrow">design system · final</div>
+    <h1 class="hero-title">The Rhyme Game</h1>
+    <p class="hero-subtitle">Color, typography, components, screens & philosophy</p>
+  </div>
+
+  <!-- ─── Read this first ─── -->
+  <div class="callout">
+    <div class="callout-eyebrow">read this first · the question that organizes every screen</div>
+    <p class="callout-question">"Which vocabulary does this screen belong to?"</p>
+    <p class="callout-body">Before designing anything new, answer this question first. It decides everything else.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <p class="vocab-title">Gameplay vocabulary</p>
+        <p class="vocab-desc">Chunky platform blocks with hard drop shadows. Saturated rhyme colors. Fredoka 20–26px. Used only on the actual gameplay grid, the play CTA, and celebration moments.</p>
+        <div class="vocab-preview vocab-preview-gameplay">
+          <div class="mini-block-orange">rust</div>
+          <div class="mini-block-blue">may</div>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <p class="vocab-title">Non-gameplay vocabulary</p>
+        <p class="vocab-desc">Translucent dark-purple cards (Purple 900 at 40% alpha) on the menu gradient. Fredoka for titles, system sans for descriptions. Used for menus, settings, lists, configuration.</p>
+        <div class="vocab-preview vocab-preview-nongameplay">
+          <div class="mini-card-row">Setting one</div>
+          <div class="mini-card-row">Setting two</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="callout-note"><strong>Never mix the two vocabularies on one screen.</strong> Mixing them creates the cluttered, chaotic feel we're avoiding. Keeping them separate creates clarity — players know what kind of screen they're on the moment it appears.</p>
+  </div>
+
+  <!-- ─── Philosophy ─── -->
+  <h2>Philosophy</h2>
+  <p class="section-lead">Three principles guide every design decision. When in doubt, return to these.</p>
+  <div class="principles">
+    <div class="principle principle-1">
+      <h3>1 · Playful, not childish</h3>
+      <p>We sit between "game" and "tool." Rounded shapes and warm cream surfaces over sterile white. Chunky platforms over flat UI buttons. But never neon overload or cartoon overload — every playful element earns its space.</p>
+    </div>
+    <div class="principle principle-2">
+      <h3>2 · Color carries meaning</h3>
+      <p>Every color has a job. Purple is the world. Yellow is celebration. Rhyme colors group sounds. Pink invites creativity. Cream is structural. Never use a color for decoration — if it doesn't communicate, it shouldn't be there.</p>
+    </div>
+    <div class="principle principle-3">
+      <h3>3 · Everything has physics</h3>
+      <p>Tappable things are physical objects with weight. Same block, same shadow, same press behavior across the app. Buttons aren't drawings of buttons — they're stylized platforms you can almost touch.</p>
+    </div>
+  </div>
+
+  <!-- ─── Color system ─── -->
+  <h2>Color system</h2>
+  <p class="section-lead">Two brand hues + one tinted neutral + three semantic + four rhyme-key colors. Every shade earns its place — no decorative additions.</p>
+
+  <p class="subsection-label">Brand · purple</p>
+  <div class="swatch-row">
+    <div class="swatch swatch-light" style="background:#F3F0FF"><span class="swatch-label" style="color:#3D1F8F">50</span><span class="swatch-hex" style="color:#6B4FCE">F3F0FF</span></div>
+    <div class="swatch" style="background:#DCD2FF"><span class="swatch-label" style="color:#3D1F8F">100</span><span class="swatch-hex" style="color:#3D1F8F">DCD2FF</span></div>
+    <div class="swatch" style="background:#B8A4FF"><span class="swatch-label" style="color:#2A1466">200</span><span class="swatch-hex" style="color:#2A1466">B8A4FF</span></div>
+    <div class="swatch" style="background:#7B4FFF"><span class="swatch-label" style="color:#FFFFFF">400 ★</span><span class="swatch-hex" style="color:#F3F0FF">7B4FFF</span></div>
+    <div class="swatch" style="background:#5829E8"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#DCD2FF">5829E8</span></div>
+    <div class="swatch" style="background:#3D1F8F"><span class="swatch-label" style="color:#FFFFFF">800 ★</span><span class="swatch-hex" style="color:#DCD2FF">3D1F8F</span></div>
+    <div class="swatch" style="background:#2A1466"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#B8A4FF">2A1466</span></div>
+  </div>
+  <p class="swatch-note"><strong>★ Hero shades.</strong> Used across all screens. 900 at 40% alpha is the translucent card background on non-gameplay screens.</p>
+
+  <p class="subsection-label">Brand · yellow</p>
+  <div class="swatch-row">
+    <div class="swatch swatch-light" style="background:#FFF8DC"><span class="swatch-label" style="color:#7A4A00">50</span><span class="swatch-hex" style="color:#A66400">FFF8DC</span></div>
+    <div class="swatch" style="background:#FFE99A"><span class="swatch-label" style="color:#7A4A00">100</span><span class="swatch-hex" style="color:#7A4A00">FFE99A</span></div>
+    <div class="swatch" style="background:#FFD960"><span class="swatch-label" style="color:#5C3700">200</span><span class="swatch-hex" style="color:#5C3700">FFD960</span></div>
+    <div class="swatch" style="background:#FFC72C"><span class="swatch-label" style="color:#3D2400">400 ★</span><span class="swatch-hex" style="color:#3D2400">FFC72C</span></div>
+    <div class="swatch" style="background:#E8A800"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#FFF8DC">E8A800</span></div>
+    <div class="swatch" style="background:#A66400"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#FFE99A">A66400</span></div>
+    <div class="swatch" style="background:#5C3700"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#FFD960">5C3700</span></div>
+  </div>
+  <p class="swatch-note"><strong>Yellow is rare and earns attention.</strong> Use 400 only for: the primary CTA per screen, active toggle/slider states, celebration moments, streak indicators, and one rhyme key. If it's on every button, it stops being special.</p>
+
+  <p class="subsection-label">Neutral · cream & ink (purple-tinted)</p>
+  <div class="swatch-row">
+    <div class="swatch swatch-light" style="background:#FBF8F0"><span class="swatch-label" style="color:#1A0F3D">50</span><span class="swatch-hex" style="color:#4A3D6E">FBF8F0</span></div>
+    <div class="swatch" style="background:#EDE4D0"><span class="swatch-label" style="color:#1A0F3D">100 ★</span><span class="swatch-hex" style="color:#1A0F3D">EDE4D0</span></div>
+    <div class="swatch" style="background:#D4CFC0"><span class="swatch-label" style="color:#1A0F3D">200</span><span class="swatch-hex" style="color:#1A0F3D">D4CFC0</span></div>
+    <div class="swatch" style="background:#8A7FA8"><span class="swatch-label" style="color:#FFFFFF">400</span><span class="swatch-hex" style="color:#1A0F3D">8A7FA8</span></div>
+    <div class="swatch" style="background:#4A3D6E"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#D4CFC0">4A3D6E</span></div>
+    <div class="swatch" style="background:#2D1F52"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#D4CFC0">2D1F52</span></div>
+    <div class="swatch" style="background:#1A0F3D"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#B8A4FF">1A0F3D</span></div>
+  </div>
+  <p class="swatch-note">Tinted toward purple, never pure gray. 50 is the logo cream. 100 is the non-rhyme block surface in gameplay. Use these for body text, borders, and structural UI.</p>
+
+  <p class="subsection-label">Rhyme key · gameplay colors</p>
+  <div class="rhyme-row">
+    <div class="rhyme-swatch" style="background:#F08838"><span class="rhyme-name" style="color:#3D1A05">orange</span><span class="rhyme-hex" style="color:#5C2A0A">#F08838</span></div>
+    <div class="rhyme-swatch" style="background:#4FA8E8"><span class="rhyme-name" style="color:#0A2E52">blue</span><span class="rhyme-hex" style="color:#0F3D6E">#4FA8E8</span></div>
+    <div class="rhyme-swatch" style="background:#FFC72C"><span class="rhyme-name" style="color:#3D2400">yellow</span><span class="rhyme-hex" style="color:#5C3700">#FFC72C</span></div>
+    <div class="rhyme-swatch" style="background:#4FCC85"><span class="rhyme-name" style="color:#0A3D1F">green</span><span class="rhyme-hex" style="color:#0F5C2E">#4FCC85</span></div>
+  </div>
+  <p class="swatch-note">Calibrated to equal luminance (~70%) so no color dominates. Text uses the darkest stop from each color's own family — never pure black. Same hue → same rhyme.</p>
+
+  <p class="subsection-label">Flare zone · pink sunrise gradient</p>
+  <div class="flare-row">
+    <div class="flare-swatch" style="background:linear-gradient(135deg,#FF7DBE 0%,#FF6AB8 100%)"><span class="flare-hex">FF7DBE → FF6AB8</span></div>
+    <div class="flare-swatch" style="background:linear-gradient(135deg,#FF6AB8 0%,#EC6BC4 100%)"><span class="flare-hex">FF6AB8 → EC6BC4</span></div>
+    <div class="flare-swatch" style="background:linear-gradient(135deg,#EC6BC4 0%,#D070D8 100%)"><span class="flare-hex">EC6BC4 → D070D8</span></div>
+  </div>
+  <p class="swatch-note">A continuous gradient across 3 cells — hot pink → magenta → lilac. Only appears in the flare zone. Reserve the pink palette exclusively for "creative invitation" moments anywhere in the app.</p>
+
+  <p class="subsection-label">Semantic · status</p>
+  <div class="semantic-row">
+    <div class="semantic-swatch" style="background:#1F8F5C"><span class="semantic-name">success</span><span class="semantic-hex">1F8F5C</span></div>
+    <div class="semantic-swatch" style="background:#E87B00"><span class="semantic-name">warning</span><span class="semantic-hex">E87B00</span></div>
+    <div class="semantic-swatch" style="background:#D63848"><span class="semantic-name">error</span><span class="semantic-hex">D63848</span></div>
+  </div>
+
+  <!-- ─── Background gradients ─── -->
+  <h2>Background gradients</h2>
+  <p class="section-lead">Every screen uses a vertical purple gradient with the light source at the top. Two variants — one for energetic surfaces (menus, settings, configuration), one for focused surfaces (the gameplay grid).</p>
+  <div class="gradient-row">
+    <div class="gradient-preview" style="background:linear-gradient(to bottom,#6240C8 0%,#3D1F8F 100%)">
+      <span class="gradient-name">Menu</span>
+      <div>
+        <div class="gradient-hex">#6240C8 → #3D1F8F</div>
+        <div class="gradient-tag">Brighter top. Energetic.</div>
+      </div>
+    </div>
+    <div class="gradient-preview" style="background:linear-gradient(to bottom,#4A2BA8 0%,#3D1F8F 100%)">
+      <span class="gradient-name">Gameplay</span>
+      <div>
+        <div class="gradient-hex">#4A2BA8 → #3D1F8F</div>
+        <div class="gradient-tag">Calmer top. Focused.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Typography ─── -->
+  <h2>Typography</h2>
+  <p class="section-lead">Two fonts, two roles. Don't mix them within a single element.</p>
+  <div class="typo-grid">
+    <div class="typo-card">
+      <div class="typo-label">Gameplay font</div>
+      <div class="typo-sample typo-fredoka">Fredoka</div>
+      <p class="typo-desc">Rhyme words, scores, button labels, screen titles, card titles. Weight 600 default, 700 for celebration. Rounded letterforms echo block radius.</p>
+    </div>
+    <div class="typo-card">
+      <div class="typo-label">System font</div>
+      <div class="typo-sample typo-system">Inter / SF</div>
+      <p class="typo-desc">Setting descriptions, supporting captions, paragraphs, metadata. Whatever the OS default sans is. Weight 400 body, 500 emphasis.</p>
+    </div>
+  </div>
+  <div class="scale-table">
+    <div class="scale-row"><span class="scale-sample" style="font-size:32px">32 / 600</span><span class="scale-use">hero · splash titles</span></div>
+    <div class="scale-row"><span class="scale-sample" style="font-size:26px">26 / 600</span><span class="scale-use">gameplay XL · score</span></div>
+    <div class="scale-row"><span class="scale-sample" style="font-size:20px">20 / 600</span><span class="scale-use">rhyme word · button label · screen title</span></div>
+    <div class="scale-row"><span class="scale-sample" style="font-size:15px">15 / 600</span><span class="scale-use">card title · setting title</span></div>
+    <div class="scale-row"><span class="scale-sample-system scale-sample" style="font-size:13px;font-weight:400;color:var(--text-secondary)">13 / 400</span><span class="scale-use">body · description</span></div>
+    <div class="scale-row"><span class="scale-caption-sample">11 / 500 uppercase</span><span class="scale-use">section label · meta</span></div>
+  </div>
+
+  <!-- ─── Block physics ─── -->
+  <h2>Block physics (gameplay vocabulary)</h2>
+  <p class="section-lead">Every tappable platform on a gameplay surface follows these rules. Build one component, reuse everywhere.</p>
+  <div class="demo-card">
+    <p style="font-size:13px;font-weight:600;margin-bottom:14px;font-family:'Inter',sans-serif">Anatomy</p>
+    <div class="demo-row">
+      <div class="demo-block-rest">block</div>
+      <div class="demo-list">
+        • Border radius: <code>10px</code><br>
+        • Shadow: <code>0 4px 0</code> (no blur)<br>
+        • Shadow color: same hue, darker<br>
+        • Text: darkest stop of own family<br>
+        • Press: translateY 4px, shadow off
+      </div>
+    </div>
+  </div>
+  <div class="press-demo">
+    <p style="font-size:13px;font-weight:600;margin-bottom:14px;font-family:'Inter',sans-serif">Press state</p>
+    <div class="press-row">
+      <div class="press-col">
+        <div class="press-rest">rest</div>
+        <div class="press-label">at rest</div>
+      </div>
+      <div class="press-col">
+        <div class="press-pushed">push</div>
+        <div class="press-label">pressed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Translucent cards ─── -->
+  <h2>Translucent cards (non-gameplay vocabulary)</h2>
+  <p class="section-lead">Every list item, setting, and configuration row on a non-gameplay surface is one of these.</p>
+  <div class="card-demo-wrapper">
+    <div class="card-demo">
+      <div>
+        <div class="card-demo-title">Card title</div>
+        <div class="card-demo-desc">Supporting description</div>
+      </div>
+      <span class="card-demo-chevron">›</span>
+    </div>
+  </div>
+  <div class="demo-card" style="margin-top:0;margin-bottom:32px">
+    <div class="demo-list">
+      • Background: <code>rgba(42, 20, 102, 0.4)</code> — Purple 900 at 40% alpha<br>
+      • Border radius: <code>12px</code><br>
+      • Padding: <code>12px 16px</code><br>
+      • Title: Fredoka 15 / 600 in cream (#FFF8DC)<br>
+      • Description: system sans 11 / 400 in Purple 200 (#B8A4FF)<br>
+      • No shadow. Sits <em>into</em> the gradient, not on top of it.
+    </div>
+  </div>
+
+  <!-- ─── Gameplay grid ─── -->
+  <h2>Gameplay grid</h2>
+  <p class="section-lead">Four cell states form a complete visual vocabulary. Same physics across all four — only the surface treatment changes.</p>
+  <div class="grid-frame">
+    <div class="grid">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-rhyme cell-orange">rust</div>
+
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-rhyme cell-blue">may</div>
+
+      <div class="cell-cream"></div>
+      <div class="cell-cream"></div>
+      <div class="cell-cream"></div>
+      <div class="cell-rhyme cell-yellow">thrive</div>
+
+      <div class="cell-flare-1"></div>
+      <div class="cell-flare-2"></div>
+      <div class="cell-flare-3"></div>
+      <div class="cell-rhyme cell-green">pick</div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-swatch legend-empty"></div>
+      <div class="legend-text"><strong>Empty beat</strong><span>Silent rhythm position. Outline + 22% lavender wash. No platform physics — they're slots, not surfaces.</span></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch legend-cream"></div>
+      <div class="legend-text"><strong>Non-rhyming word</strong><span>Cream platform. Structural placeholder. Same physics as rhyme blocks.</span></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch legend-blue"></div>
+      <div class="legend-text"><strong>Rhyme word</strong><span>Colored platform. Hue groups rhymes. Tappable for replay/inspection.</span></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch legend-flare"></div>
+      <div class="legend-text"><strong>Flare zone</strong><span>Pink-sunrise gradient. Creative invitation — player adds emphasis.</span></div>
+    </div>
+  </div>
+
+  <!-- ─── Screen examples ─── -->
+  <h2>Screen examples</h2>
+  <p class="section-lead">Four reference screens showing how the system composes. Use these as templates when building new screens.</p>
+
+  <div class="screens-grid">
+
+    <div>
+      <div class="screen-label">1 · main menu</div>
+      <div class="screen-menu">
+        <p class="screen-title-hero">The Rhyme Game</p>
+        <p class="screen-sub">Join the freestyle revolution</p>
+        <div class="menu-btn-primary">play</div>
+        <div class="menu-btn-secondary">how to play</div>
+        <div class="menu-btn-secondary">stats</div>
+        <div class="menu-btn-tertiary">settings</div>
+        <div class="streak-card">
+          <div class="streak-left">
+            <div class="streak-flame">🔥</div>
+            <div>
+              <div class="streak-title">7-day streak</div>
+              <div class="streak-desc">Play today to keep it going</div>
+            </div>
+          </div>
+          <span class="streak-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">2 · play (configuration)</div>
+      <div class="screen-play">
+        <div class="screen-header">
+          <span class="screen-back">‹</span>
+          <span class="screen-title-text">play</span>
+          <span style="width:16px"></span>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row" style="margin-bottom:10px">
+            <div>
+              <div class="setting-eyebrow">rhyme pattern</div>
+              <div class="setting-value">aAbB</div>
+            </div>
+            <div class="nav-arrows"><span>‹</span><span>›</span></div>
+          </div>
+          <div class="mini-preview-grid">
+            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-orange"></div>
+            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-blue"></div>
+            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-yellow"></div>
+            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-green"></div>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div>
+              <div class="setting-eyebrow">word list</div>
+              <div class="setting-value">1-syllable words</div>
+              <div class="setting-desc">All single-syllable rhymes</div>
+            </div>
+            <div class="nav-arrows"><span>‹</span><span>›</span></div>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div style="display:flex;gap:10px;align-items:center">
+              <div style="width:36px;height:36px;background:#2A1466;border-radius:6px;flex-shrink:0"></div>
+              <div>
+                <div class="setting-eyebrow">beat</div>
+                <div class="setting-value" style="font-size:13px">Launch the Paunch</div>
+                <div class="setting-desc">DJ Maintain · 90 BPM</div>
+              </div>
+            </div>
+            <div class="nav-arrows"><span>‹</span><span>›</span></div>
+          </div>
+        </div>
+        <div class="play-cta">play</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">3 · random words</div>
+      <div class="screen-words">
+        <div class="screen-header">
+          <span class="screen-back">‹</span>
+          <span class="screen-title-text">random words</span>
+          <span style="font-size:16px;color:#B8A4FF">⚙</span>
+        </div>
+        <p class="center-meta">Basic Words · 5 words · 3 rhymes each</p>
+        <div class="word-row"><span class="word-prompt">fight</span><span class="word-rhymes">site, right, white</span></div>
+        <div class="word-row"><span class="word-prompt">stool</span><span class="word-rhymes">school, tool, rule</span></div>
+        <div class="word-row"><span class="word-prompt">slide</span><span class="word-rhymes">guide, provide, side</span></div>
+        <div class="word-row"><span class="word-prompt">hot</span><span class="word-rhymes">not, got, lot</span></div>
+        <div class="word-row"><span class="word-prompt">weak</span><span class="word-rhymes">week, unique, creek</span></div>
+        <div class="generate-btn">⇄ generate new words</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">4 · settings</div>
+      <div class="screen-settings">
+        <div class="screen-header">
+          <span class="screen-back">‹</span>
+          <span class="screen-title-text">settings</span>
+          <span style="width:16px"></span>
+        </div>
+        <p class="section-label">playback</p>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div>
+              <div class="setting-title">Audio lag / ball sync</div>
+              <div class="setting-desc">Calibrate beat timing</div>
+            </div>
+            <span class="setting-chevron">›</span>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div>
+              <div class="setting-title">Background audio</div>
+              <div class="setting-desc">Keep playing when locked</div>
+            </div>
+            <div class="toggle"><div class="toggle-knob"></div></div>
+          </div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div class="setting-title">Master volume</div>
+            <span style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;color:#FFC72C">100%</span>
+          </div>
+          <div class="volume-slider"><div class="volume-fill"></div></div>
+        </div>
+        <div class="setting-card">
+          <div class="setting-row">
+            <div>
+              <div class="setting-title">Haptic feedback</div>
+              <div class="setting-desc">Vibration ticks</div>
+            </div>
+            <div class="toggle"><div class="toggle-knob"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── Spacing ─── -->
+  <h2>Spacing & shape</h2>
+  <div class="spec-table">
+    <div><span class="spec-label">Border radius —</span> <span class="spec-value">10px</span> gameplay cells · <span class="spec-value">12px</span> translucent cards · <span class="spec-value">14px</span> menu buttons · <span class="spec-value">20px</span> screen containers</div>
+    <div><span class="spec-label">Shadow offset —</span> <span class="spec-value">4px</span> default · <span class="spec-value">5px</span> for primary CTA · always zero blur · no shadow on translucent cards</div>
+    <div><span class="spec-label">Grid gap —</span> <span class="spec-value">8px</span> horizontal · <span class="spec-value">10px</span> vertical (extra room for shadows)</div>
+    <div><span class="spec-label">Card gap —</span> <span class="spec-value">6–8px</span> between translucent cards in a list</div>
+    <div><span class="spec-label">Padding —</span> <span class="spec-value">12px 16px</span> card internal · <span class="spec-value">20–24px</span> container internal · <span class="spec-value">28px</span> screen edge</div>
+  </div>
+
+  <!-- ─── Do / don't ─── -->
+  <h2>Do & don't</h2>
+  <div class="rules">
+    <div class="rule-do">
+      <div class="rule-header">do</div>
+      <p class="rule-body">Always use a vertical purple gradient (light from top). Use chunky platform blocks only on gameplay surfaces and primary CTAs. Use translucent cards for everything else. Limit yellow to one CTA per screen. Use dark-of-own-family for text on color. Reserve pink for creative moments only. Dock primary actions at the bottom of the screen.</p>
+    </div>
+    <div class="rule-dont">
+      <div class="rule-header">don't</div>
+      <p class="rule-body">Mix the two vocabularies on one screen. Use flat purple backgrounds — always gradient. Use pure black for text — tint toward purple. Use pure white — use cream. Mix Fredoka and system font in one element. Add new brand colors. Use blurred shadows. Float buttons over content. Stack multiple yellow CTAs.</p>
+    </div>
+  </div>
+
+  <!-- ─── Summary ─── -->
+  <div class="summary">
+    <div class="summary-label">one-line summary</div>
+    <p class="summary-text">Two brand colors, two vocabularies (platform blocks for gameplay, translucent cards for everything else), rounded geometric type. Color carries meaning, never decoration. Everything you can tap is a physical object with weight.</p>
+  </div>
+
+  <!-- ─── Footer ─── -->
+  <div class="footer">
+    <p>Companion files live in your repo: <code>src/theme/index.ts</code> · <code>docs/DESIGN.md</code></p>
+    <p style="margin-top:8px">The Rhyme Game · Design System v1</p>
+  </div>
+
+</div>
+</body>
+</html>
