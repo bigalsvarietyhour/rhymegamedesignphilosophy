@@ -256,7 +256,7 @@
   .swatch-note { font-size: 12px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
   .swatch-note strong { color: var(--text); font-weight: 600; }
 
-  .rhyme-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+  .rhyme-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
   .rhyme-swatch { border-radius: 10px; padding: 14px 12px; min-height: 80px; display: flex; flex-direction: column; justify-content: space-between; }
   .rhyme-name { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; }
   .rhyme-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
@@ -269,6 +269,49 @@
   .semantic-swatch { border-radius: 10px; padding: 14px; min-height: 70px; display: flex; flex-direction: column; justify-content: space-between; color: white; }
   .semantic-name { font-size: 13px; font-weight: 600; }
   .semantic-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; opacity: 0.8; }
+
+  /* ─── Current theme palette · role swatches ─── */
+  .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .role-swatch {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+  }
+  .role-swatch-color {
+    height: 56px;
+    border-bottom: 1px solid rgba(0,0,0,0.20);
+  }
+  .role-swatch-body {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .role-swatch-path {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    word-break: break-all;
+  }
+  .role-swatch-value {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    word-break: break-all;
+  }
+  .role-group-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin: 18px 0 8px;
+  }
 
   /* ─── Gradient previews ─── */
   .gradient-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
@@ -342,9 +385,7 @@
   .cell-blue { background: #4FA8E8; box-shadow: 0 4px 0 #2872A8; color: #0A2E52; }
   .cell-yellow { background: #FFC72C; box-shadow: 0 4px 0 #C49000; color: #3D2400; }
   .cell-green { background: #4FCC85; box-shadow: 0 4px 0 #289054; color: #0A3D1F; }
-  .cell-flare-1 { background: linear-gradient(135deg, #FF7DBE 0%, #FF6AB8 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #B83889; margin-bottom: 4px; }
-  .cell-flare-2 { background: linear-gradient(135deg, #FF6AB8 0%, #EC6BC4 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #A8408F; margin-bottom: 4px; }
-  .cell-flare-3 { background: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #9145A0; margin-bottom: 4px; }
+  .cell-flare { background: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%); border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #9145A0; margin-bottom: 4px; }
 
   .legend { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .legend-item { display: flex; gap: 16px; align-items: center; }
@@ -352,7 +393,7 @@
   .legend-empty { background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); box-shadow: inset 0 2px 4px rgba(20,9,61,0.35); }
   .legend-cream { background: #EDE4D0; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 4px; }
   .legend-blue { background: #4FA8E8; box-shadow: 0 4px 0 #2872A8; margin-bottom: 4px; }
-  .legend-flare { background: linear-gradient(135deg, #FF7DBE 0%, #D070D8 100%); box-shadow: 0 4px 0 #A8408F; margin-bottom: 4px; }
+  .legend-flare { background: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%); box-shadow: 0 4px 0 #9145A0; margin-bottom: 4px; }
   .legend-text strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
   .legend-text span { font-size: 12px; color: var(--text-secondary); }
 
@@ -427,9 +468,7 @@
   --gradient-card-darker: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%);
   --gradient-card-info: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%);
   --gradient-card-standard: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.45) 100%);
-  --gradient-flare-1: linear-gradient(135deg, #FF7DBE 0%, #FF6AB8 100%);
-  --gradient-flare-2: linear-gradient(135deg, #FF6AB8 0%, #EC6BC4 100%);
-  --gradient-flare-3: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%);
+  --gradient-flare: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%);
   --gradient-gameplay-bg: linear-gradient(180deg, #4A2BA8 0%, #3D1F8F 100%);
   --gradient-gem: linear-gradient(180deg, #F5C648 0%, #F5C648 55%, #C28C00 100%);
   --gradient-menu-bg: linear-gradient(180deg, #7B4FFF 0%, #5829E8 30%, #3D1F8F 100%);
@@ -446,15 +485,14 @@
   --accent-deep: #C28C00;
   --accent-text: #3D2400;
   --accent-text-2: #5C3700;
-  --icon-on-accent: #2A1466;
   --ball-deep: #B85A1A;
   --ball-glow: rgba(255,199,44,0.6);
+  --ball-glow-falloff: rgba(255,199,44,0.2);
   --ball-highlight: #FFC72C;
+  --ball-inset-bottom: rgba(90,42,10,0.4);
   --ball-mid: #F08838;
   --ball-shadow: rgba(184,90,26,0.5);
-  --flare-1-shadow: #B83889;
-  --flare-2-shadow: #A8408F;
-  --flare-3-shadow: #9145A0;
+  --flare-shadow: #9145A0;
   --gem-bloom: rgba(232,168,0,0.4);
   --gem-inset-bottom: rgba(140,90,0,0.4);
   --grid-active-bg: rgba(255,255,255,0.28);
@@ -466,7 +504,29 @@
   --grid-empty-bg: rgba(255,248,220,0.12);
   --grid-empty-border: rgba(255,248,220,0.18);
   --grid-empty-inset: rgba(20,9,61,0.35);
+  --icon-on-accent: #2A1466;
   --orb-shadow: rgba(196,140,0,0.45);
+  --ramp-brand-world-100: #DCD2FF;
+  --ramp-brand-world-200: #B8A4FF;
+  --ramp-brand-world-400: #7B4FFF;
+  --ramp-brand-world-50: #F3F0FF;
+  --ramp-brand-world-600: #5829E8;
+  --ramp-brand-world-800: #3D1F8F;
+  --ramp-brand-world-900: #2A1466;
+  --ramp-neutral-cream-100: #EDE4D0;
+  --ramp-neutral-cream-200: #D4CFC0;
+  --ramp-neutral-cream-400: #8A7FA8;
+  --ramp-neutral-cream-50: #FBF8F0;
+  --ramp-neutral-cream-600: #4A3D6E;
+  --ramp-neutral-cream-800: #2D1F52;
+  --ramp-neutral-cream-900: #1A0F3D;
+  --ramp-premium-accent-100: #F5CE68;
+  --ramp-premium-accent-200: #F5DDA0;
+  --ramp-premium-accent-400: #F5C648;
+  --ramp-premium-accent-50: #FBEED0;
+  --ramp-premium-accent-600: #C28C00;
+  --ramp-premium-accent-800: #9F7000;
+  --ramp-premium-accent-900: #5C3700;
   --rhyme-blue-block: #4FA8E8;
   --rhyme-blue-shadow: #2872A8;
   --rhyme-blue-text: #143A5A;
@@ -493,9 +553,7 @@
   --gradient-card-darker: linear-gradient(180deg, rgba(7,59,31,0.65) 0%, rgba(7,59,31,0.55) 100%);
   --gradient-card-info: linear-gradient(180deg, rgba(15,77,42,0.55) 0%, rgba(15,77,42,0.42) 100%);
   --gradient-card-standard: linear-gradient(180deg, rgba(158,212,168,0.06) 0%, rgba(7,59,31,0.45) 100%);
-  --gradient-flare-1: linear-gradient(135deg, #E8F0FF 0%, #D8E0F5 100%);
-  --gradient-flare-2: linear-gradient(135deg, #D8E0F5 0%, #E0D8F0 100%);
-  --gradient-flare-3: linear-gradient(135deg, #E0D8F0 0%, #EDE4D0 100%);
+  --gradient-flare: linear-gradient(135deg, #E0D8F0 0%, #EDE4D0 100%);
   --gradient-gameplay-bg: linear-gradient(180deg, #0F4D2A 0%, #073B1F 100%);
   --gradient-gem: linear-gradient(180deg, #F5C84A 0%, #F5C84A 55%, #B8860B 100%);
   --gradient-menu-bg: linear-gradient(180deg, #1F7A3D 0%, #0F4D2A 30%, #073B1F 100%);
@@ -512,15 +570,14 @@
   --accent-deep: #B8860B;
   --accent-text: #3D2400;
   --accent-text-2: #5C3700;
-  --icon-on-accent: #031A0D;
   --ball-deep: #7A1414;
   --ball-glow: rgba(245,200,74,0.6);
+  --ball-glow-falloff: rgba(245,200,74,0.2);
   --ball-highlight: #FFE08A;
+  --ball-inset-bottom: rgba(70,10,10,0.45);
   --ball-mid: #D63838;
   --ball-shadow: rgba(122,20,20,0.5);
-  --flare-1-shadow: #7A8FB8;
-  --flare-2-shadow: #8A7BB0;
-  --flare-3-shadow: #A89570;
+  --flare-shadow: #A89570;
   --gem-bloom: rgba(245,200,74,0.4);
   --gem-inset-bottom: rgba(122,90,7,0.4);
   --grid-active-bg: rgba(255,255,255,0.28);
@@ -532,7 +589,29 @@
   --grid-empty-bg: rgba(255,248,220,0.12);
   --grid-empty-border: rgba(255,248,220,0.18);
   --grid-empty-inset: rgba(3,26,13,0.40);
+  --icon-on-accent: #031A0D;
   --orb-shadow: rgba(184,134,11,0.45);
+  --ramp-brand-world-100: #B8E0C5;
+  --ramp-brand-world-200: #7FCC9C;
+  --ramp-brand-world-400: #1F7A3D;
+  --ramp-brand-world-50: #E8F5EC;
+  --ramp-brand-world-600: #0F4D2A;
+  --ramp-brand-world-800: #073B1F;
+  --ramp-brand-world-900: #031A0D;
+  --ramp-neutral-cream-100: #F5E6C9;
+  --ramp-neutral-cream-200: #E0CCA0;
+  --ramp-neutral-cream-400: #A8845C;
+  --ramp-neutral-cream-50: #FFFAF0;
+  --ramp-neutral-cream-600: #5C3700;
+  --ramp-neutral-cream-800: #1F4A2E;
+  --ramp-neutral-cream-900: #073B1F;
+  --ramp-premium-accent-100: #FFE08A;
+  --ramp-premium-accent-200: #F5DDA0;
+  --ramp-premium-accent-400: #F5C84A;
+  --ramp-premium-accent-50: #FFF6E0;
+  --ramp-premium-accent-600: #B8860B;
+  --ramp-premium-accent-800: #7A5A07;
+  --ramp-premium-accent-900: #3D2400;
   --rhyme-blue-block: #4FCC85;
   --rhyme-blue-shadow: #1F7A4A;
   --rhyme-blue-text: #0A3D1F;
@@ -559,9 +638,7 @@
   --gradient-card-darker: linear-gradient(180deg, rgba(15,15,20,0.75) 0%, rgba(15,15,20,0.65) 100%);
   --gradient-card-info: linear-gradient(180deg, rgba(42,42,48,0.65) 0%, rgba(42,42,48,0.50) 100%);
   --gradient-card-standard: linear-gradient(180deg, rgba(176,168,156,0.06) 0%, rgba(15,15,20,0.55) 100%);
-  --gradient-flare-1: linear-gradient(135deg, #C8B8E0 0%, #B0B8D0 100%);
-  --gradient-flare-2: linear-gradient(135deg, #B0B8D0 0%, #A0C8C0 100%);
-  --gradient-flare-3: linear-gradient(135deg, #A0C8C0 0%, #B0E0A8 100%);
+  --gradient-flare: linear-gradient(135deg, #A0C8C0 0%, #B0E0A8 100%);
   --gradient-gameplay-bg: linear-gradient(180deg, #2A2A30 0%, #0F0F14 100%);
   --gradient-gem: linear-gradient(180deg, #FFAB47 0%, #FFAB47 55%, #FF7A1A 100%);
   --gradient-menu-bg: linear-gradient(180deg, #3D3D45 0%, #1F1F26 30%, #0F0F14 100%);
@@ -580,12 +657,12 @@
   --accent-text-2: #5C2A0A;
   --ball-deep: #7A2A05;
   --ball-glow: rgba(255,171,71,0.7);
+  --ball-glow-falloff: rgba(255,171,71,0.2);
   --ball-highlight: #FFC78A;
+  --ball-inset-bottom: rgba(60,20,2,0.5);
   --ball-mid: #FF7A1A;
   --ball-shadow: rgba(122,42,5,0.55);
-  --flare-1-shadow: #5A4F7A;
-  --flare-2-shadow: #3D6A5C;
-  --flare-3-shadow: #3D6A2A;
+  --flare-shadow: #3D6A2A;
   --gem-bloom: rgba(255,171,71,0.45);
   --gem-inset-bottom: rgba(184,74,0,0.4);
   --grid-active-bg: rgba(255,255,255,0.28);
@@ -599,6 +676,27 @@
   --grid-empty-inset: rgba(5,5,7,0.45);
   --icon-on-accent: #0F0F14;
   --orb-shadow: rgba(255,122,26,0.5);
+  --ramp-brand-world-100: #C8C8D0;
+  --ramp-brand-world-200: #9090A0;
+  --ramp-brand-world-400: #3D3D45;
+  --ramp-brand-world-50: #E8E8EC;
+  --ramp-brand-world-600: #1F1F26;
+  --ramp-brand-world-800: #0F0F14;
+  --ramp-brand-world-900: #050507;
+  --ramp-neutral-cream-100: #D8C8A0;
+  --ramp-neutral-cream-200: #A8A095;
+  --ramp-neutral-cream-400: #7A6840;
+  --ramp-neutral-cream-50: #FBF8E8;
+  --ramp-neutral-cream-600: #3D3525;
+  --ramp-neutral-cream-800: #1F1F26;
+  --ramp-neutral-cream-900: #0F0F14;
+  --ramp-premium-accent-100: #FFC78A;
+  --ramp-premium-accent-200: #FFB870;
+  --ramp-premium-accent-400: #FFAB47;
+  --ramp-premium-accent-50: #FFEEDC;
+  --ramp-premium-accent-600: #FF7A1A;
+  --ramp-premium-accent-800: #B84A00;
+  --ramp-premium-accent-900: #3D1A05;
   --rhyme-blue-block: #9B4DCA;
   --rhyme-blue-shadow: #5C2872;
   --rhyme-blue-text: #2A0F3D;
@@ -735,68 +833,65 @@
   <!-- ═══ TAB 2 · TOKENS ═══ -->
   <div class="tab-panel" id="tab-tokens">
 
+  <div id="tokens-theme-switcher" style="display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 32px;flex-wrap:wrap;">
+    <span style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:500;color:#7e7888;text-transform:uppercase;letter-spacing:0.08em;">Theme preview</span>
+    <button type="button" data-set-tokens-theme="default" class="tokens-theme-btn tokens-theme-btn-active" style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid #4A1545;background:#2a2a30;color:#f5f3ef;cursor:pointer;">Default</button>
+    <button type="button" data-set-tokens-theme="christmas" class="tokens-theme-btn" style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid #2a2a30;background:transparent;color:#b8b3c0;cursor:pointer;">Christmas</button>
+    <button type="button" data-set-tokens-theme="halloween" class="tokens-theme-btn" style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid #2a2a30;background:transparent;color:#b8b3c0;cursor:pointer;">Halloween</button>
+  </div>
+
+  <div id="tokens-themed" data-theme="default">
+
   <!-- ─── Color system ─── -->
   <h2>Color system</h2>
   <p class="section-lead">Two brand hues + one tinted neutral + three semantic + four rhyme-key colors. Every shade earns its place — no decorative additions.</p>
 
-  <p class="subsection-label">Brand · purple</p>
+  <p class="subsection-label">Brand · purple <span style="opacity:0.6;font-weight:400">(the brand-world hue family — re-skins per theme)</span></p>
   <div class="swatch-row">
-    <div class="swatch swatch-light" style="background:#F3F0FF"><span class="swatch-label" style="color:#3D1F8F">50</span><span class="swatch-hex" style="color:#6B4FCE">F3F0FF</span></div>
-    <div class="swatch" style="background:#DCD2FF"><span class="swatch-label" style="color:#3D1F8F">100</span><span class="swatch-hex" style="color:#3D1F8F">DCD2FF</span></div>
-    <div class="swatch" style="background:#B8A4FF"><span class="swatch-label" style="color:#2A1466">200</span><span class="swatch-hex" style="color:#2A1466">B8A4FF</span></div>
-    <div class="swatch" style="background:#7B4FFF"><span class="swatch-label" style="color:#FFFFFF">400 ★</span><span class="swatch-hex" style="color:#F3F0FF">7B4FFF</span></div>
-    <div class="swatch" style="background:#5829E8"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#DCD2FF">5829E8</span></div>
-    <div class="swatch" style="background:#3D1F8F"><span class="swatch-label" style="color:#FFFFFF">800 ★</span><span class="swatch-hex" style="color:#DCD2FF">3D1F8F</span></div>
-    <div class="swatch" style="background:#2A1466"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#B8A4FF">2A1466</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-brand-world-50)"><span class="swatch-label" style="color:var(--ramp-brand-world-900)">50</span><span class="swatch-hex" style="color:var(--ramp-brand-world-900);opacity:0.85" data-var="--ramp-brand-world-50">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-brand-world-100)"><span class="swatch-label" style="color:var(--ramp-brand-world-900)">100</span><span class="swatch-hex" style="color:var(--ramp-brand-world-900);opacity:0.85" data-var="--ramp-brand-world-100">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-brand-world-200)"><span class="swatch-label" style="color:var(--ramp-brand-world-900)">200</span><span class="swatch-hex" style="color:var(--ramp-brand-world-900);opacity:0.85" data-var="--ramp-brand-world-200">…</span></div>
+    <div class="swatch" style="background:var(--ramp-brand-world-400)"><span class="swatch-label" style="color:var(--ramp-brand-world-50)">400 ★</span><span class="swatch-hex" style="color:var(--ramp-brand-world-50);opacity:0.85" data-var="--ramp-brand-world-400">…</span></div>
+    <div class="swatch" style="background:var(--ramp-brand-world-600)"><span class="swatch-label" style="color:var(--ramp-brand-world-50)">600</span><span class="swatch-hex" style="color:var(--ramp-brand-world-50);opacity:0.85" data-var="--ramp-brand-world-600">…</span></div>
+    <div class="swatch" style="background:var(--ramp-brand-world-800)"><span class="swatch-label" style="color:var(--ramp-brand-world-50)">800 ★</span><span class="swatch-hex" style="color:var(--ramp-brand-world-50);opacity:0.85" data-var="--ramp-brand-world-800">…</span></div>
+    <div class="swatch" style="background:var(--ramp-brand-world-900)"><span class="swatch-label" style="color:var(--ramp-brand-world-50)">900</span><span class="swatch-hex" style="color:var(--ramp-brand-world-50);opacity:0.85" data-var="--ramp-brand-world-900">…</span></div>
   </div>
-  <p class="swatch-note"><strong>★ Hero shades.</strong> Used across all screens. 900 at 40% alpha is the translucent card background on non-gameplay screens.</p>
+  <p class="swatch-note">The deep purple that <strong>defines the world</strong> of the app. Used for screen backgrounds, dark surfaces, text on light surfaces. In other themes this slot becomes the theme's world hue: Christmas → forest green, Halloween → cool charcoal. The semantic role is <code>hueRamps.brandWorld</code>.</p>
 
-  <p class="subsection-label">Brand · yellow (gameplay accent)</p>
-  <div class="swatch-row">
-    <div class="swatch swatch-light" style="background:#FFF8DC"><span class="swatch-label" style="color:#A66400">50</span><span class="swatch-hex" style="color:#A66400">FFF8DC</span></div>
-    <div class="swatch" style="background:#FFC72C"><span class="swatch-label" style="color:#3D2400">400 ★</span><span class="swatch-hex" style="color:#3D2400">FFC72C</span></div>
-    <div class="swatch" style="background:#A66400"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#FFF8DC">A66400</span></div>
-    <div class="swatch" style="background:#5C3700"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#FFF8DC">5C3700</span></div>
-  </div>
-  <p class="swatch-note"><strong>Bright yellow is the gameplay accent.</strong> Four shades, each with a named role. Use 400 only for: gameplay celebration, streaks, in-game CTAs, the yellow rhyme key. On premium-tool screens (menus, settings, stats), use the rich gold range below instead — they're two different roles and must not mix on the same screen.</p>
 
-  <p class="subsection-label">Premium · gold (premium-tool accent)</p>
+  <p class="subsection-label">Premium · gold <span style="opacity:0.6;font-weight:400">(the premium-tool accent hue family — re-skins per theme)</span></p>
   <div class="swatch-row">
-    <div class="swatch" style="background:#F5CE68"><span class="swatch-label" style="color:#3D2400">100</span><span class="swatch-hex" style="color:#5C3700">F5CE68</span></div>
-    <div class="swatch" style="background:#F5C648"><span class="swatch-label" style="color:#3D2400">300 ★</span><span class="swatch-hex" style="color:#5C3700">F5C648</span></div>
-    <div class="swatch" style="background:#C28C00"><span class="swatch-label" style="color:#FFFFFF">500</span><span class="swatch-hex" style="color:#FFF8DC">C28C00</span></div>
-    <div class="swatch" style="background:#9F7000"><span class="swatch-label" style="color:#FFFFFF">700</span><span class="swatch-hex" style="color:#FFF8DC">9F7000</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-premium-accent-50)"><span class="swatch-label" style="color:var(--ramp-premium-accent-900)">50</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-900);opacity:0.85" data-var="--ramp-premium-accent-50">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-premium-accent-100)"><span class="swatch-label" style="color:var(--ramp-premium-accent-900)">100</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-900);opacity:0.85" data-var="--ramp-premium-accent-100">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-premium-accent-200)"><span class="swatch-label" style="color:var(--ramp-premium-accent-900)">200</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-900);opacity:0.85" data-var="--ramp-premium-accent-200">…</span></div>
+    <div class="swatch" style="background:var(--ramp-premium-accent-400)"><span class="swatch-label" style="color:var(--ramp-premium-accent-50)">400 ★</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-50);opacity:0.85" data-var="--ramp-premium-accent-400">…</span></div>
+    <div class="swatch" style="background:var(--ramp-premium-accent-600)"><span class="swatch-label" style="color:var(--ramp-premium-accent-50)">600</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-50);opacity:0.85" data-var="--ramp-premium-accent-600">…</span></div>
+    <div class="swatch" style="background:var(--ramp-premium-accent-800)"><span class="swatch-label" style="color:var(--ramp-premium-accent-50)">800</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-50);opacity:0.85" data-var="--ramp-premium-accent-800">…</span></div>
+    <div class="swatch" style="background:var(--ramp-premium-accent-900)"><span class="swatch-label" style="color:var(--ramp-premium-accent-50)">900</span><span class="swatch-hex" style="color:var(--ramp-premium-accent-50);opacity:0.85" data-var="--ramp-premium-accent-900">…</span></div>
   </div>
-  <p class="swatch-note"><strong>Rich gold is the premium-tool accent.</strong> Four shades. Gem CTAs use a 3-stop gradient: <code>300 → 500 → 700</code>. The play orb uses a 2-stop radial: <code>100 → 500</code>. Toggles and slider fills use <code>300 → 500</code>. Saves the bright primary yellow for gameplay surfaces.</p>
+  <p class="swatch-note">The polished gold used for <strong>premium-tool CTAs</strong> — the gem button, play orb, toggles, slider fills. In other themes this slot stays warm but shifts: Christmas → warmer holiday gold, Halloween → electric pumpkin orange. The semantic role is <code>hueRamps.premiumAccent</code>.</p>
 
-  <p class="subsection-label">Neutral · cream & ink (purple-tinted)</p>
+  <p class="subsection-label">Neutral · cream &amp; ink <span style="opacity:0.6;font-weight:400">(the neutral-cream hue family — re-skins per theme)</span></p>
   <div class="swatch-row">
-    <div class="swatch swatch-light" style="background:#FBF8F0"><span class="swatch-label" style="color:#1A0F3D">50</span><span class="swatch-hex" style="color:#4A3D6E">FBF8F0</span></div>
-    <div class="swatch" style="background:#EDE4D0"><span class="swatch-label" style="color:#1A0F3D">100 ★</span><span class="swatch-hex" style="color:#1A0F3D">EDE4D0</span></div>
-    <div class="swatch" style="background:#D4CFC0"><span class="swatch-label" style="color:#1A0F3D">200</span><span class="swatch-hex" style="color:#1A0F3D">D4CFC0</span></div>
-    <div class="swatch" style="background:#8A7FA8"><span class="swatch-label" style="color:#FFFFFF">400</span><span class="swatch-hex" style="color:#1A0F3D">8A7FA8</span></div>
-    <div class="swatch" style="background:#4A3D6E"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#D4CFC0">4A3D6E</span></div>
-    <div class="swatch" style="background:#2D1F52"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#D4CFC0">2D1F52</span></div>
-    <div class="swatch" style="background:#1A0F3D"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#B8A4FF">1A0F3D</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-neutral-cream-50)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-900)">50</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-900);opacity:0.85" data-var="--ramp-neutral-cream-50">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-neutral-cream-100)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-900)">100 ★</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-900);opacity:0.85" data-var="--ramp-neutral-cream-100">…</span></div>
+    <div class="swatch swatch-light" style="background:var(--ramp-neutral-cream-200)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-900)">200</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-900);opacity:0.85" data-var="--ramp-neutral-cream-200">…</span></div>
+    <div class="swatch" style="background:var(--ramp-neutral-cream-400)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-50)">400</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-50);opacity:0.85" data-var="--ramp-neutral-cream-400">…</span></div>
+    <div class="swatch" style="background:var(--ramp-neutral-cream-600)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-50)">600</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-50);opacity:0.85" data-var="--ramp-neutral-cream-600">…</span></div>
+    <div class="swatch" style="background:var(--ramp-neutral-cream-800)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-50)">800</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-50);opacity:0.85" data-var="--ramp-neutral-cream-800">…</span></div>
+    <div class="swatch" style="background:var(--ramp-neutral-cream-900)"><span class="swatch-label" style="color:var(--ramp-neutral-cream-50)">900</span><span class="swatch-hex" style="color:var(--ramp-neutral-cream-50);opacity:0.85" data-var="--ramp-neutral-cream-900">…</span></div>
   </div>
-  <p class="swatch-note">Tinted toward purple, never pure gray. 50 is the logo cream. 100 is the non-rhyme block surface in gameplay. Use these for body text, borders, and structural UI.</p>
+  <p class="swatch-note">Tinted toward the theme's ink, never pure gray. 50 is the logo cream. 100 is the non-rhyme block surface in gameplay. In other themes the dark stops shift to harmonize with the world hue: Christmas → forest ink, Halloween → void ink. The semantic role is <code>hueRamps.neutralCream</code>.</p>
 
   <p class="subsection-label">Rhyme key · gameplay colors</p>
   <div class="rhyme-row">
-    <div class="rhyme-swatch" style="background:#F08838"><span class="rhyme-name" style="color:#3D1A05">orange</span><span class="rhyme-hex" style="color:#5C2A0A">#F08838</span></div>
-    <div class="rhyme-swatch" style="background:#4FA8E8"><span class="rhyme-name" style="color:#0A2E52">blue</span><span class="rhyme-hex" style="color:#0F3D6E">#4FA8E8</span></div>
-    <div class="rhyme-swatch" style="background:#FFC72C"><span class="rhyme-name" style="color:#3D2400">yellow</span><span class="rhyme-hex" style="color:#5C3700">#FFC72C</span></div>
-    <div class="rhyme-swatch" style="background:#4FCC85"><span class="rhyme-name" style="color:#0A3D1F">green</span><span class="rhyme-hex" style="color:#0F5C2E">#4FCC85</span></div>
+    <div class="rhyme-swatch" style="background:var(--rhyme-orange-block)"><span class="rhyme-name" style="color:var(--rhyme-orange-text)">orange</span><span class="rhyme-hex" style="color:var(--rhyme-orange-text);opacity:0.75">rhyme.orange.block</span></div>
+    <div class="rhyme-swatch" style="background:var(--rhyme-blue-block)"><span class="rhyme-name" style="color:var(--rhyme-blue-text)">blue</span><span class="rhyme-hex" style="color:var(--rhyme-blue-text);opacity:0.75">rhyme.blue.block</span></div>
+    <div class="rhyme-swatch" style="background:var(--rhyme-yellow-block)"><span class="rhyme-name" style="color:var(--rhyme-yellow-text)">yellow</span><span class="rhyme-hex" style="color:var(--rhyme-yellow-text);opacity:0.75">rhyme.yellow.block</span></div>
+    <div class="rhyme-swatch" style="background:var(--rhyme-green-block)"><span class="rhyme-name" style="color:var(--rhyme-green-text)">green</span><span class="rhyme-hex" style="color:var(--rhyme-green-text);opacity:0.75">rhyme.green.block</span></div>
+    <div class="rhyme-swatch" style="background:var(--gradient-flare)"><span class="rhyme-name" style="color:#2A0A2A">flare</span><span class="rhyme-hex" style="color:#2A0A2A;opacity:0.75">flare.gradient</span></div>
   </div>
-  <p class="swatch-note">Calibrated to equal luminance (~70%) so no color dominates. Text uses the darkest stop from each color's own family — never pure black. Same hue → same rhyme.</p>
-
-  <p class="subsection-label">Flare zone · pink sunrise gradient</p>
-  <div class="flare-row">
-    <div class="flare-swatch" style="background:linear-gradient(135deg,#FF7DBE 0%,#FF6AB8 100%)"><span class="flare-hex">FF7DBE → FF6AB8</span></div>
-    <div class="flare-swatch" style="background:linear-gradient(135deg,#FF6AB8 0%,#EC6BC4 100%)"><span class="flare-hex">FF6AB8 → EC6BC4</span></div>
-    <div class="flare-swatch" style="background:linear-gradient(135deg,#EC6BC4 0%,#D070D8 100%)"><span class="flare-hex">EC6BC4 → D070D8</span></div>
-  </div>
-  <p class="swatch-note">A continuous gradient across 3 cells — hot pink → magenta → lilac. Only appears in the flare zone. Reserve the pink palette exclusively for "creative invitation" moments anywhere in the app.</p>
+  <p class="swatch-note">Five gameplay color slots: orange, blue, yellow, green for rhymes, plus the flare zone gradient. Same hue → same rhyme. Flare gradient cells repeat the same color when multiple appear in one row. Re-skins per theme — switch themes above to see Christmas (red/peppermint/gold/icy/snowflake) or Halloween (slime/witch/blood/bone/fog).</p>
 
   <p class="subsection-label">Semantic · status</p>
   <div class="semantic-row">
@@ -805,22 +900,384 @@
     <div class="semantic-swatch" style="background:#D63848"><span class="semantic-name">error</span><span class="semantic-hex">D63848</span></div>
   </div>
 
-  <!-- ─── Background gradients ─── -->
-  <h2>Background gradients</h2>
-  <p class="section-lead">Every screen uses a vertical purple gradient with the light source at the top. Two variants — one for energetic surfaces (menus, settings, configuration), one for focused surfaces (the gameplay grid).</p>
-  <div class="gradient-row">
-    <div class="gradient-preview" style="background:linear-gradient(180deg,#7B4FFF 0%,#5829E8 30%,#3D1F8F 100%)">
-      <span class="gradient-name">Menu</span>
-      <div>
-        <div class="gradient-hex">#7B4FFF → #5829E8 → #3D1F8F</div>
-        <div class="gradient-tag">Three stops. Atmospheric.</div>
+  <!-- ─── Current theme palette ─── -->
+  <h2>Current theme palette</h2>
+  <p class="section-lead">Every themed color role. Use the switcher above to see how each theme fills these slots. The role path under each swatch is what components reference — never the raw hex. Theme-independent universals (white highlights, black shadows, status colors, brand album covers) live elsewhere.</p>
+  <p class="role-group-label">Screen backgrounds</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-menu-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">screen.menuBackground</span>
+        <span class="role-swatch-value" data-var="--gradient-menu-bg">…</span>
       </div>
     </div>
-    <div class="gradient-preview" style="background:linear-gradient(to bottom,#4A2BA8 0%,#3D1F8F 100%)">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-gameplay-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">screen.gameplayBackground</span>
+        <span class="role-swatch-value" data-var="--gradient-gameplay-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-shelf-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">screen.shelfBackground</span>
+        <span class="role-swatch-value" data-var="--gradient-shelf-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-sheet-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">screen.sheetBackground</span>
+        <span class="role-swatch-value" data-var="--gradient-sheet-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--screen-scrim)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">screen.scrim</span>
+        <span class="role-swatch-value" data-var="--screen-scrim">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">Text</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--text-primary)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">text.primary</span>
+        <span class="role-swatch-value" data-var="--text-primary">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--text-secondary)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">text.secondary</span>
+        <span class="role-swatch-value" data-var="--text-secondary">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--text-on-light)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">text.onLight</span>
+        <span class="role-swatch-value" data-var="--text-on-light">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--text-inactive)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">text.inactive</span>
+        <span class="role-swatch-value" data-var="--text-inactive">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">CTA accent (gem / orb / toggles / sliders)</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-gem)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.gemGradient</span>
+        <span class="role-swatch-value" data-var="--gradient-gem">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-orb)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.orbGradient</span>
+        <span class="role-swatch-value" data-var="--gradient-orb">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-toggle)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.toggleGradient</span>
+        <span class="role-swatch-value" data-var="--gradient-toggle">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-progress)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.progressGradient</span>
+        <span class="role-swatch-value" data-var="--gradient-progress">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--accent-bright)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.accentBright</span>
+        <span class="role-swatch-value" data-var="--accent-bright">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--accent-deep)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.accentDeep</span>
+        <span class="role-swatch-value" data-var="--accent-deep">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--accent-text)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.textOnAccent</span>
+        <span class="role-swatch-value" data-var="--accent-text">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--accent-text-2)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.textOnAccentSecondary</span>
+        <span class="role-swatch-value" data-var="--accent-text-2">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--icon-on-accent)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.iconOnAccent</span>
+        <span class="role-swatch-value" data-var="--icon-on-accent">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gem-bloom)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.gemBloom</span>
+        <span class="role-swatch-value" data-var="--gem-bloom">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gem-inset-bottom)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.gemInsetBottom</span>
+        <span class="role-swatch-value" data-var="--gem-inset-bottom">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--orb-shadow)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">cta.orbShadow</span>
+        <span class="role-swatch-value" data-var="--orb-shadow">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">Surfaces (cards / chips)</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-card-standard)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.cardStandard</span>
+        <span class="role-swatch-value" data-var="--gradient-card-standard">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-card-info)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.cardInfoPanel</span>
+        <span class="role-swatch-value" data-var="--gradient-card-info">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-card-darker)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.cardDarker</span>
+        <span class="role-swatch-value" data-var="--gradient-card-darker">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--surface-card-border)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.cardBorder</span>
+        <span class="role-swatch-value" data-var="--surface-card-border">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--surface-chip-inactive)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.chipInactive</span>
+        <span class="role-swatch-value" data-var="--surface-chip-inactive">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--surface-chip-inactive-border)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">surface.chipInactiveBorder</span>
+        <span class="role-swatch-value" data-var="--surface-chip-inactive-border">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">Grid chrome</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-bar-label)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.barLabel</span>
+        <span class="role-swatch-value" data-var="--grid-bar-label">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-empty-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellEmptyBackground</span>
+        <span class="role-swatch-value" data-var="--grid-empty-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-empty-border)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellEmptyBorder</span>
+        <span class="role-swatch-value" data-var="--grid-empty-border">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-empty-inset)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellEmptyInsetShadow</span>
+        <span class="role-swatch-value" data-var="--grid-empty-inset">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-active-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellActiveBackground</span>
+        <span class="role-swatch-value" data-var="--grid-active-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-active-border)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellActiveBorder</span>
+        <span class="role-swatch-value" data-var="--grid-active-border">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-active-glow)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellActiveGlow</span>
+        <span class="role-swatch-value" data-var="--grid-active-glow">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-cream-bg)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellCreamBackground</span>
+        <span class="role-swatch-value" data-var="--grid-cream-bg">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--grid-cream-shadow)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">grid.cellCreamShadow</span>
+        <span class="role-swatch-value" data-var="--grid-cream-shadow">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">Ball (gameplay)</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-highlight)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.highlight</span>
+        <span class="role-swatch-value" data-var="--ball-highlight">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-mid)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.mid</span>
+        <span class="role-swatch-value" data-var="--ball-mid">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-deep)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.deep</span>
+        <span class="role-swatch-value" data-var="--ball-deep">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-glow)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.glow</span>
+        <span class="role-swatch-value" data-var="--ball-glow">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-shadow)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.shadow</span>
+        <span class="role-swatch-value" data-var="--ball-shadow">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-inset-bottom)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.insetBottom</span>
+        <span class="role-swatch-value" data-var="--ball-inset-bottom">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--ball-glow-falloff)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">ball.glowFalloff</span>
+        <span class="role-swatch-value" data-var="--ball-glow-falloff">…</span>
+      </div>
+    </div>
+  </div>
+  <p class="role-group-label">Podium (Stats screen)</p>
+  <div class="role-grid">
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-podium-gold)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">podium.gold</span>
+        <span class="role-swatch-value" data-var="--gradient-podium-gold">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-podium-silver)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">podium.silver</span>
+        <span class="role-swatch-value" data-var="--gradient-podium-silver">…</span>
+      </div>
+    </div>
+    <div class="role-swatch">
+      <div class="role-swatch-color" style="background:var(--gradient-podium-bronze)"></div>
+      <div class="role-swatch-body">
+        <span class="role-swatch-path">podium.bronze</span>
+        <span class="role-swatch-value" data-var="--gradient-podium-bronze">…</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── Background gradients ─── -->
+  <h2>Background gradients</h2>
+  <p class="section-lead">Every screen uses a vertical gradient with the light source at the top. Two variants — one for energetic surfaces (menus, settings, configuration), one for focused surfaces (the gameplay grid). Plus the lower shelf and bottom sheets. Re-skins per theme.</p>
+  <div class="gradient-row">
+    <div class="gradient-preview" style="background:var(--gradient-menu-bg)">
+      <span class="gradient-name">Menu</span>
+      <div>
+        <div class="gradient-hex">screen.menuBackground</div>
+        <div class="gradient-tag">Three stops. Atmospheric. Home / Settings / Stats / Beat Library.</div>
+      </div>
+    </div>
+    <div class="gradient-preview" style="background:var(--gradient-gameplay-bg)">
       <span class="gradient-name">Gameplay</span>
       <div>
-        <div class="gradient-hex">#4A2BA8 → #3D1F8F</div>
-        <div class="gradient-tag">Calmer top. Focused.</div>
+        <div class="gradient-hex">screen.gameplayBackground</div>
+        <div class="gradient-tag">Two stops. Calmer top, focused.</div>
+      </div>
+    </div>
+    <div class="gradient-preview" style="background:var(--gradient-shelf-bg)">
+      <span class="gradient-name">Shelf</span>
+      <div>
+        <div class="gradient-hex">screen.shelfBackground</div>
+        <div class="gradient-tag">Dark band holding the bottom nav. Play orb breaks its top edge.</div>
+      </div>
+    </div>
+    <div class="gradient-preview" style="background:var(--gradient-sheet-bg)">
+      <span class="gradient-name">Bottom sheet</span>
+      <div>
+        <div class="gradient-hex">screen.sheetBackground</div>
+        <div class="gradient-tag">Sort / Filter sheets when open. Darker than the menu it sits over.</div>
       </div>
     </div>
   </div>
@@ -1003,9 +1460,9 @@
       <div class="cell-cream"></div>
       <div class="cell-rhyme cell-yellow">thrive</div>
 
-      <div class="cell-flare-1"></div>
-      <div class="cell-flare-2"></div>
-      <div class="cell-flare-3"></div>
+      <div class="cell-flare"></div>
+      <div class="cell-flare"></div>
+      <div class="cell-flare"></div>
       <div class="cell-rhyme cell-green">pick</div>
     </div>
   </div>
@@ -1024,9 +1481,11 @@
     </div>
     <div class="legend-item">
       <div class="legend-swatch legend-flare"></div>
-      <div class="legend-text"><strong>Flare zone</strong><span>Pink-sunrise gradient. Creative invitation — player adds emphasis.</span></div>
+      <div class="legend-text"><strong>Flare zone</strong><span>Pink-magenta gradient cell — the fifth gameplay color slot. Creative invitation: player adds emphasis when one of these appears.</span></div>
     </div>
   </div>
+
+  </div><!-- end tokens-themed -->
 
   </div><!-- ═══ END TAB 2 ═══ -->
 
@@ -1104,7 +1563,7 @@
             <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #2D1F52 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
               <div style="position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; background: radial-gradient(circle, rgba(255,199,44,0.55) 0%, transparent 70%); filter: blur(2px);"></div>
               <div style="position: absolute; bottom: 4px; left: 4px; width: 18px; height: 18px; background: radial-gradient(circle, rgba(127,119,221,0.5) 0%, transparent 70%); filter: blur(2px);"></div>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rhyme-yellow-block)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 2;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-bright)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 2;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
             </div>
             <div style="flex: 1; min-width: 0;">
               <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Roses</p>
@@ -1965,8 +2424,8 @@
             <div style="position: relative; padding: 0 20px; z-index: 2;">
 
               <div style="position: absolute; top: -38px; left: 131px; width: 32px; height: 32px; z-index: 5;">
-                <div style="position: absolute; inset: -8px; background: radial-gradient(circle, var(--ball-glow) 0%, rgba(255,199,44,0.2) 40%, transparent 70%); filter: blur(6px);"></div>
-                <div style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--rhyme-yellow-block) 0%, var(--rhyme-orange-block) 60%, var(--rhyme-orange-shadow) 100%); box-shadow: 0 2px 0 var(--grid-active-border) inset, 0 -2px 0 rgba(90,42,10,0.4) inset, 0 4px 12px var(--ball-shadow);"></div>
+                <div style="position: absolute; inset: -8px; background: radial-gradient(circle, var(--ball-glow) 0%, var(--ball-glow-falloff) 40%, transparent 70%); filter: blur(6px);"></div>
+                <div style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--ball-highlight) 0%, var(--ball-mid) 60%, var(--ball-deep) 100%); box-shadow: 0 2px 0 var(--grid-active-border) inset, 0 -2px 0 var(--ball-inset-bottom) inset, 0 4px 12px var(--ball-shadow);"></div>
               </div>
 
               <div style="display: grid; grid-template-rows: repeat(5, 50px); gap: 8px;">
@@ -2005,15 +2464,15 @@
                   <div style="height: 50px; background: var(--grid-cream-bg); border-radius: 8px; box-shadow: 0 4px 0 var(--grid-cream-shadow), 0 6px 8px rgba(0,0,0,0.12);"></div>
                   <div style="height: 50px; background: var(--grid-cream-bg); border-radius: 8px; box-shadow: 0 4px 0 var(--grid-cream-shadow), 0 6px 8px rgba(0,0,0,0.12);"></div>
                   <div style="height: 50px; background: var(--rhyme-yellow-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-yellow-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
-                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--accent-text);">thrive</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--rhyme-yellow-text);">thrive</span>
                   </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">4</span>
-                  <div style="height: 50px; background: var(--gradient-flare-1); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-1-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
-                  <div style="height: 50px; background: var(--gradient-flare-2); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-2-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
-                  <div style="height: 50px; background: var(--gradient-flare-3); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-3-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
                   <div style="height: 50px; background: var(--rhyme-green-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-green-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
                     <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--rhyme-green-text);">pick</span>
                   </div>
@@ -2143,6 +2602,47 @@
       if (t) setActive(t);
     });
   });
+})();
+
+// Tab 2 (Tokens) theme switcher — independent of Tab 3 so you can compare themes side-by-side
+(function() {
+  var container = document.getElementById('tokens-themed');
+  var buttons = document.querySelectorAll('.tokens-theme-btn');
+  if (!container || !buttons.length) return;
+
+  // Fill in the value text for every role swatch by reading the actual computed
+  // CSS variable. Re-run on every theme switch so the displayed value stays accurate.
+  function updateRoleValues() {
+    var nodes = container.querySelectorAll('[data-var]');
+    nodes.forEach(function(node) {
+      var name = node.getAttribute('data-var');
+      var value = getComputedStyle(container).getPropertyValue(name).trim();
+      node.textContent = value || '—';
+    });
+  }
+
+  function setActive(themeName) {
+    container.setAttribute('data-theme', themeName);
+    buttons.forEach(function(b) {
+      var isActive = b.getAttribute('data-set-tokens-theme') === themeName;
+      b.classList.toggle('tokens-theme-btn-active', isActive);
+      b.style.background = isActive ? '#2a2a30' : 'transparent';
+      b.style.color = isActive ? '#f5f3ef' : '#b8b3c0';
+      b.style.borderColor = isActive ? '#4A1545' : '#2a2a30';
+    });
+    // Recompute the visible value text now that CSS variables have changed
+    updateRoleValues();
+  }
+
+  buttons.forEach(function(b) {
+    b.addEventListener('click', function() {
+      var t = b.getAttribute('data-set-tokens-theme');
+      if (t) setActive(t);
+    });
+  });
+
+  // Populate values on initial page load (default theme)
+  updateRoleValues();
 })();
 </script>
 </body>
