@@ -335,7 +335,7 @@
   /* ─── Gameplay grid ─── */
   .grid-frame { background: linear-gradient(to bottom, #4A2BA8 0%, #3D1F8F 100%); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
   .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 8px; }
-  .cell-empty { background: rgba(200,200,220,0.22); border: 1.5px solid rgba(200,200,220,0.35); border-radius: 10px; padding: 18px 0; }
+  .cell-empty { background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 10px; padding: 18px 0; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35); }
   .cell-cream { background: #EDE4D0; border-radius: 10px; padding: 18px 0; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 4px; }
   .cell-rhyme { border-radius: 10px; padding: 18px 0; text-align: center; margin-bottom: 4px; font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 600; }
   .cell-orange { background: #F08838; box-shadow: 0 4px 0 #B85A1A; color: #3D1A05; }
@@ -349,7 +349,7 @@
   .legend { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .legend-item { display: flex; gap: 16px; align-items: center; }
   .legend-swatch { width: 60px; height: 32px; border-radius: 8px; flex-shrink: 0; }
-  .legend-empty { background: rgba(184,164,255,0.22); border: 1.5px solid rgba(184,164,255,0.35); }
+  .legend-empty { background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); box-shadow: inset 0 2px 4px rgba(20,9,61,0.35); }
   .legend-cream { background: #EDE4D0; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 4px; }
   .legend-blue { background: #4FA8E8; box-shadow: 0 4px 0 #2872A8; margin-bottom: 4px; }
   .legend-flare { background: linear-gradient(135deg, #FF7DBE 0%, #D070D8 100%); box-shadow: 0 4px 0 #A8408F; margin-bottom: 4px; }
@@ -807,7 +807,7 @@
   <div class="legend">
     <div class="legend-item">
       <div class="legend-swatch legend-empty"></div>
-      <div class="legend-text"><strong>Empty beat</strong><span>Silent rhythm position. Outline + 22% lavender wash. No platform physics — they're slots, not surfaces.</span></div>
+      <div class="legend-text"><strong>Empty beat</strong><span>Silent rhythm position. Subtle cream tint + hairline border + inset shadow. No platform physics — they're slots, not surfaces.</span></div>
     </div>
     <div class="legend-item">
       <div class="legend-swatch legend-cream"></div>
@@ -1726,6 +1726,131 @@
                 </div>
               </div>
 
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-screen-cell">
+      <h3>Gameplay Screen</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: linear-gradient(180deg, #4A2BA8 0%, #3D1F8F 100%); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFF8DC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+              <div style="width: 130px; height: 78px; border: 1.5px dashed rgba(255,248,220,0.35); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 500; color: rgba(255,248,220,0.6); text-transform: uppercase; letter-spacing: 0.1em;">logo</span>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 8px; font-weight: 400; color: rgba(255,248,220,0.4);">TRGLogo.png</span>
+              </div>
+              <div style="width: 26px;"></div>
+            </div>
+
+            <div style="height: 120px;"></div>
+
+            <div style="position: relative; padding: 0 20px; z-index: 2;">
+
+              <div style="position: absolute; top: -38px; left: 131px; width: 32px; height: 32px; z-index: 5;">
+                <div style="position: absolute; inset: -8px; background: radial-gradient(circle, rgba(255,199,44,0.6) 0%, rgba(255,199,44,0.2) 40%, transparent 70%); filter: blur(6px);"></div>
+                <div style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFC72C 0%, #F08838 60%, #B85A1A 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.45) inset, 0 -2px 0 rgba(90,42,10,0.4) inset, 0 4px 12px rgba(184,90,26,0.5);"></div>
+              </div>
+
+              <div style="display: grid; grid-template-rows: repeat(5, 50px); gap: 8px;">
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: rgba(184,164,255,0.7); text-align: right;">−1</span>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,255,255,0.28); border: 1px solid rgba(255,255,255,0.45); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.15), 0 0 24px rgba(255,248,220,0.28);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: rgba(184,164,255,0.7); text-align: right;">1</span>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: #F08838; border-radius: 8px; box-shadow: 0 4px 0 #B85A1A, 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: #5A2A0A;">rust</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: rgba(184,164,255,0.7); text-align: right;">2</span>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: rgba(255,248,220,0.12); border: 1px solid rgba(255,248,220,0.18); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.35);"></div>
+                  <div style="height: 50px; background: #4FA8E8; border-radius: 8px; box-shadow: 0 4px 0 #2872A8, 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: #143A5A;">may</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: rgba(184,164,255,0.7); text-align: right;">3</span>
+                  <div style="height: 50px; background: #EDE4D0; border-radius: 8px; box-shadow: 0 4px 0 #B5A88E, 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 50px; background: #EDE4D0; border-radius: 8px; box-shadow: 0 4px 0 #B5A88E, 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 50px; background: #EDE4D0; border-radius: 8px; box-shadow: 0 4px 0 #B5A88E, 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 50px; background: #FFC72C; border-radius: 8px; box-shadow: 0 4px 0 #C49000, 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: #3D2400;">thrive</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: rgba(184,164,255,0.7); text-align: right;">4</span>
+                  <div style="height: 50px; background: linear-gradient(135deg, #FF7DBE 0%, #FF6AB8 100%); border-radius: 8px; box-shadow: 0 4px 0 #B83889, 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: linear-gradient(135deg, #FF6AB8 0%, #EC6BC4 100%); border-radius: 8px; box-shadow: 0 4px 0 #A8408F, 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: linear-gradient(135deg, #EC6BC4 0%, #D070D8 100%); border-radius: 8px; box-shadow: 0 4px 0 #9145A0, 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 50px; background: #4FCC85; border-radius: 8px; box-shadow: 0 4px 0 #289054, 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: #0A3D1F;">pick</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div style="flex: 1;"></div>
+
+            <div style="padding: 0 18px 28px; position: relative; z-index: 2;">
+              <div style="background: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.45) 100%); border: 0.5px solid rgba(255,248,220,0.10); border-radius: 18px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(26,15,61,0.20);">
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 48px; height: 48px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: #1A0F3D; letter-spacing: 0.05em;">dumblit</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFF8DC; margin: 0;">Rogue</p>
+                    <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
+                  </div>
+                  <div style="text-align: right;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: #FFF8DC; margin: 0;">81 BPM</p>
+                    <p style="font-size: 10px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Trap · Chill</p>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: linear-gradient(90deg, #C28C00 0%, #F5C648 100%); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 18%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:24</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                      <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −1</span>
+                      <div style="display: flex; gap: 3px; margin-left: 4px;">
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: #C28C00; border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      </div>
+                    </div>
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
