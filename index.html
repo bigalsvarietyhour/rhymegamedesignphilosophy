@@ -408,6 +408,39 @@
     margin-bottom: 48px;
     justify-content: center;
   }
+
+  /* Tab 3 — Screen section headers */
+  .screens-section-header {
+    margin: 56px 0 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.005em;
+  }
+  .screens-section-header:first-of-type { margin-top: 0; }
+  .screens-section-header .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 10px;
+    letter-spacing: 0;
+  }
+  .screens-section-empty {
+    grid-column: 1 / -1;
+    padding: 60px 24px;
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-style: italic;
+    font-size: 14px;
+    background: var(--surface);
+  }
+
   @media (max-width: 1040px) { .new-screens-grid { grid-template-columns: repeat(2, 315px); } }
   @media (max-width: 700px) { .new-screens-grid { grid-template-columns: 315px; } }
   .new-screen-cell { display: flex; flex-direction: column; align-items: center; }
@@ -1482,8 +1515,10 @@
     <button type="button" data-set-theme="christmas" class="theme-btn" style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid #2a2a30;background:transparent;color:#b8b3c0;cursor:pointer;">Christmas</button>
     <button type="button" data-set-theme="halloween" class="theme-btn" style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid #2a2a30;background:transparent;color:#b8b3c0;cursor:pointer;">Halloween</button>
   </div>
-  <div class="new-screens-grid" data-theme="default" id="screens-grid">
+  <div id="screens-grid" data-theme="default">
 
+  <h2 class="screens-section-header">Menu Screens <span class="count">6 screens</span></h2>
+  <div class="new-screens-grid">
     <div class="new-screen-cell">
       <h3>Home Screen</h3>
       <div class="screen-scale-wrapper">
@@ -1925,7 +1960,208 @@
     </div>
 
     <div class="new-screen-cell">
-      <h3>Beat Library Screen</h3>
+      <h3>Home Screen w/ News Feed</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Home</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>News Pop-Up</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">News</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Daily Challenge</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Daily challenge</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end Menu Screens grid -->
+
+  <h2 class="screens-section-header">Beat Library <span class="count">6 screens</span></h2>
+  <div class="new-screens-grid">
+    <div class="new-screen-cell">
+      <h3>Pick Your Vibe · Genre Home</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <!-- Standardized header: back chevron · centered title · empty right slot · hairline divider -->
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Pick your vibe</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+            <!-- Scroll area with all content -->
+            <div style="flex: 1; overflow: auto; padding: 18px 20px 16px; position: relative; z-index: 2;">
+
+              <!-- Hero: Browse all beats (heavier card treatment) -->
+              <div style="background: var(--gradient-card-info); border: 0.5px solid var(--surface-card-border); border-radius: 16px; padding: 18px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; box-shadow: 0 6px 18px rgba(20,9,61,0.20);">
+                <div>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">Browse all beats</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 4px 0 0;">159 beats · 7 genres</p>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <!-- Genre grid: 2 columns × 4 rows = 8 tiles -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Boom Bap</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">67 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Trap</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">31 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Chill Boom Bap</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">24 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Alt</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">13 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Old School</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">10 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Chill Trap</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">9 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Drill</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">5 beats</p>
+                </div>
+
+                <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 4px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 0;">Favorites</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 0;">Your saved beats</p>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Compact mini-player (matches Home / Beat Library style) -->
+            <div style="background: linear-gradient(180deg, rgba(26,15,61,0.85) 0%, rgba(20,9,61,0.95) 100%); border-top: 0.5px solid rgba(255,248,220,0.08); padding: 14px 20px 28px; position: relative; z-index: 2;">
+
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.3); overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.05em;">BIZZLE</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Roses</p>
+                  <p style="font-size: 11px; color: var(--text-secondary); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Bizzle Beats</p>
+                </div>
+                <div style="text-align: right;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0;">88 BPM</p>
+                  <p style="font-size: 10px; color: var(--text-secondary); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Chill Boom Bap</p>
+                </div>
+              </div>
+
+              <div>
+                <div style="position: relative; height: 4px;">
+                  <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                  <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 12%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                  <div style="position: absolute; left: 12%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                  <span style="font-size: 11px; color: var(--text-secondary); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:16</span>
+                  <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −3</span>
+                    <div style="display: flex; gap: 3px; margin-left: 4px;">
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: var(--text-secondary); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:08</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-screen-cell">
+      <h3>Beat Library Screen (free)</h3>
       <div class="screen-scale-wrapper">
         <div class="screen-scale-inner">
           <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
@@ -1941,7 +2177,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Beat Library</span>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><line x1="3" y1="6" x2="14" y2="6"/><line x1="3" y1="12" x2="14" y2="12"/><line x1="3" y1="18" x2="11" y2="18"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </div>
             </div>
 
@@ -2185,6 +2421,353 @@
     </div>
 
     <div class="new-screen-cell">
+      <h3>Beat Library Screen (paid)</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="140" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Beat Library</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+            </div>
+
+            <div style="padding: 14px 20px 14px; position: relative; z-index: 2;">
+              <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: var(--surface-chip-inactive); border-radius: 14px; padding: 9px 14px; display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,248,220,0.9);">Sort</span>
+                  </div>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--grid-bar-label)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div style="flex: 1; background: var(--surface-chip-inactive); border-radius: 14px; padding: 9px 14px; display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,248,220,0.9);">Filter</span>
+                  </div>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--grid-bar-label)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+            
+              <div style="margin-top: 8px; background: var(--gradient-toggle); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 0 var(--gem-inset-bottom) inset, 0 1px 0 rgba(255,255,255,0.20) inset, 0 4px 12px var(--orb-shadow);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent-text);">Auto-download 99 available beats</span>
+                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+            <div style="flex: 1; overflow: auto; padding: 0 14px 16px; position: relative; z-index: 2;">
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em; box-shadow: 0 1px 3px rgba(0,0,0,0.18);">dumblit</div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ot7</p>
+                  <p style="font-size: 11px; color: rgba(184,164,255,0.85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dumblit · 150 BPM · Drill</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: rgba(184,164,255,0.5); letter-spacing: 0.05em;">bizzle</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: rgba(255,248,220,0.85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Behind the Mask</p>
+                  <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 86 BPM · Chill Boom Bap</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: rgba(184,164,255,0.5); letter-spacing: 0.05em;">bizzle</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: rgba(255,248,220,0.85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Enchanted</p>
+                  <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 92 BPM · Chill Boom Bap</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px; background: linear-gradient(90deg, rgba(245,198,72,0.08) 0%, rgba(245,198,72,0) 100%); border-left: 2px solid var(--accent-bright); border-radius: 4px; margin-left: -2px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.18);">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                  <div style="position: absolute; inset: 0; background: rgba(26,15,61,0.7); display: flex; align-items: center; justify-content: center;">
+                    <div style="display: flex; align-items: end; gap: 2px; height: 14px;">
+                      <div style="width: 2px; height: 60%; background: var(--accent-bright); border-radius: 1px;"></div>
+                      <div style="width: 2px; height: 100%; background: var(--accent-bright); border-radius: 1px;"></div>
+                      <div style="width: 2px; height: 40%; background: var(--accent-bright); border-radius: 1px;"></div>
+                      <div style="width: 2px; height: 80%; background: var(--accent-bright); border-radius: 1px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--accent-bright); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rogue</p>
+                  <p style="font-size: 11px; color: rgba(255,248,220,0.85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dumblit · 80.5 BPM · Trap (Chill)</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-bright)" stroke="var(--accent-bright)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: rgba(184,164,255,0.5); letter-spacing: 0.05em;">bizzle</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: rgba(255,248,220,0.85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Floating</p>
+                  <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 78 BPM · Lo-fi</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 4px; box-sizing: border-box;">
+                  <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <span style="background: var(--rhyme-blue-block); font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: var(--text-primary); padding: 1px 3px; border-radius: 2px; line-height: 1;">RHYME</span>
+                    <span style="background: var(--rhyme-orange-block); font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: var(--text-primary); padding: 1px 3px; border-radius: 2px; line-height: 1;">GAME</span>
+                  </div>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Smooth Ride</p>
+                  <p style="font-size: 11px; color: rgba(184,164,255,0.85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">The Rhyme Game · 89 BPM · Old School</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: rgba(184,164,255,0.5); letter-spacing: 0.05em;">bizzle</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: rgba(255,248,220,0.85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Velvet Hour</p>
+                  <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 95 BPM · Trap (Chill)</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em; box-shadow: 0 1px 3px rgba(0,0,0,0.18);">dumblit</div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tide</p>
+                  <p style="font-size: 11px; color: rgba(184,164,255,0.85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dumblit · 88 BPM · Lo-fi</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: rgba(184,164,255,0.5); letter-spacing: 0.05em;">bizzle</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: rgba(255,248,220,0.85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Reverie</p>
+                  <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 102 BPM · Drill</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </div>
+
+            </div>
+
+
+            <div style="margin: 0 20px; position: relative; z-index: 2;">
+              <div style="background: linear-gradient(180deg, var(--ramp-brand-world-200) 0%, var(--ramp-brand-world-200) 55%, var(--ramp-brand-world-400) 100%); border-top-left-radius: 22px; border-top-right-radius: 22px; padding: 16px 24px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 2px 0 rgba(255,255,255,0.36) inset, 0 0 0 1px rgba(255,255,255,0.16) inset, 0 -6px 18px rgba(42,20,102,0.35); overflow: hidden; position: relative;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.06) 70%, transparent 100%); border-top-left-radius: 22px; border-top-right-radius: 22px; pointer-events: none;"></div>
+                <span style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; color: #000000;">Select this beat</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: relative; flex-shrink: 0; opacity: 0.85;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(180deg, rgba(26,15,61,0.85) 0%, rgba(20,9,61,0.95) 100%); border-top: 0.5px solid rgba(255,248,220,0.08); padding: 14px 20px 28px; position: relative; z-index: 2;">
+
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 48px; height: 48px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
+                  <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0;">Dumblit</p>
+                </div>
+                <div style="text-align: right;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0;">81 BPM</p>
+                  <p style="font-size: 10px; color: rgba(184,164,255,0.75); margin: 2px 0 0;">Trap · Chill</p>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 14px;">
+                <div style="position: relative; height: 4px;">
+                  <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                  <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                  <div style="position: absolute; left: 4%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                  <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:06</span>
+                  <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −2</span>
+                    <div style="display: flex; gap: 3px; margin-left: 4px;">
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 18px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 20px;">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--text-primary)" stroke="none"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round"/></svg>
+
+                  <div style="position: relative;">
+                    <div style="position: absolute; width: 84px; height: 84px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(14px); top: -16px; left: -16px;"></div>
+                    <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 8px 18px var(--orb-shadow); position: relative;">
+                      <svg width="22" height="22" viewBox="0 0 24 24" style="margin-left: 2px;"><polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/></svg>
+                    </div>
+                  </div>
+
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--text-primary)" stroke="none"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-screen-cell">
+      <h3>Locked Beat · Upgrade Pop-up</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <!-- Dimmed beat library behind the popup -->
+            <div style="position: absolute; inset: 0; opacity: 0.28; padding: 60px 20px 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Beat Library</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><line x1="3" y1="6" x2="14" y2="6"/><line x1="3" y1="12" x2="14" y2="12"/><line x1="3" y1="18" x2="11" y2="18"/></svg>
+              </div>
+              <div style="padding: 14px 0;">
+                <div style="display: flex; gap: 10px;">
+                  <div style="flex: 1; background: var(--surface-chip-inactive); border-radius: 14px; height: 38px;"></div>
+                  <div style="flex: 1; background: var(--surface-chip-inactive); border-radius: 14px; height: 38px;"></div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
+                <div style="display: flex; gap: 12px; align-items: center;"><div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0;"></div><div style="flex: 1; height: 36px; background: rgba(255,255,255,0.06); border-radius: 4px;"></div></div>
+                <div style="display: flex; gap: 12px; align-items: center;"><div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%);"></div><div style="flex: 1; height: 36px; background: rgba(255,255,255,0.06); border-radius: 4px;"></div></div>
+                <div style="display: flex; gap: 12px; align-items: center;"><div style="width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%);"></div><div style="flex: 1; height: 36px; background: rgba(255,255,255,0.06); border-radius: 4px;"></div></div>
+              </div>
+            </div>
+
+            <!-- Backdrop scrim — slightly darker than sheet scrim to focus the centered popup -->
+            <div style="position: absolute; inset: 0; background: rgba(20,9,61,0.70);"></div>
+
+            <!-- Centered floating popup -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 320px; background: var(--gradient-card-info); border: 0.5px solid var(--surface-card-border); border-radius: 28px; padding: 24px 24px 28px; box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 4px 14px rgba(0,0,0,0.25);">
+
+              <!-- Close X in top-right corner -->
+              <div style="position: absolute; top: 14px; right: 14px; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0.6;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+
+              <!-- Lead message above the album cover -->
+              <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin: 4px 0 18px; text-align: center; padding: 0 12px;">This beat is only available to subscribers.</p>
+
+              <!-- Album cover, centered, hero -->
+              <div style="display: flex; justify-content: center; margin: 0 0 18px;">
+                <div style="position: relative; width: 132px; height: 132px; border-radius: 14px; background: linear-gradient(135deg, #2A1466 0%, var(--text-on-light) 100%); overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,0.35);">
+                  <div style="position: absolute; inset: 18px; display: flex; flex-direction: column; gap: 4px; justify-content: center; align-items: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.06em;">BIZZLE</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 600; color: rgba(184,164,255,0.6); letter-spacing: 0.06em;">BEATS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Title (headline) + artist -->
+              <div style="text-align: center; margin-bottom: 22px;">
+                <p style="font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 700; color: var(--text-primary); margin: 0; letter-spacing: -0.01em;">Midnight Drive</p>
+                <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin: 4px 0 0;">Bizzle Beats · 94 BPM</p>
+              </div>
+
+              <!-- Compact preview player — currently playing (pause icon, scrubber mid-progress) -->
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+                <!-- Pause button (orb-styled, smaller) — "preview is playing" -->
+                <div style="position: relative; flex-shrink: 0;">
+                  <div style="position: absolute; inset: -8px; background: radial-gradient(circle, var(--gem-bloom) 0%, transparent 70%); filter: blur(8px);"></div>
+                  <div style="position: relative; width: 42px; height: 42px; border-radius: 50%; background: var(--gradient-orb); box-shadow: 0 2px 0 rgba(255,255,255,0.36) inset, 0 -2px 0 var(--gem-inset-bottom) inset, 0 3px 10px var(--orb-shadow); display: flex; align-items: center; justify-content: center;">
+                    <!-- Pause icon (two vertical bars) -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--icon-on-accent)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  </div>
+                </div>
+                <!-- Scrubber + times -->
+                <div style="flex: 1; min-width: 0;">
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 38%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 38%; top: -4px; width: 11px; height: 11px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                    <span style="font-size: 11px; color: var(--text-secondary); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:11</span>
+                    <span style="font-size: 11px; color: var(--text-secondary); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:30</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Upgrade gem CTA — single-line copy with the value & trial all in one -->
+              <div style="position: relative;">
+                <div style="position: absolute; inset: -16px -8px; background: radial-gradient(ellipse, var(--gem-bloom) 0%, transparent 70%); filter: blur(14px); pointer-events: none;"></div>
+                <div style="position: relative; background: var(--gradient-gem); border-radius: 22px; padding: 16px 20px; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 var(--gem-inset-bottom) inset, 0 12px 28px var(--orb-shadow), 0 3px 10px rgba(0,0,0,0.18); overflow: hidden; text-align: center;">
+                  <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 100%); border-top-left-radius: 22px; border-top-right-radius: 22px; pointer-events: none;"></div>
+                  <span style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--accent-text);">Unlock 159 beats · 7 days free</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-screen-cell">
       <h3>Sort Sheet · Open</h3>
       <div class="screen-scale-wrapper">
         <div class="screen-scale-inner">
@@ -2383,6 +2966,82 @@
       </div>
     </div>
 
+  </div><!-- end Beat Library grid -->
+
+  <h2 class="screens-section-header">Gameplay <span class="count">6 screens</span></h2>
+  <div class="new-screens-grid">
+    <div class="new-screen-cell">
+      <h3>Play Menu</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Play</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Play Menu · expanded settings</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Play</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Play Menu · pop-up list</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Play</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="new-screen-cell">
       <h3>Gameplay Screen</h3>
       <div class="screen-scale-wrapper">
@@ -2508,7 +3167,133 @@
       </div>
     </div>
 
-  </div><!-- end new-screens-grid -->
+    <div class="new-screen-cell">
+      <h3>Gameplay Recorded</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Recording</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Game End Screen</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Game end</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end Gameplay grid -->
+
+  <h2 class="screens-section-header">Other Modes <span class="count">3 screens</span></h2>
+  <div class="new-screens-grid">
+    <div class="new-screen-cell">
+      <h3>Rhyme Dictionary (full screen)</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Rhyme dictionary</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Magic Dictionary (pop-up)</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Magic dictionary</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Random Word Generator</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Word generator</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end Other Modes grid -->
+
+  </div><!-- end screens-grid -->
 
   </div><!-- ═══ END TAB 3 ═══ -->
 
