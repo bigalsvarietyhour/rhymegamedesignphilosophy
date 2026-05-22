@@ -3028,7 +3028,7 @@
       </div>
     </div>
     <div class="new-screen-cell">
-      <h3>Play Menu · pop-up list</h3>
+      <h3>Play Menu · word packs pop-up</h3>
       <div class="screen-scale-wrapper">
         <div class="screen-scale-inner">
           <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
@@ -3142,9 +3142,8 @@
                     <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
                     <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
                   </div>
-                  <div style="text-align: right;">
-                    <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); margin: 0;">81 BPM</p>
-                    <p style="font-size: 10px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Trap · Chill</p>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-primary)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
                   </div>
                 </div>
 
@@ -3182,17 +3181,154 @@
         <div class="screen-scale-inner">
           <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
 
-            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
-              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
-              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
-              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
-            </svg>
+            <!-- ─── Selfie cam half (top 50%) ─── -->
+            <div style="position: relative; width: 100%; height: 426px; background: linear-gradient(180deg, #1a1a1f 0%, #0d0d12 100%); overflow: hidden; flex-shrink: 0;">
 
-            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
-              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
-                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Recording</span>
-                <div style="width: 26px;"></div>
+              <!-- Subtle "video noise" texture suggestion — radial gradients in the corners -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 35%, rgba(80,60,100,0.18) 0%, transparent 55%);"></div>
+
+              <!-- Placeholder silhouette: head + shoulders, very faint, to suggest the user's frame -->
+              <svg width="200" height="240" viewBox="0 0 200 240" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.10;">
+                <ellipse cx="100" cy="70" rx="44" ry="56" fill="#FFF8DC"/>
+                <path d="M 30 240 Q 30 150 100 140 Q 170 150 170 240 Z" fill="#FFF8DC"/>
+              </svg>
+
+              <!-- "Selfie cam" small label, lower-right -->
+              <div style="position: absolute; bottom: 14px; right: 16px; display: flex; align-items: center; gap: 6px; opacity: 0.7;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,248,220,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 600; color: rgba(255,248,220,0.85); text-transform: uppercase; letter-spacing: 0.08em;">Selfie cam</span>
+              </div>
+
+              <!-- Camera flip affordance, bottom-left of cam area -->
+              <div style="position: absolute; bottom: 14px; left: 16px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/><path d="M3.51 15a9 9 0 0 0 14.85 3.36L23 14"/></svg>
+              </div>
+
+              <!-- ─── Overlay top bar: back chevron · REC indicator · timer · stop button ─── -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; padding: 60px 20px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <!-- Back chevron (frosted circle) -->
+                  <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(0,0,0,0.40); display: flex; align-items: center; justify-content: center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                  </div>
+
+                  <!-- REC indicator + timer (pill) -->
+                  <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px; background: rgba(0,0,0,0.50); border-radius: 999px;">
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #E84545; box-shadow: 0 0 6px rgba(232,69,69,0.7);"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.06em;">REC</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: rgba(255,248,220,0.85); font-variant-numeric: tabular-nums;">0:24</span>
+                  </div>
+
+                  <!-- Stop button (red circle) -->
+                  <div style="width: 36px; height: 36px; border-radius: 50%; background: #E84545; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(232,69,69,0.5);">
+                    <div style="width: 12px; height: 12px; background: #FFFFFF; border-radius: 2px;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ─── Gameplay half (bottom) ─── -->
+            <div style="position: relative; padding: 20px 20px 0; z-index: 2;">
+
+              <div style="position: absolute; top: -16px; left: 131px; width: 32px; height: 32px; z-index: 5;">
+                <div style="position: absolute; inset: -8px; background: radial-gradient(circle, var(--ball-glow) 0%, var(--ball-glow-falloff) 40%, transparent 70%); filter: blur(6px);"></div>
+                <div style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--ball-highlight) 0%, var(--ball-mid) 60%, var(--ball-deep) 100%); box-shadow: 0 2px 0 var(--grid-active-border) inset, 0 -2px 0 var(--ball-inset-bottom) inset, 0 4px 12px var(--ball-shadow);"></div>
+              </div>
+
+              <div style="display: grid; grid-template-rows: repeat(5, 44px); gap: 6px;">
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">−1</span>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-active-bg); border: 1px solid var(--grid-active-border); border-radius: 8px; box-shadow: inset 0 2px 4px rgba(20,9,61,0.15), 0 0 24px var(--grid-active-glow);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">1</span>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--rhyme-orange-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-orange-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; color: var(--rhyme-orange-text);">rust</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">2</span>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 8px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div>
+                  <div style="height: 44px; background: var(--rhyme-blue-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-blue-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; color: var(--rhyme-blue-text);">may</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">3</span>
+                  <div style="height: 44px; background: var(--grid-cream-bg); border-radius: 8px; box-shadow: 0 4px 0 var(--grid-cream-shadow), 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 44px; background: var(--grid-cream-bg); border-radius: 8px; box-shadow: 0 4px 0 var(--grid-cream-shadow), 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 44px; background: var(--grid-cream-bg); border-radius: 8px; box-shadow: 0 4px 0 var(--grid-cream-shadow), 0 6px 8px rgba(0,0,0,0.12);"></div>
+                  <div style="height: 44px; background: var(--rhyme-yellow-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-yellow-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; color: var(--rhyme-yellow-text);">thrive</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">4</span>
+                  <div style="height: 44px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 44px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 44px; background: var(--gradient-flare); border-radius: 8px; box-shadow: 0 4px 0 var(--flare-shadow), 0 6px 8px rgba(0,0,0,0.18);"></div>
+                  <div style="height: 44px; background: var(--rhyme-green-block); border-radius: 8px; box-shadow: 0 4px 0 var(--rhyme-green-shadow), 0 6px 8px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; color: var(--rhyme-green-text);">pick</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div style="flex: 1;"></div>
+
+            <!-- ─── Compact mini-player (matches gameplay screen) ─── -->
+            <div style="padding: 0 18px 28px; position: relative; z-index: 2;">
+              <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 18px; padding: 12px 16px; box-shadow: 0 8px 24px rgba(26,15,61,0.20);">
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                  <div style="width: 44px; height: 44px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
+                    <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
+                  </div>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-primary)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 18%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:24</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                      <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −1</span>
+                      <div style="display: flex; gap: 3px; margin-left: 4px;">
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      </div>
+                    </div>
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -3226,7 +3362,7 @@
     </div>
   </div><!-- end Gameplay grid -->
 
-  <h2 class="screens-section-header">Other Modes <span class="count">3 screens</span></h2>
+  <h2 class="screens-section-header">Other Modes <span class="count">5 screens</span></h2>
   <div class="new-screens-grid">
     <div class="new-screen-cell">
       <h3>Rhyme Dictionary (full screen)</h3>
@@ -3292,6 +3428,54 @@
               <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Word generator</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Word List Editor</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Word list editor</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Writer Mode</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Writer mode</span>
                 <div style="width: 26px;"></div>
               </div>
             </div>
