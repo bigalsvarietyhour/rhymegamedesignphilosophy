@@ -37,7 +37,7 @@
 
   /* ─── Hero ─── */
   .hero {
-    background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%);
+    background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%);
     border-radius: 24px;
     padding: 48px 32px;
     text-align: center;
@@ -121,12 +121,80 @@
     padding: 12px;
   }
   .vocab-preview-gameplay { background: linear-gradient(to bottom, #4A2BA8 0%, #3D1F8F 100%); display: flex; gap: 6px; }
-  .vocab-preview-nongameplay { background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%); display: flex; flex-direction: column; gap: 6px; }
+  .vocab-preview-nongameplay { background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%); display: flex; flex-direction: column; gap: 6px; }
   .mini-block-orange { flex: 1; background: #F08838; border-radius: 6px; padding: 8px 0; text-align: center; box-shadow: 0 3px 0 #B85A1A; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #3D1A05; }
   .mini-block-blue { flex: 1; background: #4FA8E8; border-radius: 6px; padding: 8px 0; text-align: center; box-shadow: 0 3px 0 #2872A8; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #0A2E52; }
   .mini-card-row { background: rgba(42,20,102,0.4); border-radius: 6px; padding: 8px 10px; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC; }
   .callout-note { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
   .callout-note strong { font-weight: 600; color: var(--text); }
+
+  /* ─── Tab navigation ─── */
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(22, 22, 24, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    margin: 0 -32px 32px;
+    padding: 0 32px;
+  }
+  .tabs-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    padding: 16px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover {
+    color: var(--text-secondary);
+  }
+  .tab-btn.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+  .tab-btn-number {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: var(--surface-2);
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 8px;
+    color: var(--text-tertiary);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .tab-btn.active .tab-btn-number {
+    background: var(--accent);
+    color: #1A0F3D;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 640px) {
+    .tabs { margin: 0 -16px 24px; padding: 0 16px; }
+    .tab-btn { padding: 14px 10px; font-size: 13px; }
+    .tab-btn-number { display: none; }
+  }
 
   /* ─── Section headings ─── */
   h2 {
@@ -251,7 +319,7 @@
   .press-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-tertiary); text-align: center; }
 
   /* ─── Translucent card demo ─── */
-  .card-demo-wrapper { background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card-demo-wrapper { background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
   .card-demo {
     background: rgba(42, 20, 102, 0.4);
     border-radius: 12px;
@@ -289,61 +357,19 @@
   .legend-text span { font-size: 12px; color: var(--text-secondary); }
 
   /* ─── Screen examples ─── */
-  .screens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
-  @media (max-width: 720px) { .screens-grid { grid-template-columns: 1fr; } }
-  .screen-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 8px; }
-
-  .screen-menu, .screen-play, .screen-words, .screen-settings {
-    background: linear-gradient(to bottom, #6240C8 0%, #3D1F8F 100%);
-    border-radius: 20px;
-    padding: 24px 18px;
+  .new-screens-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 197px);
+    gap: 40px 32px;
+    margin-bottom: 48px;
+    justify-content: center;
   }
-  .screen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-  .screen-back, .screen-title-text { font-family: 'Fredoka', sans-serif; color: #FFF8DC; }
-  .screen-back { font-size: 16px; font-weight: 600; }
-  .screen-title-text { font-size: 17px; font-weight: 600; }
-  .screen-title-hero { font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 600; color: #FFF8DC; text-align: center; margin-bottom: 4px; }
-  .screen-sub { font-size: 12px; color: #DCD2FF; text-align: center; margin-bottom: 20px; }
-
-  .menu-btn-primary { background: #FFC72C; border-radius: 14px; padding: 16px 0; text-align: center; box-shadow: 0 5px 0 #C49000; margin-bottom: 13px; font-family: 'Fredoka', sans-serif; font-size: 19px; font-weight: 600; color: #3D2400; }
-  .menu-btn-secondary { background: #EDE4D0; border-radius: 14px; padding: 14px 0; text-align: center; box-shadow: 0 4px 0 #B5A88E; margin-bottom: 10px; font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #3D2D52; }
-  .menu-btn-tertiary { background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,248,220,0.4); border-radius: 14px; padding: 12px 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; margin-bottom: 16px; }
-  .streak-card { background: rgba(42,20,102,0.4); border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
-  .streak-left { display: flex; gap: 10px; align-items: center; }
-  .streak-flame { width: 32px; height: 32px; background: #FFC72C; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-  .streak-title { font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: #FFF8DC; }
-  .streak-desc { font-size: 10px; color: #B8A4FF; }
-  .streak-arrow { font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFE99A; }
-
-  .setting-card { background: rgba(42,20,102,0.4); border-radius: 12px; padding: 12px 16px; margin-bottom: 6px; }
-  .setting-row { display: flex; justify-content: space-between; align-items: center; }
-  .setting-title { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; }
-  .setting-eyebrow { font-size: 10px; color: #B8A4FF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
-  .setting-value { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #FFF8DC; margin-top: 2px; }
-  .setting-desc { font-size: 10px; color: #B8A4FF; margin-top: 2px; }
-  .setting-chevron { font-size: 14px; color: #B8A4FF; }
-  .toggle { width: 32px; height: 18px; background: #FFC72C; border-radius: 9px; position: relative; flex-shrink: 0; }
-  .toggle-knob { width: 14px; height: 14px; background: white; border-radius: 50%; position: absolute; right: 2px; top: 2px; }
-  .nav-arrows { display: flex; gap: 8px; }
-  .nav-arrows span { font-size: 14px; color: #B8A4FF; }
-  .section-label { font-size: 10px; color: #B8A4FF; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin: 10px 0 6px; }
-  .center-meta { font-size: 11px; color: #B8A4FF; text-align: center; margin-bottom: 14px; }
-
-  .word-row { background: rgba(42,20,102,0.4); border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-  .word-prompt { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFC72C; }
-  .word-rhymes { font-size: 11px; color: #DCD2FF; text-align: right; }
-  .generate-btn { background: #4FCC85; border-radius: 12px; padding: 12px 0; text-align: center; box-shadow: 0 4px 0 #289054; font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: #0A3D1F; margin-top: 8px; margin-bottom: 4px; }
-
-  .mini-preview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
-  .mini-cell-empty { background: rgba(184,164,255,0.18); border-radius: 3px; height: 12px; }
-  .mini-cell-orange { background: #F08838; border-radius: 3px; height: 12px; }
-  .mini-cell-blue { background: #4FA8E8; border-radius: 3px; height: 12px; }
-  .mini-cell-yellow { background: #FFC72C; border-radius: 3px; height: 12px; }
-  .mini-cell-green { background: #4FCC85; border-radius: 3px; height: 12px; }
-  .play-cta { background: #FFC72C; border-radius: 14px; padding: 13px 0; text-align: center; box-shadow: 0 5px 0 #C49000; margin-top: 14px; margin-bottom: 5px; font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #3D2400; }
-
-  .volume-slider { height: 4px; background: rgba(184,164,255,0.25); border-radius: 2px; overflow: hidden; margin-top: 8px; }
-  .volume-fill { height: 100%; width: 100%; background: #FFC72C; }
+  @media (max-width: 760px) { .new-screens-grid { grid-template-columns: repeat(2, 197px); } }
+  @media (max-width: 480px) { .new-screens-grid { grid-template-columns: 197px; } }
+  .new-screen-cell { display: flex; flex-direction: column; align-items: center; }
+  .new-screen-cell > h3 { font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); margin: 0 0 16px; text-align: center; }
+  .new-screen-cell > .screen-scale-wrapper { width: 197px; height: 426px; position: relative; }
+  .new-screen-cell > .screen-scale-wrapper > .screen-scale-inner { transform: scale(0.5); transform-origin: top left; width: 393px; height: 852px; }
 
   /* ─── Spec table ─── */
   .spec-table { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; font-size: 13px; line-height: 1.9; }
@@ -396,37 +422,49 @@
 
   <!-- ─── Hero ─── -->
   <div class="hero">
-    <div class="hero-eyebrow">design system · final</div>
+    <div class="hero-eyebrow">design system</div>
     <h1 class="hero-title">The Rhyme Game</h1>
     <p class="hero-subtitle">Color, typography, components, screens & philosophy</p>
   </div>
 
+  <!-- ─── Tab navigation ─── -->
+  <nav class="tabs">
+    <div class="tabs-inner">
+      <button class="tab-btn active" data-tab="philosophy"><span class="tab-btn-number">1</span>Philosophy</button>
+      <button class="tab-btn" data-tab="tokens"><span class="tab-btn-number">2</span>Tokens</button>
+      <button class="tab-btn" data-tab="screens"><span class="tab-btn-number">3</span>Screens & Components</button>
+    </div>
+  </nav>
+
+  <!-- ═══ TAB 1 · PHILOSOPHY ═══ -->
+  <div class="tab-panel active" id="tab-philosophy">
+
   <!-- ─── Read this first ─── -->
   <div class="callout">
     <div class="callout-eyebrow">read this first · the question that organizes every screen</div>
-    <p class="callout-question">"Which vocabulary does this screen belong to?"</p>
-    <p class="callout-body">Before designing anything new, answer this question first. It decides everything else.</p>
+    <p class="callout-question">"Is the player playing the toy, or using the tool?"</p>
+    <p class="callout-body">The Rhyme Game is two things in one app. The gameplay is a <strong>toy</strong> the player plays with — tactile, kinetic, immediate. Everything else is a <strong>premium music tool</strong> — sleek, atmospheric, composed. The answer to that question decides every single visual choice that follows.</p>
 
     <div class="vocab-grid">
       <div class="vocab-card">
-        <p class="vocab-title">Gameplay vocabulary</p>
-        <p class="vocab-desc">Chunky platform blocks with hard drop shadows. Saturated rhyme colors. Fredoka 20–26px. Used only on the actual gameplay grid, the play CTA, and celebration moments.</p>
+        <p class="vocab-title">Gameplay · the toy</p>
+        <p class="vocab-desc">Chunky platform blocks with hard drop shadows. Saturated rhyme colors. Fredoka 20–26px. Buttons feel like physical objects you can almost touch. Used <strong>only</strong> on the active gameplay grid and in-game CTAs.</p>
         <div class="vocab-preview vocab-preview-gameplay">
           <div class="mini-block-orange">rust</div>
           <div class="mini-block-blue">may</div>
         </div>
       </div>
       <div class="vocab-card">
-        <p class="vocab-title">Non-gameplay vocabulary</p>
-        <p class="vocab-desc">Translucent dark-purple cards (Purple 900 at 40% alpha) on the menu gradient. Fredoka for titles, system sans for descriptions. Used for menus, settings, lists, configuration.</p>
-        <div class="vocab-preview vocab-preview-nongameplay">
-          <div class="mini-card-row">Setting one</div>
-          <div class="mini-card-row">Setting two</div>
+        <p class="vocab-title">Premium-tool · the music app</p>
+        <p class="vocab-desc">Subtle gradients, soft glows, atmospheric depth. Glass-like surfaces with hairline borders and soft shadows. Generous breathing room. Rich gold accents. Think Spotify, Apple Music, Headspace.</p>
+        <div style="background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="background: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.45) 100%); border: 0.5px solid rgba(255,248,220,0.1); border-radius: 8px; padding: 8px 10px; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC;">Audio Lag</div>
+          <div style="background: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.45) 100%); border: 0.5px solid rgba(255,248,220,0.1); border-radius: 8px; padding: 8px 10px; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC;">Volume</div>
         </div>
       </div>
     </div>
 
-    <p class="callout-note"><strong>Never mix the two vocabularies on one screen.</strong> Mixing them creates the cluttered, chaotic feel we're avoiding. Keeping them separate creates clarity — players know what kind of screen they're on the moment it appears.</p>
+    <p class="callout-note"><strong>Never mix the two vocabularies on one screen.</strong> Keeping the playful, chunky energy exclusively inside gameplay is what makes both modes feel more like themselves. The menus feel premium because they're surrounded by restraint. The gameplay feels kinetic because the chunky energy is reserved for it.</p>
   </div>
 
   <!-- ─── Philosophy ─── -->
@@ -434,18 +472,60 @@
   <p class="section-lead">Three principles guide every design decision. When in doubt, return to these.</p>
   <div class="principles">
     <div class="principle principle-1">
-      <h3>1 · Playful, not childish</h3>
-      <p>We sit between "game" and "tool." Rounded shapes and warm cream surfaces over sterile white. Chunky platforms over flat UI buttons. But never neon overload or cartoon overload — every playful element earns its space.</p>
+      <h3>1 · Premium tool, playful toy</h3>
+      <p>Menus, settings, stats, and config screens look like a premium music app. The gameplay looks like a toy you can almost touch. Two distinct visual languages for two distinct modes — and never the two shall mix. Premium isn't sterile; the cream-and-purple palette keeps even the calmest surfaces feeling like <em>this app</em>.</p>
     </div>
     <div class="principle principle-2">
       <h3>2 · Color carries meaning</h3>
-      <p>Every color has a job. Purple is the world. Yellow is celebration. Rhyme colors group sounds. Pink invites creativity. Cream is structural. Never use a color for decoration — if it doesn't communicate, it shouldn't be there.</p>
+      <p>Every color has a job. Purple is the world. Bright yellow <code>#FFC72C</code> is the gameplay accent. Rich gold <code>#F5C648 → #C28C00</code> is the premium-tool accent. Rhyme colors group sounds. Pink invites creativity in the flare zone. Never use color for decoration — if it doesn't communicate, it doesn't belong.</p>
     </div>
     <div class="principle principle-3">
-      <h3>3 · Everything has physics</h3>
-      <p>Tappable things are physical objects with weight. Same block, same shadow, same press behavior across the app. Buttons aren't drawings of buttons — they're stylized platforms you can almost touch.</p>
+      <h3>3 · Brand assets are not UI</h3>
+      <p>The logo, the bouncing ball, the trail behind it, and any future mascots are <strong>pre-rendered artwork</strong>. They get placed onto screens as image assets — never reconstructed from theme components, never given drop shadows to feel "tappable." System UI follows the tokens; placed artwork follows its own rules. The two coexist on a screen.</p>
     </div>
   </div>
+
+  <!-- ─── Signature moves ─── -->
+  <h2>Signature moves</h2>
+  <p class="section-lead">Three patterns that make premium-tool screens feel like a real product, not a wireframe. Visual specs are in the Tokens tab.</p>
+  <div class="principles">
+    <div class="principle principle-1" style="border-left-color: #C28C00;">
+      <h3>★ The gem treatment</h3>
+      <p>Hero CTAs on premium-tool screens (Free Trial, Upgrade, the play orb) use a 3-stop gold gradient with internal sheen, specular highlight, inset edge shadows, and an outer atmospheric bloom. The combined effect: a luminous polished object that looks expensive. Save it for the one important action per screen.</p>
+    </div>
+    <div class="principle principle-2" style="border-left-color: #B8A4FF;">
+      <h3>▤ The lower shelf</h3>
+      <p>Screens with persistent bottom nav use a dark shelf at the bottom (<code>#1F0F4F → #14093D</code>) that holds only the navigation tabs. The play orb breaks the shelf's top edge — its upper half sits in the hero zone, its lower half in the shelf. The mini-player floats <em>above</em> the shelf as a separate premium surface.</p>
+    </div>
+    <div class="principle principle-3" style="border-left-color: #FFC72C;">
+      <h3>◌ Premium surfaces</h3>
+      <p>The replacement for flat translucent cards. A subtle gradient from <code>rgba(184,164,255,0.06)</code> at top to <code>rgba(26,15,61,0.45)</code> at bottom, plus a hairline border at <code>rgba(255,248,220,0.10)</code>, plus a soft drop shadow. The combination reads as raised glass on deep purple.</p>
+    </div>
+  </div>
+
+  <!-- ─── Do / don't ─── -->
+  <h2>Do &amp; don't</h2>
+  <div class="rules">
+    <div class="rule-do">
+      <div class="rule-header">do</div>
+      <p class="rule-body">Reach for premium-tool vocabulary on every screen except gameplay. Use the gem treatment only for genuine hero CTAs (one per screen, max). Use rich gold on premium-tool screens; bright yellow on gameplay only. Treat brand assets as placed artwork. Stack the lower shelf pattern on screens with persistent nav. Layer the play orb's bloom above other elements. Reference <code>theme.*</code> tokens — never hardcode hex values. Let premium surfaces breathe with generous padding.</p>
+    </div>
+    <div class="rule-dont">
+      <div class="rule-header">don't</div>
+      <p class="rule-body">Mix gameplay and premium-tool vocabularies on the same screen. Reconstruct the logo or any brand artwork from components. Use chunky platform blocks on non-gameplay surfaces. Use bright <code>#FFC72C</code> and rich gold accents on the same screen. Use pure black text — always tint toward purple. Use pure white — use cream <code>#FBF8F0</code>. Add new brand colors. Stack multiple hero CTAs on one screen. Mix Fredoka and system font in one element.</p>
+    </div>
+  </div>
+
+  <!-- ─── Summary ─── -->
+  <div class="summary">
+    <div class="summary-label">one-line summary</div>
+    <p class="summary-text">The gameplay is a toy the player plays with — chunky, tactile, kinetic. Everything else is a premium music tool — sleek, atmospheric, composed. Two vocabularies, never mixed.</p>
+  </div>
+
+  </div><!-- ═══ END TAB 1 ═══ -->
+
+  <!-- ═══ TAB 2 · TOKENS ═══ -->
+  <div class="tab-panel" id="tab-tokens">
 
   <!-- ─── Color system ─── -->
   <h2>Color system</h2>
@@ -463,17 +543,23 @@
   </div>
   <p class="swatch-note"><strong>★ Hero shades.</strong> Used across all screens. 900 at 40% alpha is the translucent card background on non-gameplay screens.</p>
 
-  <p class="subsection-label">Brand · yellow</p>
+  <p class="subsection-label">Brand · yellow (gameplay accent)</p>
   <div class="swatch-row">
-    <div class="swatch swatch-light" style="background:#FFF8DC"><span class="swatch-label" style="color:#7A4A00">50</span><span class="swatch-hex" style="color:#A66400">FFF8DC</span></div>
-    <div class="swatch" style="background:#FFE99A"><span class="swatch-label" style="color:#7A4A00">100</span><span class="swatch-hex" style="color:#7A4A00">FFE99A</span></div>
-    <div class="swatch" style="background:#FFD960"><span class="swatch-label" style="color:#5C3700">200</span><span class="swatch-hex" style="color:#5C3700">FFD960</span></div>
+    <div class="swatch swatch-light" style="background:#FFF8DC"><span class="swatch-label" style="color:#A66400">50</span><span class="swatch-hex" style="color:#A66400">FFF8DC</span></div>
     <div class="swatch" style="background:#FFC72C"><span class="swatch-label" style="color:#3D2400">400 ★</span><span class="swatch-hex" style="color:#3D2400">FFC72C</span></div>
-    <div class="swatch" style="background:#E8A800"><span class="swatch-label" style="color:#FFFFFF">600</span><span class="swatch-hex" style="color:#FFF8DC">E8A800</span></div>
-    <div class="swatch" style="background:#A66400"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#FFE99A">A66400</span></div>
-    <div class="swatch" style="background:#5C3700"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#FFD960">5C3700</span></div>
+    <div class="swatch" style="background:#A66400"><span class="swatch-label" style="color:#FFFFFF">800</span><span class="swatch-hex" style="color:#FFF8DC">A66400</span></div>
+    <div class="swatch" style="background:#5C3700"><span class="swatch-label" style="color:#FFFFFF">900</span><span class="swatch-hex" style="color:#FFF8DC">5C3700</span></div>
   </div>
-  <p class="swatch-note"><strong>Yellow is rare and earns attention.</strong> Use 400 only for: the primary CTA per screen, active toggle/slider states, celebration moments, streak indicators, and one rhyme key. If it's on every button, it stops being special.</p>
+  <p class="swatch-note"><strong>Bright yellow is the gameplay accent.</strong> Four shades, each with a named role. Use 400 only for: gameplay celebration, streaks, in-game CTAs, the yellow rhyme key. On premium-tool screens (menus, settings, stats), use the rich gold range below instead — they're two different roles and must not mix on the same screen.</p>
+
+  <p class="subsection-label">Premium · gold (premium-tool accent)</p>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#F5CE68"><span class="swatch-label" style="color:#3D2400">100</span><span class="swatch-hex" style="color:#5C3700">F5CE68</span></div>
+    <div class="swatch" style="background:#F5C648"><span class="swatch-label" style="color:#3D2400">300 ★</span><span class="swatch-hex" style="color:#5C3700">F5C648</span></div>
+    <div class="swatch" style="background:#C28C00"><span class="swatch-label" style="color:#FFFFFF">500</span><span class="swatch-hex" style="color:#FFF8DC">C28C00</span></div>
+    <div class="swatch" style="background:#9F7000"><span class="swatch-label" style="color:#FFFFFF">700</span><span class="swatch-hex" style="color:#FFF8DC">9F7000</span></div>
+  </div>
+  <p class="swatch-note"><strong>Rich gold is the premium-tool accent.</strong> Four shades. Gem CTAs use a 3-stop gradient: <code>300 → 500 → 700</code>. The play orb uses a 2-stop radial: <code>100 → 500</code>. Toggles and slider fills use <code>300 → 500</code>. Saves the bright primary yellow for gameplay surfaces.</p>
 
   <p class="subsection-label">Neutral · cream & ink (purple-tinted)</p>
   <div class="swatch-row">
@@ -515,11 +601,11 @@
   <h2>Background gradients</h2>
   <p class="section-lead">Every screen uses a vertical purple gradient with the light source at the top. Two variants — one for energetic surfaces (menus, settings, configuration), one for focused surfaces (the gameplay grid).</p>
   <div class="gradient-row">
-    <div class="gradient-preview" style="background:linear-gradient(to bottom,#6240C8 0%,#3D1F8F 100%)">
+    <div class="gradient-preview" style="background:linear-gradient(180deg,#7B4FFF 0%,#5829E8 30%,#3D1F8F 100%)">
       <span class="gradient-name">Menu</span>
       <div>
-        <div class="gradient-hex">#6240C8 → #3D1F8F</div>
-        <div class="gradient-tag">Brighter top. Energetic.</div>
+        <div class="gradient-hex">#7B4FFF → #5829E8 → #3D1F8F</div>
+        <div class="gradient-tag">Three stops. Atmospheric.</div>
       </div>
     </div>
     <div class="gradient-preview" style="background:linear-gradient(to bottom,#4A2BA8 0%,#3D1F8F 100%)">
@@ -555,6 +641,16 @@
     <div class="scale-row"><span class="scale-caption-sample">11 / 500 uppercase</span><span class="scale-use">section label · meta</span></div>
   </div>
 
+  <!-- ─── Spacing (moved into tokens) ─── -->
+  <h2>Spacing & shape</h2>
+  <div class="spec-table">
+    <div><span class="spec-label">Border radius —</span> <span class="spec-value">10px</span> gameplay cells · <span class="spec-value">12px</span> translucent cards · <span class="spec-value">14px</span> menu buttons · <span class="spec-value">20px</span> screen containers</div>
+    <div><span class="spec-label">Shadow offset —</span> <span class="spec-value">4px</span> default · <span class="spec-value">5px</span> for primary CTA · always zero blur · no shadow on translucent cards</div>
+    <div><span class="spec-label">Grid gap —</span> <span class="spec-value">8px</span> horizontal · <span class="spec-value">10px</span> vertical (extra room for shadows)</div>
+    <div><span class="spec-label">Card gap —</span> <span class="spec-value">6–8px</span> between translucent cards in a list</div>
+    <div><span class="spec-label">Padding —</span> <span class="spec-value">12px 16px</span> card internal · <span class="spec-value">20–24px</span> container internal · <span class="spec-value">28px</span> screen edge</div>
+  </div>
+
   <!-- ─── Block physics ─── -->
   <h2>Block physics (gameplay vocabulary)</h2>
   <p class="section-lead">Every tappable platform on a gameplay surface follows these rules. Build one component, reuse everywhere.</p>
@@ -585,26 +681,97 @@
     </div>
   </div>
 
-  <!-- ─── Translucent cards ─── -->
-  <h2>Translucent cards (non-gameplay vocabulary)</h2>
-  <p class="section-lead">Every list item, setting, and configuration row on a non-gameplay surface is one of these.</p>
-  <div class="card-demo-wrapper">
-    <div class="card-demo">
+  <!-- ─── Premium surfaces ─── -->
+  <h2>Premium surfaces (premium-tool vocabulary)</h2>
+  <p class="section-lead">The atmospheric glass card used on every non-gameplay screen — settings rows, stats cards, mini-player, list items. Replaces the older "flat translucent card" pattern.</p>
+  <div style="background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%); border-radius: 12px; padding: 24px; margin-bottom: 12px;">
+    <div style="background: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.45) 100%); border: 0.5px solid rgba(255,248,220,0.1); border-radius: 18px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 24px rgba(26,15,61,0.2);">
       <div>
-        <div class="card-demo-title">Card title</div>
-        <div class="card-demo-desc">Supporting description</div>
+        <div style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFF8DC;">Premium surface title</div>
+        <div style="font-size: 12px; color: #B8A4FF; margin-top: 2px;">Supporting description in Purple 200</div>
       </div>
-      <span class="card-demo-chevron">›</span>
+      <span style="font-size: 18px; color: #B8A4FF;">›</span>
     </div>
   </div>
   <div class="demo-card" style="margin-top:0;margin-bottom:32px">
     <div class="demo-list">
-      • Background: <code>rgba(42, 20, 102, 0.4)</code> — Purple 900 at 40% alpha<br>
-      • Border radius: <code>12px</code><br>
-      • Padding: <code>12px 16px</code><br>
-      • Title: Fredoka 15 / 600 in cream (#FFF8DC)<br>
-      • Description: system sans 11 / 400 in Purple 200 (#B8A4FF)<br>
-      • No shadow. Sits <em>into</em> the gradient, not on top of it.
+      • Background: <code>linear-gradient(180deg, rgba(184,164,255,0.06), rgba(26,15,61,0.45))</code><br>
+      • Border: <code>0.5px solid rgba(255,248,220,0.10)</code> (hairline)<br>
+      • Border radius: <code>16–18px</code><br>
+      • Padding: <code>14–18px vertical · 16–20px horizontal</code><br>
+      • Drop shadow: <code>0 8px 24px rgba(26,15,61,0.20)</code> (blurred, purple-tinted)<br>
+      • Title: Fredoka 15 / 600 in cream (<code>#FFF8DC</code>)<br>
+      • Description: system sans 11–12 / 400 in Purple 200 (<code>#B8A4FF</code>)<br>
+      • The gradient + hairline border + soft shadow combination is the recipe — get all three right and it reads as <em>raised glass on deep purple</em>.
+    </div>
+  </div>
+
+  <!-- ─── Gem treatment ─── -->
+  <h2>Gem treatment (hero CTAs on premium surfaces)</h2>
+  <p class="section-lead">The luminous polished-gold treatment for hero CTAs — Free Trial, Upgrade, the play orb. One per screen, max. Save it for the action that genuinely matters.</p>
+  <div style="background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 100%); border-radius: 12px; padding: 40px 24px; margin-bottom: 12px; display: flex; justify-content: center;">
+    <div style="position: relative; width: 100%; max-width: 320px;">
+      <div style="position: absolute; inset: -36px; background: radial-gradient(ellipse at 50% 45%, rgba(232,168,0,0.5) 0%, rgba(232,168,0,0.18) 35%, rgba(232,168,0,0) 65%); pointer-events: none; filter: blur(18px);"></div>
+      <div style="position: relative; background: linear-gradient(180deg, #F5C648 0%, #C28C00 60%, #9F7000 100%); border-radius: 32px; padding: 24px 28px; text-align: center; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 rgba(140,90,0,0.4) inset, 0 0 0 1px rgba(255,255,255,0.12) inset, 0 18px 48px rgba(196,140,0,0.4), 0 4px 14px rgba(0,0,0,0.18); overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-radius: 32px 32px 100% 100% / 32px 32px 60% 60%; pointer-events: none;"></div>
+        <div style="position: absolute; top: 10px; left: 28%; right: 28%; height: 10px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(4px); pointer-events: none;"></div>
+        <div style="position: relative;">
+          <p style="font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 700; color: #3D2400; margin: 0; letter-spacing: 0.01em;">Free Trial</p>
+          <p style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 600; color: #5C3700; margin: 4px 0 0;">Unlock 100+ Beats</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="demo-card" style="margin-top:0;margin-bottom:32px">
+    <div class="demo-list">
+      <strong>Recipe (5 layers):</strong><br>
+      1. 3-stop linear gradient: <code>#F5C648 → #C28C00 → #9F7000</code><br>
+      2. Internal sheen overlay (top half, ~18% white, curved bottom)<br>
+      3. Specular highlight (small blurred white ellipse near top, ~30% opacity)<br>
+      4. Inset edge shadows: top <code>rgba(255,255,255,0.32)</code>, bottom <code>rgba(140,90,0,0.40)</code><br>
+      5. Outer bloom: <code>radial-gradient(rgba(232,168,0,0.4) → transparent)</code> blurred 18px<br>
+      <br>
+      • Border radius: <code>32px</code> for pill CTAs, <code>50%</code> for orbs<br>
+      • Title font: Fredoka 22 / 700 in <code>#3D2400</code><br>
+      • <strong>One per screen.</strong> If three buttons use this treatment, none feel special.
+    </div>
+  </div>
+
+  <!-- ─── Lower shelf ─── -->
+  <h2>Lower shelf architecture</h2>
+  <p class="section-lead">The persistent bottom navigation pattern. Dark band holds the tabs; the play orb breaks its top edge as the signature element.</p>
+  <div style="background: linear-gradient(to bottom, #7B4FFF 0%, #3D1F8F 70%, #3D1F8F 100%); border-radius: 12px; padding: 0; margin-bottom: 12px; overflow: hidden;">
+    <div style="height: 80px; display: flex; align-items: center; justify-content: center;">
+      <span style="font-size: 11px; color: #B8A4FF; text-transform: uppercase; letter-spacing: 0.08em;">hero content above</span>
+    </div>
+    <div style="background: linear-gradient(180deg, #1F0F4F 0%, #14093D 100%); padding: 18px 20px 24px; position: relative;">
+      <div style="display: flex; justify-content: space-around; align-items: flex-end;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+          <div style="font-size: 18px; color: #B8A4FF;">▦</div>
+          <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 500; color: #B8A4FF;">Stats</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+          <div style="position: absolute; width: 90px; height: 90px; background: radial-gradient(circle, rgba(232,168,0,0.4) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(12px); top: -52px; left: -25px;"></div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F5CE68 0%, #C28C00 100%); display: flex; align-items: center; justify-content: center; margin-top: -22px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 8px 16px rgba(196,140,0,0.45); position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="margin-left: 2px;"><polygon points="6,4 6,20 20,12" fill="#2A1466"/></svg>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+          <div style="font-size: 18px; color: #B8A4FF;">⚙</div>
+          <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 500; color: #B8A4FF;">Tools</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="demo-card" style="margin-top:0;margin-bottom:32px">
+    <div class="demo-list">
+      • Shelf gradient: <code>linear-gradient(180deg, #1F0F4F, #14093D)</code><br>
+      • Shelf padding: <code>18px top · 20px sides · 32px bottom</code> (or safe-area inset)<br>
+      • Contents: navigation tabs only (Stats, Tools) — minimal chrome<br>
+      • Play orb: <code>margin-top: -42px</code> from shelf's top edge so its upper half overlaps the hero zone<br>
+      • Orb's outer bloom positioned with <code>top: -78px</code> to spill upward over the mini-player<br>
+      • z-index layering: <code>mini-player (1) → shelf (2) → orb bloom (20) → orb (21)</code><br>
+      • If a mini-player is present, it floats <em>above</em> the shelf as a separate premium surface, casting its own drop shadow onto the dark zone.
     </div>
   </div>
 
@@ -653,178 +820,460 @@
     </div>
   </div>
 
-  <!-- ─── Screen examples ─── -->
-  <h2>Screen examples</h2>
-  <p class="section-lead">Four reference screens showing how the system composes. Use these as templates when building new screens.</p>
+  </div><!-- ═══ END TAB 2 ═══ -->
 
-  <div class="screens-grid">
+  <!-- ═══ TAB 3 · SCREENS & COMPONENTS ═══ -->
+  <div class="tab-panel" id="tab-screens">
 
-    <div>
-      <div class="screen-label">1 · main menu</div>
-      <div class="screen-menu">
-        <p class="screen-title-hero">The Rhyme Game</p>
-        <p class="screen-sub">Join the freestyle revolution</p>
-        <div class="menu-btn-primary">play</div>
-        <div class="menu-btn-secondary">how to play</div>
-        <div class="menu-btn-secondary">stats</div>
-        <div class="menu-btn-tertiary">settings</div>
-        <div class="streak-card">
-          <div class="streak-left">
-            <div class="streak-flame">🔥</div>
-            <div>
-              <div class="streak-title">7-day streak</div>
-              <div class="streak-desc">Play today to keep it going</div>
-            </div>
-          </div>
-          <span class="streak-arrow">→</span>
-        </div>
-      </div>
-    </div>
+  <!-- ─── New screen examples ─── -->
+  <h2>New screen examples</h2>
+  <p class="section-lead">Redesigned screens following the refined premium-tool philosophy. Restrained surfaces, layered depth, soft glows, gold accents. Save these as templates when building new screens.</p>
 
-    <div>
-      <div class="screen-label">2 · play (configuration)</div>
-      <div class="screen-play">
-        <div class="screen-header">
-          <span class="screen-back">‹</span>
-          <span class="screen-title-text">play</span>
-          <span style="width:16px"></span>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row" style="margin-bottom:10px">
-            <div>
-              <div class="setting-eyebrow">rhyme pattern</div>
-              <div class="setting-value">aAbB</div>
+  <div class="new-screens-grid">
+
+    <div class="new-screen-cell">
+      <h3>Home Screen</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+      <div style="width: 393px; height: 852px; background: linear-gradient(180deg, #7B4FFF 0%, #5829E8 30%, #3D1F8F 100%); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+        <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+          <circle cx="350" cy="350" r="320" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+          <circle cx="350" cy="350" r="260" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+          <circle cx="350" cy="350" r="200" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+          <circle cx="350" cy="350" r="140" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+        </svg>
+
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 60px 24px 0; position: relative; z-index: 2;">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 18px;">🔥</span>
+              <span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 600; color: #FFF8DC;">1</span>
             </div>
-            <div class="nav-arrows"><span>‹</span><span>›</span></div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </div>
-          <div class="mini-preview-grid">
-            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-orange"></div>
-            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-blue"></div>
-            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-yellow"></div>
-            <div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-empty"></div><div class="mini-cell-green"></div>
-          </div>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div>
-              <div class="setting-eyebrow">word list</div>
-              <div class="setting-value">1-syllable words</div>
-              <div class="setting-desc">All single-syllable rhymes</div>
+
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 24px;">
+
+            <div style="width: 230px; height: 308px; border: 1.5px dashed rgba(255,248,220,0.25); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; margin-bottom: 32px;">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="rgba(255,248,220,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,248,220,0.5); margin: 0;">TRGLogoBall.png</p>
+              <p style="font-size: 10px; color: rgba(255,248,220,0.35); margin: 0; text-align: center; padding: 0 16px;">your real logo asset<br/>placed at native resolution</p>
             </div>
-            <div class="nav-arrows"><span>‹</span><span>›</span></div>
-          </div>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div style="display:flex;gap:10px;align-items:center">
-              <div style="width:36px;height:36px;background:#2A1466;border-radius:6px;flex-shrink:0"></div>
-              <div>
-                <div class="setting-eyebrow">beat</div>
-                <div class="setting-value" style="font-size:13px">Launch the Paunch</div>
-                <div class="setting-desc">DJ Maintain · 90 BPM</div>
+
+            <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 500; color: #FFF8DC; margin: 0 0 36px; letter-spacing: 0.01em;">Join the freestyle revolution</p>
+
+            <div style="position: relative; width: 100%; max-width: 320px;">
+              <div style="position: absolute; inset: -36px; background: radial-gradient(ellipse at 50% 45%, rgba(232,168,0,0.5) 0%, rgba(232,168,0,0.18) 35%, rgba(232,168,0,0) 65%); pointer-events: none; filter: blur(18px);"></div>
+
+              <div style="position: relative; background: linear-gradient(180deg, #F5C648 0%, #C28C00 60%, #9F7000 100%); border-radius: 32px; padding: 24px 28px; text-align: center; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 rgba(140,90,0,0.4) inset, 0 0 0 1px rgba(255,255,255,0.12) inset, 0 18px 48px rgba(196,140,0,0.4), 0 4px 14px rgba(0,0,0,0.18); overflow: hidden;">
+
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-radius: 32px 32px 100% 100% / 32px 32px 60% 60%; pointer-events: none;"></div>
+
+                <div style="position: absolute; top: 10px; left: 28%; right: 28%; height: 10px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(4px); pointer-events: none;"></div>
+
+                <div style="position: relative;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 700; color: #3D2400; margin: 0; letter-spacing: 0.01em;">Free Trial</p>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 600; color: #5C3700; margin: 4px 0 0;">Unlock 100+ Beats</p>
+                </div>
               </div>
             </div>
-            <div class="nav-arrows"><span>‹</span><span>›</span></div>
+
+          </div>
+
+        </div>
+
+        <div style="padding: 0 20px 12px; position: relative; z-index: 1;">
+          <div style="background: linear-gradient(180deg, rgba(184,164,255,0.06) 0%, rgba(26,15,61,0.55) 100%); border: 0.5px solid rgba(255,248,220,0.1); border-radius: 18px; padding: 10px 14px 10px 10px; display: flex; align-items: center; gap: 12px; box-shadow: 0 12px 32px rgba(26,15,61,0.45);">
+            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #2D1F52 0%, #1A0F3D 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; background: radial-gradient(circle, rgba(255,199,44,0.55) 0%, transparent 70%); filter: blur(2px);"></div>
+              <div style="position: absolute; bottom: 4px; left: 4px; width: 18px; height: 18px; background: radial-gradient(circle, rgba(127,119,221,0.5) 0%, transparent 70%); filter: blur(2px);"></div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 2;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: #FFF8DC; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Roses</p>
+              <p style="font-size: 12px; color: #B8A4FF; margin: 1px 0 5px;">Bizzle Beats</p>
+              <div style="height: 2px; background: rgba(184,164,255,0.16); border-radius: 1px; overflow: hidden;">
+                <div style="width: 30%; height: 100%; background: linear-gradient(90deg, #C28C00 0%, #F5C648 100%);"></div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center; padding-right: 4px;">
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,248,220,0.85)">
+                  <polygon points="18,4 18,20 6,12"/>
+                  <rect x="4" y="4" width="2" height="16"/>
+                </svg>
+              </div>
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFF8DC" style="margin-left: 2px;">
+                  <polygon points="6,4 6,20 20,12"/>
+                </svg>
+              </div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,248,220,0.85)">
+                  <polygon points="6,4 6,20 18,12"/>
+                  <rect x="18" y="4" width="2" height="16"/>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="play-cta">play</div>
+
+        <div style="background: linear-gradient(180deg, #1F0F4F 0%, #14093D 100%); padding: 18px 20px 32px; position: relative; z-index: 2;">
+
+          <div style="display: flex; justify-content: space-around; align-items: flex-end; position: relative;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8A4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+              <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: #B8A4FF;">Stats</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 16px; position: relative; z-index: 20;">
+              <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, rgba(232,168,0,0.4) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
+              <div style="width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F5CE68 0%, #C28C00 100%); display: flex; align-items: center; justify-content: center; margin-top: -42px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 12px 28px rgba(196,140,0,0.45); position: relative; z-index: 21;">
+                <svg width="28" height="28" viewBox="0 0 24 24" style="margin-left: 3px;">
+                  <polygon points="6,4 6,20 20,12" fill="#2A1466"/>
+                </svg>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8A4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: #B8A4FF;">Tools</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+        </div>
       </div>
     </div>
 
-    <div>
-      <div class="screen-label">3 · random words</div>
-      <div class="screen-words">
-        <div class="screen-header">
-          <span class="screen-back">‹</span>
-          <span class="screen-title-text">random words</span>
-          <span style="font-size:16px;color:#B8A4FF">⚙</span>
+    <div class="new-screen-cell">
+      <h3>Settings Screen</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: linear-gradient(180deg, #7B4FFF 0%, #5829E8 30%, #3D1F8F 100%); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="140" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 24px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 0.5px solid rgba(255,248,220,0.12); margin-bottom: 28px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF8DC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: #FFF8DC;">Settings</span>
+                <span style="width: 24px;"></span>
+              </div>
+            </div>
+
+            <div style="flex: 1; overflow: auto; padding: 0 20px; position: relative; z-index: 2;">
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 12px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Replay Tutorial</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0;">Walk through the 5 tutorial slides again</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.75)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 12px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">FAQ and Give Feedback</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0;">Got an issue? Check here first.</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.75)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <p style="font-size: 11px; color: rgba(184,164,255,0.7); margin: 0 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Playback</p>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 12px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Correct Audio Lag / Ball Sync</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0;">Calibrate beat timing to match your device</p>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.75)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 14px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Background Audio Playback</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0; line-height: 1.45;">Keep audio playing when the app is in the background or your phone is locked</p>
+                </div>
+                <div style="flex-shrink: 0;">
+                  <div style="width: 46px; height: 26px; background: linear-gradient(180deg, #F5C648 0%, #C28C00 100%); border-radius: 13px; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;">
+                    <div style="width: 20px; height: 20px; background: #FFFFFF; border-radius: 50%; position: absolute; right: 3px; top: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.2);"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Master Volume</p>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: #F5C648;">100%</span>
+                </div>
+                <div style="position: relative; height: 6px;">
+                  <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 3px;"></div>
+                  <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, #C28C00 0%, #F5C648 100%); border-radius: 3px;"></div>
+                  <div style="position: absolute; right: -8px; top: -6px; width: 18px; height: 18px; background: #FFFFFF; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.3);"></div>
+                </div>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 14px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Haptic Feedback</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0;">Vibration ticks when interacting with the app</p>
+                </div>
+                <div style="flex-shrink: 0;">
+                  <div style="width: 46px; height: 26px; background: linear-gradient(180deg, #F5C648 0%, #C28C00 100%); border-radius: 13px; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;">
+                    <div style="width: 20px; height: 20px; background: #FFFFFF; border-radius: 50%; position: absolute; right: 3px; top: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.2);"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p style="font-size: 11px; color: rgba(184,164,255,0.7); margin: 0 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Subscription</p>
+
+              <div style="background: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 1; padding-right: 14px;">
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Free</p>
+                  <p style="font-size: 12px; color: rgba(184,164,255,0.75); margin: 4px 0 0;">Upgrade to unlock all content</p>
+                </div>
+                <span style="background: rgba(184,164,255,0.18); color: rgba(220,210,255,0.95); font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 999px; letter-spacing: 0.05em;">FREE</span>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%); border-radius: 18px; padding: 18px 22px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+                <p style="font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 600; color: #FFF8DC; margin: 0;">Upgrade</p>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.75)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+            </div>
+
+          </div>
         </div>
-        <p class="center-meta">Basic Words · 5 words · 3 rhymes each</p>
-        <div class="word-row"><span class="word-prompt">fight</span><span class="word-rhymes">site, right, white</span></div>
-        <div class="word-row"><span class="word-prompt">stool</span><span class="word-rhymes">school, tool, rule</span></div>
-        <div class="word-row"><span class="word-prompt">slide</span><span class="word-rhymes">guide, provide, side</span></div>
-        <div class="word-row"><span class="word-prompt">hot</span><span class="word-rhymes">not, got, lot</span></div>
-        <div class="word-row"><span class="word-prompt">weak</span><span class="word-rhymes">week, unique, creek</span></div>
-        <div class="generate-btn">⇄ generate new words</div>
       </div>
     </div>
 
-    <div>
-      <div class="screen-label">4 · settings</div>
-      <div class="screen-settings">
-        <div class="screen-header">
-          <span class="screen-back">‹</span>
-          <span class="screen-title-text">settings</span>
-          <span style="width:16px"></span>
-        </div>
-        <p class="section-label">playback</p>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div>
-              <div class="setting-title">Audio lag / ball sync</div>
-              <div class="setting-desc">Calibrate beat timing</div>
+    <div class="new-screen-cell">
+      <h3>Stats Screen</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: linear-gradient(180deg, #7B4FFF 0%, #5829E8 30%, #3D1F8F 100%); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="140" fill="none" stroke="#FFF8DC" stroke-width="0.5"/>
+            </svg>
+
+            <div style="padding: 60px 24px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="font-size: 18px;">🔥</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 600; color: #FFF8DC;">1</span>
+                </div>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: #FFF8DC;">Your Stats</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFF8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
             </div>
-            <span class="setting-chevron">›</span>
-          </div>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div>
-              <div class="setting-title">Background audio</div>
-              <div class="setting-desc">Keep playing when locked</div>
+
+            <div style="flex: 1; overflow: auto; padding: 0 20px 0; position: relative; z-index: 2;">
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 22px 0; margin-bottom: 14px; overflow: hidden;">
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px;">
+                  <div>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: rgba(184,164,255,0.85); margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Current Streak</p>
+                    <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                      <span style="font-family: 'Fredoka', sans-serif; font-size: 36px; font-weight: 700; color: #F5C648; line-height: 1; letter-spacing: -0.02em;">1</span>
+                      <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,248,220,0.85);">day 🔥</span>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: rgba(184,164,255,0.7); margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Longest</p>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: #FFF8DC; margin: 4px 0 0;">1 day 🏆</p>
+                  </div>
+                </div>
+                <div style="padding-bottom: 14px;">
+                  <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;">
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: rgba(184,164,255,0.10); border-radius: 4px;"></div>
+                    <div style="aspect-ratio: 1; background: linear-gradient(135deg, #F5C648 0%, #C28C00 100%); border-radius: 4px; box-shadow: 0 0 6px rgba(232,168,0,0.5);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: flex-start; align-items: center; margin-top: 10px;">
+                    <span style="font-size: 10px; color: rgba(184,164,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;">Last 28 days</span>
+                  </div>
+                </div>
+                <div style="border-top: 0.5px solid rgba(255,248,220,0.08); margin: 0 -22px; padding: 11px 22px; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: rgba(184,164,255,0.85); letter-spacing: 0.02em;">See full year</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 16px 0; margin-bottom: 14px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding-bottom: 16px;">
+                  <div style="text-align: center; border-right: 0.5px solid rgba(255,248,220,0.1);">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 26px; font-weight: 700; color: #FFF8DC; margin: 0; letter-spacing: -0.01em; line-height: 1;">1,264</p>
+                    <p style="font-size: 10px; color: rgba(184,164,255,0.8); margin: 6px 0 0; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Words Rapped</p>
+                  </div>
+                  <div style="text-align: center; border-right: 0.5px solid rgba(255,248,220,0.1);">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 26px; font-weight: 700; color: #F5C648; margin: 0; letter-spacing: -0.01em; line-height: 1;">79</p>
+                    <p style="font-size: 10px; color: rgba(184,164,255,0.8); margin: 6px 0 0; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Total Bars</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 26px; font-weight: 700; color: #FFF8DC; margin: 0; letter-spacing: -0.01em; line-height: 1;">5<span style="font-size: 18px; color: rgba(184,164,255,0.85); font-weight: 600;">m</span></p>
+                    <p style="font-size: 10px; color: rgba(184,164,255,0.8); margin: 6px 0 0; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Time Rapping</p>
+                  </div>
+                </div>
+                <div style="border-top: 0.5px solid rgba(255,248,220,0.08); margin: 0 -16px; padding: 11px 16px; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: rgba(184,164,255,0.85); letter-spacing: 0.02em;">See detailed stats</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <p style="font-size: 11px; color: rgba(184,164,255,0.7); margin: 8px 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Top played beats</p>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 18px 14px 0; margin-bottom: 14px; overflow: hidden;">
+                <div style="display: flex; justify-content: center; align-items: flex-end; gap: 6px; height: 140px; margin-bottom: 18px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 96px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC; margin: 0 0 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Roses</p>
+                    <p style="font-size: 9px; color: rgba(184,164,255,0.7); margin: 0 0 6px; text-align: center;">Bizzle Beats</p>
+                    <div style="width: 100%; height: 80px; background: linear-gradient(180deg, #DCD2FF 0%, #B8A4FF 40%, #8A7FA8 100%); border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;">
+                      <div style="position: absolute; top: 6px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 700; color: #2A1466;">2</div>
+                      <div style="position: absolute; bottom: 6px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #2A1466;">1 play</div>
+                    </div>
+                  </div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 96px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFF8DC; margin: 0 0 2px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Trap Loop</p>
+                    <p style="font-size: 9px; color: rgba(184,164,255,0.7); margin: 0 0 6px; text-align: center;">The Rhyme Game</p>
+                    <div style="width: 100%; height: 110px; background: linear-gradient(180deg, #F5CE68 0%, #F5C648 30%, #C28C00 70%, #9F7000 100%); border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 0 20px rgba(232,168,0,0.35);">
+                      <div style="position: absolute; top: 8px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; color: #3D2400;">1</div>
+                      <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: #3D2400;">1 play</div>
+                    </div>
+                  </div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 96px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #FFF8DC; margin: 0 0 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Baby</p>
+                    <p style="font-size: 9px; color: rgba(184,164,255,0.7); margin: 0 0 6px; text-align: center;">Dumblit</p>
+                    <div style="width: 100%; height: 60px; background: linear-gradient(180deg, #EDE4D0 0%, #A66400 40%, #5C3700 100%); border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;">
+                      <div style="position: absolute; top: 4px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: #FFF8DC;">3</div>
+                      <div style="position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 600; color: #FFF8DC;">1 play</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="border-top: 0.5px solid rgba(255,248,220,0.08); margin: 0 -14px; padding: 11px 14px; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: rgba(184,164,255,0.85); letter-spacing: 0.02em;">See top 10 beats</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <p style="font-size: 11px; color: rgba(184,164,255,0.7); margin: 8px 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Favorite genres</p>
+
+              <div style="background: linear-gradient(180deg, rgba(42,20,102,0.55) 0%, rgba(42,20,102,0.42) 100%); border-radius: 18px; padding: 16px 22px; margin-bottom: 14px;">
+                <div style="display: flex; gap: 5px; height: 38px; border-radius: 8px; overflow: hidden; margin-bottom: 12px;">
+                  <div style="flex: 42; background: linear-gradient(180deg, #F5C648 0%, #C28C00 100%); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: #3D2400;">42%</span></div>
+                  <div style="flex: 28; background: #F08838; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: #3D1A05;">28%</span></div>
+                  <div style="flex: 18; background: #4FA8E8; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: #0A2E52;">18%</span></div>
+                  <div style="flex: 12; background: #4FCC85; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: #0A3D1F;">12%</span></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin-bottom: 12px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: #F5C648; border-radius: 2px; flex-shrink: 0;"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFF8DC;">Trap</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: #F08838; border-radius: 2px; flex-shrink: 0;"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFF8DC;">Boom Bap</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: #4FA8E8; border-radius: 2px; flex-shrink: 0;"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFF8DC;">Drill</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: #4FCC85; border-radius: 2px; flex-shrink: 0;"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #FFF8DC;">Lo-fi</span>
+                  </div>
+                </div>
+                <p style="font-size: 12px; color: rgba(220,210,255,0.85); margin: 0; line-height: 1.5; text-align: center;">You're a <span style="color: #F5C648; font-family: 'Fredoka', sans-serif; font-weight: 700;">Trap</span> head. <span style="color: rgba(184,164,255,0.65);">Try a Drill beat next session to mix it up.</span></p>
+              </div>
+
+              <p style="font-size: 11px; color: rgba(184,164,255,0.7); margin: 8px 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Achievements <span style="color: rgba(245,198,72,0.7); margin-left: 6px;">coming soon</span></p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+                <div style="background: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%); border-radius: 14px; padding: 16px 8px; text-align: center; aspect-ratio: 1;">
+                  <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(184,164,255,0.12); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </div>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,248,220,0.55); margin: 0; line-height: 1.3;">First<br/>Flow</p>
+                </div>
+                <div style="background: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%); border-radius: 14px; padding: 16px 8px; text-align: center; aspect-ratio: 1;">
+                  <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(184,164,255,0.12); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </div>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,248,220,0.55); margin: 0; line-height: 1.3;">100<br/>Bars</p>
+                </div>
+                <div style="background: linear-gradient(180deg, rgba(26,15,61,0.65) 0%, rgba(26,15,61,0.55) 100%); border-radius: 14px; padding: 16px 8px; text-align: center; aspect-ratio: 1;">
+                  <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(184,164,255,0.12); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(184,164,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </div>
+                  <p style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,248,220,0.55); margin: 0; line-height: 1.3;">7-Day<br/>Streak</p>
+                </div>
+              </div>
+
             </div>
-            <div class="toggle"><div class="toggle-knob"></div></div>
-          </div>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div class="setting-title">Master volume</div>
-            <span style="font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;color:#FFC72C">100%</span>
-          </div>
-          <div class="volume-slider"><div class="volume-fill"></div></div>
-        </div>
-        <div class="setting-card">
-          <div class="setting-row">
-            <div>
-              <div class="setting-title">Haptic feedback</div>
-              <div class="setting-desc">Vibration ticks</div>
+
+            <div style="background: linear-gradient(180deg, #1F0F4F 0%, #14093D 100%); padding: 18px 20px 32px; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-around; align-items: flex-end; position: relative;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5C648" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: #F5C648;">Stats</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; margin: 0 16px; position: relative; z-index: 20;">
+                  <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, rgba(232,168,0,0.4) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
+                  <div style="width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #F5CE68 0%, #C28C00 100%); display: flex; align-items: center; justify-content: center; margin-top: -42px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 12px 28px rgba(196,140,0,0.45); position: relative; z-index: 21;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" style="margin-left: 3px;"><polygon points="6,4 6,20 20,12" fill="#2A1466"/></svg>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8A4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: #B8A4FF;">Tools</span>
+                </div>
+              </div>
             </div>
-            <div class="toggle"><div class="toggle-knob"></div></div>
+
           </div>
         </div>
       </div>
     </div>
 
-  </div>
+  </div><!-- end new-screens-grid -->
 
-  <!-- ─── Spacing ─── -->
-  <h2>Spacing & shape</h2>
-  <div class="spec-table">
-    <div><span class="spec-label">Border radius —</span> <span class="spec-value">10px</span> gameplay cells · <span class="spec-value">12px</span> translucent cards · <span class="spec-value">14px</span> menu buttons · <span class="spec-value">20px</span> screen containers</div>
-    <div><span class="spec-label">Shadow offset —</span> <span class="spec-value">4px</span> default · <span class="spec-value">5px</span> for primary CTA · always zero blur · no shadow on translucent cards</div>
-    <div><span class="spec-label">Grid gap —</span> <span class="spec-value">8px</span> horizontal · <span class="spec-value">10px</span> vertical (extra room for shadows)</div>
-    <div><span class="spec-label">Card gap —</span> <span class="spec-value">6–8px</span> between translucent cards in a list</div>
-    <div><span class="spec-label">Padding —</span> <span class="spec-value">12px 16px</span> card internal · <span class="spec-value">20–24px</span> container internal · <span class="spec-value">28px</span> screen edge</div>
-  </div>
-
-  <!-- ─── Do / don't ─── -->
-  <h2>Do & don't</h2>
-  <div class="rules">
-    <div class="rule-do">
-      <div class="rule-header">do</div>
-      <p class="rule-body">Always use a vertical purple gradient (light from top). Use chunky platform blocks only on gameplay surfaces and primary CTAs. Use translucent cards for everything else. Limit yellow to one CTA per screen. Use dark-of-own-family for text on color. Reserve pink for creative moments only. Dock primary actions at the bottom of the screen.</p>
-    </div>
-    <div class="rule-dont">
-      <div class="rule-header">don't</div>
-      <p class="rule-body">Mix the two vocabularies on one screen. Use flat purple backgrounds — always gradient. Use pure black for text — tint toward purple. Use pure white — use cream. Mix Fredoka and system font in one element. Add new brand colors. Use blurred shadows. Float buttons over content. Stack multiple yellow CTAs.</p>
-    </div>
-  </div>
-
-  <!-- ─── Summary ─── -->
-  <div class="summary">
-    <div class="summary-label">one-line summary</div>
-    <p class="summary-text">Two brand colors, two vocabularies (platform blocks for gameplay, translucent cards for everything else), rounded geometric type. Color carries meaning, never decoration. Everything you can tap is a physical object with weight.</p>
-  </div>
+  </div><!-- ═══ END TAB 3 ═══ -->
 
   <!-- ─── Footer ─── -->
   <div class="footer">
@@ -833,5 +1282,42 @@
   </div>
 
 </div>
+
+<script>
+  (function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    function switchTab(tabId) {
+      tabButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabId);
+      });
+      tabPanels.forEach(panel => {
+        panel.classList.toggle('active', panel.id === 'tab-' + tabId);
+      });
+      // Update URL hash without scrolling (skip in sandboxed previews)
+      try {
+        if (history.replaceState) {
+          history.replaceState(null, '', '#' + tabId);
+        }
+      } catch (e) {
+        // about:srcdoc and similar sandboxed contexts block this — ignore silently
+      }
+      // Scroll to top of content area
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    // Honor hash on page load (deep linking)
+    const hash = window.location.hash.replace('#', '');
+    if (hash && ['philosophy', 'tokens', 'screens'].includes(hash)) {
+      switchTab(hash);
+    }
+  })();
+</script>
+
 </body>
 </html>
