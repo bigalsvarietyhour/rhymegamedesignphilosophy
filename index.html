@@ -130,12 +130,6 @@
 
   /* ─── Tab navigation ─── */
   .tabs {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(22, 22, 24, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     margin: 0 -32px 32px;
     padding: 0 32px;
@@ -1553,6 +1547,13 @@
             <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0 0 36px; letter-spacing: 0.01em;">Join the freestyle revolution</p>
 
             <div style="position: relative; width: 100%; max-width: 320px;">
+              <!-- Carousel scroll arrows — flank the gem on the left and right -->
+              <div style="position: absolute; top: 50%; left: -44px; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 2;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </div>
+              <div style="position: absolute; top: 50%; right: -44px; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 2;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
               <div style="position: absolute; inset: -36px; background: radial-gradient(ellipse at 50% 45%, rgba(232,168,0,0.5) 0%, rgba(232,168,0,0.18) 35%, rgba(232,168,0,0) 65%); pointer-events: none; filter: blur(18px);"></div>
 
               <div style="position: relative; background: var(--gradient-gem); border-radius: 32px; padding: 24px 28px; text-align: center; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 var(--gem-inset-bottom) inset, 0 0 0 1px rgba(255,255,255,0.12) inset, 0 18px 48px rgba(196,140,0,0.4), 0 4px 14px rgba(0,0,0,0.18); overflow: hidden;">
@@ -1570,6 +1571,14 @@
 
           </div>
 
+        </div>
+
+        <!-- Carousel indicator: 4 dots, first active (Free Trial), 3 inactive (future news items) -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 7px; padding: 4px 20px 14px; position: relative; z-index: 1;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-deep);"></div>
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
         </div>
 
         <div style="padding: 0 20px 12px; position: relative; z-index: 1;">
@@ -1984,7 +1993,7 @@
       </div>
     </div>
     <div class="new-screen-cell">
-      <h3>News Pop-Up</h3>
+      <h3>News Feed Pop-Up</h3>
       <div class="screen-scale-wrapper">
         <div class="screen-scale-inner">
           <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
@@ -2008,7 +2017,7 @@
       </div>
     </div>
     <div class="new-screen-cell">
-      <h3>Daily Challenge</h3>
+      <h3>Daily Challenge Pop-Up</h3>
       <div class="screen-scale-wrapper">
         <div class="screen-scale-inner">
           <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
