@@ -403,6 +403,21 @@
     justify-content: center;
   }
 
+
+  /* Motion-design hint shown beneath screen titles in Tab 3 (note for the implementer about animation intent) */
+  .new-screen-cell .motion-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin: 12px 0 0;
+    font-style: italic;
+    line-height: 1.4;
+    opacity: 0.85;
+    letter-spacing: 0;
+    max-width: 340px;
+  }
+
   /* Tab 3 — Screen section headers */
   .screens-section-header {
     margin: 56px 0 24px;
@@ -1511,7 +1526,7 @@
   </div>
   <div id="screens-grid" data-theme="default">
 
-  <h2 class="screens-section-header">Menu Screens <span class="count">6 screens</span></h2>
+  <h2 class="screens-section-header">Menu Screens <span class="count">7 screens</span></h2>
   <div class="new-screens-grid">
     <div class="new-screen-cell">
       <h3>Home Screen</h3>
@@ -2039,6 +2054,109 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Achievement Unlocked · Pop-up</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <!-- Placeholder content beneath the overlay: minimal hint of a menu screen so user can see what's behind -->
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2; opacity: 0.5;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg);">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Any screen</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; opacity: 0.35; padding: 0 40px; position: relative; z-index: 2;">
+              <p style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-secondary); text-align: center; line-height: 1.5;">The achievement pop-up overlays whatever screen the user is currently on.</p>
+            </div>
+
+            <!-- Achievement overlay: scrim + dramatically-glowing centered card. Phone-container sibling, z-index 100. -->
+            <div style="position: absolute; inset: 0; background: rgba(20,9,61,0.70); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">
+
+              <!-- LAYER 1: Outermost atmospheric haze -->
+              <div style="position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(245,198,72,0.35) 0%, rgba(245,198,72,0.10) 35%, rgba(245,198,72,0) 60%); filter: blur(28px); pointer-events: none;"></div>
+
+              <!-- LAYER 2: Mid-glow burst -->
+              <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(245,198,72,0.75) 0%, rgba(245,198,72,0.35) 25%, rgba(245,198,72,0) 55%); filter: blur(14px); pointer-events: none;"></div>
+
+              <!-- LAYER 3: Tight core glow -->
+              <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(255,220,120,0.65) 0%, rgba(245,198,72,0.30) 40%, rgba(245,198,72,0) 65%); filter: blur(6px); pointer-events: none;"></div>
+
+              <!-- LAYER 4: 12 ray star burst -->
+              <svg width="380" height="380" viewBox="0 0 380 380" style="position: absolute; pointer-events: none; opacity: 0.55;">
+                <defs>
+                  <linearGradient id="rayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255,220,120,0)" />
+                    <stop offset="50%" stop-color="rgba(255,220,120,0.7)" />
+                    <stop offset="100%" stop-color="rgba(255,220,120,0)" />
+                  </linearGradient>
+                </defs>
+                <g transform="translate(190 190)">
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(30)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(60)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(90)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(120)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(150)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(180)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(210)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(240)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(270)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(300)"/>
+                  <polygon points="0,-170 8,-80 -8,-80" fill="url(#rayGrad)" transform="rotate(330)"/>
+                </g>
+              </svg>
+
+              <!-- The achievement card -->
+              <div style="position: relative; width: 268px; background: linear-gradient(180deg, #3D2278 0%, #1F0F4F 100%); border: 1.5px solid var(--accent-bright); border-radius: 20px; padding: 20px 18px 16px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 0 0 4px rgba(245,198,72,0.30), 0 0 36px rgba(245,198,72,0.65), 0 0 60px rgba(245,198,72,0.40), 0 16px 48px rgba(0,0,0,0.65); display: flex; flex-direction: column; align-items: center;">
+
+                <!-- Inner top highlight band -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 38%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-top-left-radius: 20px; border-top-right-radius: 20px; pointer-events: none;"></div>
+
+                <span style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; text-shadow: 0 0 8px rgba(245,198,72,0.6);">★ Achievement Unlocked ★</span>
+
+                <!-- Platinum record -->
+                <div style="position: relative; width: 108px; height: 108px; margin-bottom: 14px;">
+                  <div style="position: absolute; inset: -12px; background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 60%); filter: blur(8px); pointer-events: none;"></div>
+                  <div style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #F4F4FA 0%, #C8C8D8 40%, #888894 75%, #5A5A66 100%); box-shadow: 0 0 0 2.5px rgba(255,255,255,0.50) inset, 0 0 24px rgba(255,255,255,0.40), 0 6px 18px rgba(0,0,0,0.55);"></div>
+                  <svg width="108" height="108" viewBox="0 0 108 108" style="position: absolute; inset: 0;">
+                    <circle cx="54" cy="54" r="48" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
+                    <circle cx="54" cy="54" r="43" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
+                    <circle cx="54" cy="54" r="38" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
+                    <circle cx="54" cy="54" r="33" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
+                    <circle cx="54" cy="54" r="28" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
+                  </svg>
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--accent-light) 0%, var(--accent-bright) 55%, var(--accent-deep) 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(0,0,0,0.4) inset, 0 0 8px rgba(245,198,72,0.6);">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #1a1a1f;"></div>
+                  </div>
+                  <div style="position: absolute; top: 6px; left: 14px; width: 32px; height: 18px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.65) 0%, transparent 70%); pointer-events: none;"></div>
+                  <div style="position: absolute; top: 70px; right: 16px; width: 12px; height: 6px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.40) 0%, transparent 70%); pointer-events: none;"></div>
+                </div>
+
+                <p style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); margin: 0; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">1,000 Bars</p>
+                <p style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: rgba(255,248,220,0.85); margin: 4px 0 16px; text-align: center;">You've spit 1,000 bars total.</p>
+
+                <div style="position: relative; background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 7px 16px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.10em;">Tap to dismiss</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <p class="motion-note">↻ Pops up over the current screen with a glowing burst. Tap anywhere to dismiss.</p>
     </div>
   </div><!-- end Menu Screens grid -->
 
@@ -2977,7 +3095,7 @@
 
   </div><!-- end Beat Library grid -->
 
-  <h2 class="screens-section-header">Gameplay <span class="count">6 screens</span></h2>
+  <h2 class="screens-section-header">Gameplay <span class="count">8 screens</span></h2>
   <div class="new-screens-grid">
     <div class="new-screen-cell">
       <h3>Play Menu</h3>
@@ -3348,17 +3466,429 @@
               <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
             </svg>
 
+            <!-- Header: back chevron + "Good job!" -->
             <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
-              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
-                <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary);">Game end</span>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em;">Good job!</span>
                 <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+            <!-- Chrome-less viewer area + flanking chevrons + dots beneath -->
+            <div style="position: relative; padding: 4px 20px 0; z-index: 2;">
+
+              <div style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="15 18 9 12 15 6"/></svg>
+              </div>
+
+              <div style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <!-- Viewer content sits directly on screen, no outer card. Margin reserves space for chevrons. -->
+              <div style="margin: 0 22px; height: 280px; position: relative; overflow: visible;">
+                
+              <!-- Sandbox hint: small "edit" affordance in the viewer's top-right -->
+              <div style="position: absolute; top: -2px; right: -2px; display: flex; align-items: center; gap: 4px; opacity: 0.55; pointer-events: none;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.08em;">Tap to edit</span>
+              </div>
+                <div style="display: grid; grid-template-rows: repeat(5, 44px); gap: 5px; height: 100%; padding: 4px 2px;">
+                  <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">−1</span><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div></div>
+                  <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">1</span><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--rhyme-orange-block); border-radius: 6px; box-shadow: 0 3px 0 var(--rhyme-orange-shadow), 0 4px 6px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--rhyme-orange-text);">rust</span></div></div>
+                  <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">2</span><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--grid-empty-bg); border: 1px solid var(--grid-empty-border); border-radius: 6px; box-shadow: inset 0 2px 4px var(--grid-empty-inset);"></div><div style="height: 44px; background: var(--rhyme-blue-block); border-radius: 6px; box-shadow: 0 3px 0 var(--rhyme-blue-shadow), 0 4px 6px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--rhyme-blue-text);">may</span></div></div>
+                  <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">3</span><div style="height: 44px; background: var(--grid-cream-bg); border-radius: 6px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 4px 6px rgba(0,0,0,0.10);"></div><div style="height: 44px; background: var(--grid-cream-bg); border-radius: 6px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 4px 6px rgba(0,0,0,0.10);"></div><div style="height: 44px; background: var(--grid-cream-bg); border-radius: 6px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 4px 6px rgba(0,0,0,0.10);"></div><div style="height: 44px; background: var(--rhyme-yellow-block); border-radius: 6px; box-shadow: 0 3px 0 var(--rhyme-yellow-shadow), 0 4px 6px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--rhyme-yellow-text);">thrive</span></div></div>
+                  <div style="display: grid; grid-template-columns: 22px 1fr 1fr 1fr 1fr; gap: 8px; align-items: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--grid-bar-label); text-align: right;">4</span><div style="height: 44px; background: var(--gradient-flare); border-radius: 6px; box-shadow: 0 3px 0 var(--flare-shadow), 0 4px 6px rgba(0,0,0,0.18);"></div><div style="height: 44px; background: var(--gradient-flare); border-radius: 6px; box-shadow: 0 3px 0 var(--flare-shadow), 0 4px 6px rgba(0,0,0,0.18);"></div><div style="height: 44px; background: var(--gradient-flare); border-radius: 6px; box-shadow: 0 3px 0 var(--flare-shadow), 0 4px 6px rgba(0,0,0,0.18);"></div><div style="height: 44px; background: var(--rhyme-green-block); border-radius: 6px; box-shadow: 0 3px 0 var(--rhyme-green-shadow), 0 4px 6px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--rhyme-green-text);">pick</span></div></div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; gap: 7px; padding: 10px 0 0;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-deep);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+              </div>
+            </div>
+
+            <div style="flex: 1;"></div>
+
+            <!-- Action area: single dominant Play Again gem + inline same/new toggle + tertiary back link -->
+            <div style="padding: 0 20px 8px; position: relative; z-index: 2;">
+
+              <!-- Two equal-weight Play Again buttons side by side -->
+              <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">same words</span>
+                </div>
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">new words</span>
+                </div>
+              </div>
+
+              <!-- Tertiary: back to menu (text-link weight, with chevron) -->
+              <div style="display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px 0 0; opacity: 0.75;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-primary);">Back to menu</span>
+              </div>
+            </div>
+
+            <!-- Premium-card mini-player anchored bottom -->
+            <div style="padding: 12px 18px 28px; position: relative; z-index: 2;">
+              <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 18px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(26,15,61,0.20);">
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 48px; height: 48px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
+                    <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
+                  </div>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-primary)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 18%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:24</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                      <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −1</span>
+                      <div style="display: flex; gap: 3px; margin-left: 4px;">
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      </div>
+                    </div>
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                  </div>
+                </div>
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      <p class="motion-note">↻ Tap a word to explore alternates and edit your rhymes.</p>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Game End Screen · Recording Preview</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <!-- Header: back chevron + "Good job!" -->
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em;">Good job!</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+            <!-- Chrome-less viewer area + flanking chevrons + dots beneath -->
+            <div style="position: relative; padding: 4px 20px 0; z-index: 2;">
+
+              <div style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="15 18 9 12 15 6"/></svg>
+              </div>
+
+              <div style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <!-- Viewer content sits directly on screen, no outer card. Margin reserves space for chevrons. -->
+              <div style="margin: 0 22px; height: 280px; position: relative; overflow: visible;">
+                
+                <!-- Recording playback frame -->
+                <div style="height: 100%; background: linear-gradient(180deg, #1a1a1f 0%, #0d0d12 100%); border-radius: 12px; position: relative; overflow: hidden; margin: -14px; height: calc(100% + 28px);">
+                  <!-- Faint user silhouette -->
+                  <svg width="140" height="170" viewBox="0 0 200 240" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); opacity: 0.10;">
+                    <ellipse cx="100" cy="70" rx="44" ry="56" fill="#FFF8DC"/>
+                    <path d="M 30 240 Q 30 150 100 140 Q 170 150 170 240 Z" fill="#FFF8DC"/>
+                  </svg>
+
+                  <!-- Center play button -->
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(0,0,0,0.55); border: 1.5px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--text-primary)" style="margin-left: 3px;"><polygon points="6,4 20,12 6,20"/></svg>
+                  </div>
+
+                  <!-- Bottom: scrubber + times + share/save quick actions -->
+                  <div style="position: absolute; bottom: 12px; left: 14px; right: 14px;">
+                    <div style="position: relative; height: 3px; margin-bottom: 8px;">
+                      <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.20); border-radius: 1.5px;"></div>
+                      <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 0%; background: var(--gradient-progress); border-radius: 1.5px;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,248,220,0.85); font-variant-numeric: tabular-nums;">0:00 / 2:23</span>
+                      <div style="display: flex; gap: 8px;">
+                        <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </div>
+                        <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- REC dot in upper-left to indicate "this WAS recorded" -->
+                  <div style="position: absolute; top: 12px; left: 14px; display: flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; background: rgba(0,0,0,0.55); border-radius: 999px;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #E84545;"></div>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.08em;">RECORDED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; gap: 7px; padding: 10px 0 0;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-deep);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+              </div>
+            </div>
+
+            <div style="flex: 1;"></div>
+
+            <!-- Action area: single dominant Play Again gem + inline same/new toggle + tertiary back link -->
+            <div style="padding: 0 20px 8px; position: relative; z-index: 2;">
+
+              <!-- Two equal-weight Play Again buttons side by side -->
+              <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">same words</span>
+                </div>
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">new words</span>
+                </div>
+              </div>
+
+              <!-- Tertiary: back to menu (text-link weight, with chevron) -->
+              <div style="display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px 0 0; opacity: 0.75;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-primary);">Back to menu</span>
+              </div>
+            </div>
+
+            <!-- Premium-card mini-player anchored bottom -->
+            <div style="padding: 12px 18px 28px; position: relative; z-index: 2;">
+              <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 18px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(26,15,61,0.20);">
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 48px; height: 48px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
+                    <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
+                  </div>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-primary)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 18%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:24</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                      <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −1</span>
+                      <div style="display: flex; gap: 3px; margin-left: 4px;">
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      </div>
+                    </div>
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <p class="motion-note">↻ Playback fades in. Tap controls to download or share.</p>
+    </div>
+    <div class="new-screen-cell">
+      <h3>Game End Screen · Stats</h3>
+      <div class="screen-scale-wrapper">
+        <div class="screen-scale-inner">
+          <div style="width: 393px; height: 852px; background: var(--gradient-menu-bg); border-radius: 48px; overflow: hidden; display: flex; flex-direction: column; position: relative; box-sizing: border-box;">
+
+            <svg width="700" height="700" viewBox="0 0 700 700" style="position: absolute; top: -80px; left: -180px; opacity: 0.05; pointer-events: none;">
+              <circle cx="350" cy="350" r="320" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="260" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+              <circle cx="350" cy="350" r="200" fill="none" stroke="var(--text-primary)" stroke-width="0.5"/>
+            </svg>
+
+            <!-- Header: back chevron + "Good job!" -->
+            <div style="padding: 60px 20px 0; position: relative; z-index: 2;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 0.5px solid var(--grid-empty-bg); margin-bottom: 0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em;">Good job!</span>
+                <div style="width: 26px;"></div>
+              </div>
+            </div>
+
+            <!-- Chrome-less viewer area + flanking chevrons + dots beneath -->
+            <div style="position: relative; padding: 4px 20px 0; z-index: 2;">
+
+              <div style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="15 18 9 12 15 6"/></svg>
+              </div>
+
+              <div style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; z-index: 3; padding: 12px 4px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.55;"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <!-- Viewer content sits directly on screen, no outer card. Margin reserves space for chevrons. -->
+              <div style="margin: 0 22px; height: 280px; position: relative; overflow: visible;">
+                
+                <div style="height: 100%; display: flex; flex-direction: column; gap: 8px; padding: 2px 0;">
+                  <!-- 4 stat tiles in a 2×2 grid -->
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
+                    
+                  <div style="background: rgba(20,9,61,0.35); border: 0.5px solid rgba(255,248,220,0.10); border-radius: 10px; padding: 10px 12px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 600; color: rgba(184,164,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Bars</p>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 2px 0 0; letter-spacing: -0.01em;">16</p>
+                  </div>
+                    
+                  <div style="background: rgba(20,9,61,0.35); border: 0.5px solid rgba(255,248,220,0.10); border-radius: 10px; padding: 10px 12px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 600; color: rgba(184,164,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Words used</p>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 2px 0 0; letter-spacing: -0.01em;">24</p>
+                  </div>
+                    
+                  <div style="background: rgba(20,9,61,0.35); border: 0.5px solid rgba(255,248,220,0.10); border-radius: 10px; padding: 10px 12px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 600; color: rgba(184,164,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Game time</p>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 2px 0 0; letter-spacing: -0.01em;">2:23</p>
+                  </div>
+                    
+                  <div style="background: rgba(20,9,61,0.35); border: 0.5px solid rgba(255,248,220,0.10); border-radius: 10px; padding: 10px 12px;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 600; color: rgba(184,164,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Current streak</p>
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; color: var(--accent-bright); margin: 2px 0 0; letter-spacing: -0.01em;">4 days</p>
+                  </div>
+                  </div>
+
+                  <!-- Hairline divider -->
+                  <div style="height: 0.5px; background: rgba(255,248,220,0.10); margin: 4px 0 2px;"></div>
+
+                  <!-- 3 settings rows -->
+                  <div style="display: flex; flex-direction: column; gap: 1px;">
+                    
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 2px;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.75);">Word pack</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-primary);">Basic</span>
+                  </div>
+                    
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 2px;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.75);">Beats</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-primary);">Duple</span>
+                  </div>
+                    
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 2px;">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.75);">Rhyme pattern</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-primary);">AABB</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; gap: 7px; padding: 10px 0 0;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(255,248,220,0.30);"></div>
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-deep);"></div>
+              </div>
+            </div>
+
+            <div style="flex: 1;"></div>
+
+            <!-- Action area: single dominant Play Again gem + inline same/new toggle + tertiary back link -->
+            <div style="padding: 0 20px 8px; position: relative; z-index: 2;">
+
+              <!-- Two equal-weight Play Again buttons side by side -->
+              <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">same words</span>
+                </div>
+                <div style="flex: 1; background: rgba(20,9,61,0.55); border: 0.5px solid rgba(255,248,220,0.22); border-radius: 14px; padding: 13px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.005em;">Play again</span>
+                  <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 500; color: rgba(184,164,255,0.85);">new words</span>
+                </div>
+              </div>
+
+              <!-- Tertiary: back to menu (text-link weight, with chevron) -->
+              <div style="display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px 0 0; opacity: 0.75;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-primary);">Back to menu</span>
+              </div>
+            </div>
+
+            <!-- Premium-card mini-player anchored bottom -->
+            <div style="padding: 12px 18px 28px; position: relative; z-index: 2;">
+              <div style="background: var(--gradient-card-standard); border: 0.5px solid var(--surface-card-border); border-radius: 18px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(26,15,61,0.20);">
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 48px; height: 48px; border-radius: 10px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0;">Rogue</p>
+                    <p style="font-size: 11px; color: rgba(184,164,255,0.75); margin: 2px 0 0; font-family: 'Fredoka', sans-serif;">Dumblit</p>
+                  </div>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 0.5px solid rgba(255,255,255,0.20); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-primary)"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="position: relative; height: 4px;">
+                    <div style="position: absolute; inset: 0; background: rgba(184,164,255,0.18); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: var(--gradient-progress); border-radius: 2px;"></div>
+                    <div style="position: absolute; left: 18%; top: -4px; width: 12px; height: 12px; background: #FFFFFF; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(0,0,0,0.4);"></div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">0:24</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                      <span style="font-size: 10px; color: rgba(184,164,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Fredoka', sans-serif; font-weight: 600;">Bar −1</span>
+                      <div style="display: flex; gap: 3px; margin-left: 4px;">
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: var(--accent-deep); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                        <div style="width: 8px; height: 8px; background: rgba(255,248,220,0.4); border-radius: 1.5px;"></div>
+                      </div>
+                    </div>
+                    <span style="font-size: 11px; color: rgba(184,164,255,0.75); font-family: 'Fredoka', sans-serif; font-weight: 500;">2:23</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <p class="motion-note">↻ Numbers count up briefly on entry.</p>
     </div>
   </div><!-- end Gameplay grid -->
 
