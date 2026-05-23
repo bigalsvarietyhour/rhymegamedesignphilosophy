@@ -5381,19 +5381,30 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.9;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
               </div>
             </div>
-            <div style="flex-shrink: 0; padding: 14px 20px 12px; position: relative; z-index: 2;">
-              <div style="display: flex; gap: 8px;">
-                <div style="flex: 2; background: var(--surface-chip-inactive); border: 0.5px solid var(--surface-chip-inactive-border); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;">
+            <div style="flex-shrink: 0; padding: 14px 20px 12px; position: relative; z-index: 2; display: flex; flex-direction: column; gap: 8px;">
+              <!-- Row 1: Name (full width) -->
+              <div style="display: flex;">
+                <div style="flex: 1; background: var(--surface-chip-inactive); border: 0.5px solid var(--surface-chip-inactive-border); border-radius: 12px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;">
       <div style="display: flex; flex-direction: column; min-width: 0;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-secondary-60); letter-spacing: 0.10em; text-transform: uppercase;">Name</span>
         <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px;">My verse</span>
       </div>
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--accent-bright)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-                <div style="flex: 2; background: var(--surface-chip-inactive); border: 0.5px solid var(--surface-chip-inactive-border); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;">
+              </div>
+              <!-- Row 2: Colors + Primary beat (50/50) -->
+              <div style="display: flex; gap: 8px;">
+                <div style="flex: 1; background: var(--surface-chip-inactive); border: 0.5px solid var(--surface-chip-inactive-border); border-radius: 12px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;">
       <div style="display: flex; flex-direction: column; min-width: 0;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-secondary-60); letter-spacing: 0.10em; text-transform: uppercase;">Colors</span>
         <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px;">Full color</span>
+      </div>
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--accent-bright)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+                <div style="flex: 1; background: var(--surface-chip-inactive); border: 0.5px solid var(--surface-chip-inactive-border); border-radius: 12px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;">
+      <div style="display: flex; flex-direction: column; min-width: 0;">
+        <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-secondary-60); letter-spacing: 0.10em; text-transform: uppercase;">Beat</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px;">Rogue</span>
       </div>
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--accent-bright)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
