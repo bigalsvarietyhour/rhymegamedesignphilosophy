@@ -627,6 +627,17 @@
   --surface-deep-bg-95: rgba(20,9,61,0.95);
   --surface-deep-bg-20: rgba(20,9,61,0.20);
   --surface-mid-bg-70: rgba(26,15,61,0.70);
+  --accent-bright-rgb: 245,198,72;
+  --accent-deep-rgb: 196,140,0;
+  --rhyme-blue-rgb: 79,168,232;
+  --rhyme-green-rgb: 79,204,133;
+  --success: #1F8F5C;
+  --success-rgb: 31,143,92;
+  --warning: #E87B00;
+  --warning-rgb: 232,123,0;
+  --error: #D63848;
+  --error-rgb: 214,56,72;
+  --ramp-neutral-cream-50-rgb: 251,248,240;
 }
 [data-theme="christmas"] {
   /* gradients */
@@ -750,6 +761,17 @@
   --surface-deep-bg-95: rgba(4,18,10,0.95);
   --surface-deep-bg-20: rgba(4,18,10,0.20);
   --surface-mid-bg-70: rgba(7,28,15,0.70);
+  --accent-bright-rgb: 245,200,74;
+  --accent-deep-rgb: 184,134,11;
+  --rhyme-blue-rgb: 79,204,133;
+  --rhyme-green-rgb: 212,232,240;
+  --success: #1F8F5C;
+  --success-rgb: 31,143,92;
+  --warning: #E87B00;
+  --warning-rgb: 232,123,0;
+  --error: #D63848;
+  --error-rgb: 214,56,72;
+  --ramp-neutral-cream-50-rgb: 255,250,240;
 }
 [data-theme="halloween"] {
   /* gradients */
@@ -873,6 +895,17 @@
   --surface-deep-bg-95: rgba(2,2,3,0.95);
   --surface-deep-bg-20: rgba(2,2,3,0.20);
   --surface-mid-bg-70: rgba(5,5,7,0.70);
+  --accent-bright-rgb: 255,171,71;
+  --accent-deep-rgb: 184,90,26;
+  --rhyme-blue-rgb: 155,77,202;
+  --rhyme-green-rgb: 232,224,204;
+  --success: #1F8F5C;
+  --success-rgb: 31,143,92;
+  --warning: #E87B00;
+  --warning-rgb: 232,123,0;
+  --error: #D63848;
+  --error-rgb: 214,56,72;
+  --ramp-neutral-cream-50-rgb: 251,248,232;
 }
 
 </style>
@@ -1686,13 +1719,13 @@
               <div style="position: absolute; top: 50%; right: -10px; transform: translate(100%, -50%); display: flex; align-items: center; justify-content: center; z-index: 2;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
               </div>
-              <div style="position: absolute; inset: -36px; background: radial-gradient(ellipse at 50% 45%, rgba(232,168,0,0.5) 0%, rgba(232,168,0,0.18) 35%, rgba(232,168,0,0) 65%); pointer-events: none; filter: blur(18px);"></div>
+              <div style="position: absolute; inset: -36px; background: radial-gradient(ellipse at 50% 45%, rgba(var(--accent-bright-rgb),0.5) 0%, rgba(var(--accent-bright-rgb),0.18) 35%, transparent 65%); pointer-events: none; filter: blur(18px);"></div>
 
-              <div style="position: relative; background: var(--gradient-gem); border-radius: 32px; padding: 24px 28px; text-align: center; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 var(--gem-inset-bottom) inset, 0 0 0 1px rgba(255,255,255,0.12) inset, 0 18px 48px rgba(196,140,0,0.4), 0 4px 14px rgba(0,0,0,0.18); overflow: hidden;">
+              <div style="position: relative; background: var(--gradient-gem); border-radius: 32px; padding: 24px 28px; text-align: center; box-shadow: 0 2px 0 rgba(255,255,255,0.32) inset, 0 -2px 0 var(--gem-inset-bottom) inset, 0 0 0 1px rgba(255,255,255,0.12) inset, 0 18px 48px rgba(var(--accent-deep-rgb),0.4), 0 4px 14px rgba(0,0,0,0.18); overflow: hidden;">
 
                 <div style="position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-radius: 32px 32px 100% 100% / 32px 32px 60% 60%; pointer-events: none;"></div>
 
-                <div style="position: absolute; top: 10px; left: 28%; right: 28%; height: 10px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(4px); pointer-events: none;"></div>
+                <div style="position: absolute; top: 10px; left: 28%; right: 28%; height: 10px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 70%); border-radius: 50%; filter: blur(4px); pointer-events: none;"></div>
 
                 <div style="position: relative;">
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent-text); margin: 0; letter-spacing: 0.01em;">Unlock 100+ beats</p>
@@ -1757,7 +1790,7 @@
               <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary);">Stats</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; margin: 0 16px; position: relative; z-index: 20;">
-              <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
+              <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(var(--accent-bright-rgb),0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
               <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; margin-top: -42px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 12px 28px var(--orb-shadow); position: relative; z-index: 21;">
                 <svg width="28" height="28" viewBox="0 0 24 24" style="margin-left: 3px;">
                   <polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/>
@@ -1953,7 +1986,7 @@
                     <div style="aspect-ratio: 1; background: var(--text-secondary-10); border-radius: 4px;"></div>
                     <div style="aspect-ratio: 1; background: var(--text-secondary-10); border-radius: 4px;"></div>
                     <div style="aspect-ratio: 1; background: var(--text-secondary-10); border-radius: 4px;"></div>
-                    <div style="aspect-ratio: 1; background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%); border-radius: 4px; box-shadow: 0 0 6px rgba(232,168,0,0.5);"></div>
+                    <div style="aspect-ratio: 1; background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%); border-radius: 4px; box-shadow: 0 0 6px rgba(var(--accent-bright-rgb),0.5);"></div>
                   </div>
                   <div style="display: flex; justify-content: flex-start; align-items: center; margin-top: 10px;">
                     <span style="font-size: 10px; color: var(--text-secondary-60); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;">Last 28 days</span>
@@ -2001,7 +2034,7 @@
                   <div style="flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 96px;">
                     <p style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-primary); margin: 0 0 2px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Trap Loop</p>
                     <p style="font-size: 9px; color: var(--grid-bar-label); margin: 0 0 6px; text-align: center;">The Rhyme Game</p>
-                    <div style="width: 100%; height: 110px; background: var(--gradient-podium-gold); border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 1px 0 var(--grid-active-border) inset, 0 0 20px rgba(232,168,0,0.35);">
+                    <div style="width: 100%; height: 110px; background: var(--gradient-podium-gold); border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 1px 0 var(--grid-active-border) inset, 0 0 20px rgba(var(--accent-bright-rgb),0.35);">
                       <div style="position: absolute; top: 8px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; color: var(--accent-text);">1</div>
                       <div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent-text);">1 play</div>
                     </div>
@@ -2051,7 +2084,7 @@
                 <p style="font-size: 12px; color: var(--text-secondary-85); margin: 0; line-height: 1.5; text-align: center;">You're a <span style="color: var(--accent-bright); font-family: 'Fredoka', sans-serif; font-weight: 700;">Trap</span> head. <span style="color: var(--text-secondary-60);">Try a Drill beat next session to mix it up.</span></p>
               </div>
 
-              <p style="font-size: 11px; color: var(--grid-bar-label); margin: 8px 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Achievements <span style="color: rgba(245,198,72,0.7); margin-left: 6px;">coming soon</span></p>
+              <p style="font-size: 11px; color: var(--grid-bar-label); margin: 8px 8px 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Achievements <span style="color: rgba(var(--accent-bright-rgb),0.7); margin-left: 6px;">coming soon</span></p>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 24px;">
                 <div style="background: linear-gradient(180deg, var(--surface-mid-bg-65) 0%, var(--surface-mid-bg-55) 100%); border-radius: 14px; padding: 16px 8px; text-align: center; aspect-ratio: 1;">
@@ -2083,7 +2116,7 @@
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 600; color: var(--accent-bright);">Stats</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; margin: 0 16px; position: relative; z-index: 20;">
-                  <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
+                  <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(var(--accent-bright-rgb),0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
                   <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; margin-top: -42px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 12px 28px var(--orb-shadow); position: relative; z-index: 21;">
                     <svg width="28" height="28" viewBox="0 0 24 24" style="margin-left: 3px;"><polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/></svg>
                   </div>
@@ -2146,7 +2179,7 @@
                 <div style="width: 84px; height: 84px; border-radius: 14px; background: linear-gradient(135deg, var(--ramp-brand-world-600) 0%, var(--ramp-brand-world-900) 60%, var(--ramp-neutral-cream-900) 100%); flex-shrink: 0; position: relative; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
                   <!-- Faint dollar-sign decoration to hint at contest theme -->
                   <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-family: 'Fredoka', sans-serif; font-size: 42px; font-weight: 700; color: var(--accent-bright); opacity: 0.55; line-height: 1; text-shadow: 0 2px 8px rgba(245,198,72,0.5);">$</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 42px; font-weight: 700; color: var(--accent-bright); opacity: 0.55; line-height: 1; text-shadow: 0 2px 8px rgba(var(--accent-bright-rgb),0.5);">$</span>
                   </div>
                   <!-- Subtle highlight at top-left for depth -->
                   <div style="position: absolute; top: 6px; left: 8px; width: 26px; height: 14px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.20) 0%, transparent 70%); pointer-events: none;"></div>
@@ -2157,7 +2190,7 @@
                   <span style="display: inline-block; font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px;">News</span>
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-primary); margin: 0 0 8px; line-height: 1.25; letter-spacing: -0.005em;">Participate in the $1,000 freestyle rap contest</p>
                   <!-- Mini CTA pill -->
-                  <div style="display: inline-flex; align-items: center; gap: 5px; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 8px; padding: 4px 10px;">
+                  <div style="display: inline-flex; align-items: center; gap: 5px; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
                     <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-bright);">Learn how</span>
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--accent-bright)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                   </div>
@@ -2221,7 +2254,7 @@
               <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary);">Stats</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; margin: 0 16px; position: relative; z-index: 20;">
-              <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
+              <div style="position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(var(--accent-bright-rgb),0.12) 40%, transparent 72%); pointer-events: none; filter: blur(18px); top: -78px; left: -34px; z-index: 20;"></div>
               <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; margin-top: -42px; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 12px 28px var(--orb-shadow); position: relative; z-index: 21;">
                 <svg width="28" height="28" viewBox="0 0 24 24" style="margin-left: 3px;">
                   <polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/>
@@ -2287,10 +2320,10 @@
                 <div style="position: relative; width: 100%; height: 200px; border-radius: 16px; background: linear-gradient(135deg, var(--ramp-brand-world-600) 0%, var(--ramp-brand-world-900) 50%, var(--ramp-neutral-cream-900) 100%); margin-bottom: 22px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.40);">
                   <!-- Big stylized dollar -->
                   <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-family: 'Fredoka', sans-serif; font-size: 120px; font-weight: 700; color: var(--accent-bright); opacity: 0.85; line-height: 0.9; text-shadow: 0 4px 24px rgba(245,198,72,0.6);">$1,000</span>
+                    <span style="font-family: 'Fredoka', sans-serif; font-size: 120px; font-weight: 700; color: var(--accent-bright); opacity: 0.85; line-height: 0.9; text-shadow: 0 4px 24px rgba(var(--accent-bright-rgb),0.6);">$1,000</span>
                   </div>
                   <!-- Subtle scan line decoration -->
-                  <div style="position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,0.40); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 8px; padding: 4px 10px;">
+                  <div style="position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,0.40); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
                     <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 0.1em;">Contest</span>
                   </div>
                   <!-- Top-left highlight for depth -->
@@ -2379,7 +2412,7 @@
               </div>
 
               <!-- Gold accent header strip — signals "this is the daily challenge" -->
-              <div style="position: relative; flex-shrink: 0; margin: 8px 24px 0; padding: 10px 14px; background: linear-gradient(90deg, rgba(245,198,72,0.16) 0%, rgba(245,198,72,0.06) 100%); border: 0.5px solid rgba(245,198,72,0.40); border-radius: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="position: relative; flex-shrink: 0; margin: 8px 24px 0; padding: 10px 14px; background: linear-gradient(90deg, rgba(var(--accent-bright-rgb),0.16) 0%, rgba(var(--accent-bright-rgb),0.06) 100%); border: 0.5px solid rgba(var(--accent-bright-rgb),0.40); border-radius: 12px; display: flex; align-items: center; gap: 10px;">
                 <!-- Flame icon (streak signifier) -->
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-bright)" style="flex-shrink: 0;"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
                 <div style="flex: 1; min-width: 0;">
@@ -2442,7 +2475,7 @@
                 </div>
 
                 <!-- Reward strip -->
-                <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(245,198,72,0.10); border: 0.5px solid rgba(245,198,72,0.30); border-radius: 12px; margin-bottom: 14px;">
+                <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(var(--accent-bright-rgb),0.10); border: 0.5px solid rgba(var(--accent-bright-rgb),0.30); border-radius: 12px; margin-bottom: 14px;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent-bright)" style="flex-shrink: 0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-primary-90); flex: 1;">Complete to extend your streak and earn the <span style="font-weight: 700; color: var(--accent-bright);">Day 5</span> badge.</span>
                 </div>
@@ -2504,21 +2537,21 @@
             <div style="position: absolute; inset: 0; background: var(--surface-deep-bg-70); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">
 
               <!-- LAYER 1: Outermost atmospheric haze -->
-              <div style="position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(245,198,72,0.35) 0%, rgba(245,198,72,0.10) 35%, rgba(245,198,72,0) 60%); filter: blur(28px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(var(--accent-bright-rgb),0.35) 0%, rgba(var(--accent-bright-rgb),0.10) 35%, transparent 60%); filter: blur(28px); pointer-events: none;"></div>
 
               <!-- LAYER 2: Mid-glow burst -->
-              <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(245,198,72,0.75) 0%, rgba(245,198,72,0.35) 25%, rgba(245,198,72,0) 55%); filter: blur(14px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(var(--accent-bright-rgb),0.75) 0%, rgba(var(--accent-bright-rgb),0.35) 25%, transparent 55%); filter: blur(14px); pointer-events: none;"></div>
 
               <!-- LAYER 3: Tight core glow -->
-              <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(255,220,120,0.65) 0%, rgba(245,198,72,0.30) 40%, rgba(245,198,72,0) 65%); filter: blur(6px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(255,220,120,0.65) 0%, rgba(var(--accent-bright-rgb),0.30) 40%, transparent 65%); filter: blur(6px); pointer-events: none;"></div>
 
               <!-- LAYER 4: 12 ray star burst -->
               <svg width="380" height="380" viewBox="0 0 380 380" style="position: absolute; pointer-events: none; opacity: 0.55;">
                 <defs>
                   <linearGradient id="rayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(255,220,120,0)" />
+                    <stop offset="0%" stop-color="transparent" />
                     <stop offset="50%" stop-color="rgba(255,220,120,0.7)" />
-                    <stop offset="100%" stop-color="rgba(255,220,120,0)" />
+                    <stop offset="100%" stop-color="transparent" />
                   </linearGradient>
                 </defs>
                 <g transform="translate(190 190)">
@@ -2538,16 +2571,16 @@
               </svg>
 
               <!-- The achievement card -->
-              <div style="position: relative; width: 268px; background: linear-gradient(180deg, var(--ramp-brand-world-800) 0%, var(--ramp-brand-world-900) 100%); border: 1.5px solid var(--accent-bright); border-radius: 20px; padding: 20px 18px 16px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 0 0 4px rgba(245,198,72,0.30), 0 0 36px rgba(245,198,72,0.65), 0 0 60px rgba(245,198,72,0.40), 0 16px 48px rgba(0,0,0,0.65); display: flex; flex-direction: column; align-items: center;">
+              <div style="position: relative; width: 268px; background: linear-gradient(180deg, var(--ramp-brand-world-800) 0%, var(--ramp-brand-world-900) 100%); border: 1.5px solid var(--accent-bright); border-radius: 20px; padding: 20px 18px 16px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 0 0 4px rgba(var(--accent-bright-rgb),0.30), 0 0 36px rgba(var(--accent-bright-rgb),0.65), 0 0 60px rgba(var(--accent-bright-rgb),0.40), 0 16px 48px rgba(0,0,0,0.65); display: flex; flex-direction: column; align-items: center;">
 
                 <!-- Inner top highlight band -->
                 <div style="position: absolute; top: 0; left: 0; right: 0; height: 38%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-top-left-radius: 20px; border-top-right-radius: 20px; pointer-events: none;"></div>
 
-                <span style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; text-shadow: 0 0 8px rgba(245,198,72,0.6);">★ Achievement Unlocked ★</span>
+                <span style="position: relative; font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; text-shadow: 0 0 8px rgba(var(--accent-bright-rgb),0.6);">★ Achievement Unlocked ★</span>
 
                 <!-- Platinum record -->
                 <div style="position: relative; width: 108px; height: 108px; margin-bottom: 14px;">
-                  <div style="position: absolute; inset: -12px; background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 60%); filter: blur(8px); pointer-events: none;"></div>
+                  <div style="position: absolute; inset: -12px; background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, transparent 60%); filter: blur(8px); pointer-events: none;"></div>
                   <div style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #F4F4FA 0%, #C8C8D8 40%, #888894 75%, #5A5A66 100%); box-shadow: 0 0 0 2.5px rgba(255,255,255,0.50) inset, 0 0 24px rgba(255,255,255,0.40), 0 6px 18px rgba(0,0,0,0.55);"></div>
                   <svg width="108" height="108" viewBox="0 0 108 108" style="position: absolute; inset: 0;">
                     <circle cx="54" cy="54" r="48" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
@@ -2556,7 +2589,7 @@
                     <circle cx="54" cy="54" r="33" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
                     <circle cx="54" cy="54" r="28" fill="none" stroke="rgba(60,60,80,0.45)" stroke-width="0.5"/>
                   </svg>
-                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--accent-light) 0%, var(--accent-bright) 55%, var(--accent-deep) 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(0,0,0,0.4) inset, 0 0 8px rgba(245,198,72,0.6);">
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--accent-light) 0%, var(--accent-bright) 55%, var(--accent-deep) 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(0,0,0,0.4) inset, 0 0 8px rgba(var(--accent-bright-rgb),0.6);">
                     <div style="width: 6px; height: 6px; border-radius: 50%; background: #1a1a1f;"></div>
                   </div>
                   <div style="position: absolute; top: 6px; left: 14px; width: 32px; height: 18px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.65) 0%, transparent 70%); pointer-events: none;"></div>
@@ -2751,7 +2784,7 @@
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-primary); opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Unlock all beats in every genre</span>
                 </div>
                 <!-- Try free mini-pill — subtle yellow-tinted chip with yellow text -->
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 9px; padding: 5px 11px;">
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 9px; padding: 5px 11px;">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.02em;">Try free</span>
                 </div>
               </div>
@@ -2765,7 +2798,7 @@
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ot7</p>
                   <p style="font-size: 11px; color: var(--text-secondary-85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dumblit · 150 BPM · Drill</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.06em;">Free today</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--ramp-neutral-cream-50-rgb),0.16); border: 0.5px solid rgba(var(--ramp-neutral-cream-50-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--ramp-neutral-cream-900); letter-spacing: 0.06em;">Free today</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-60)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
@@ -2775,12 +2808,12 @@
                   <div style="position: absolute; bottom: 3px; right: 3px; width: 14px; height: 14px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.3);">
                     <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                   </div>
-                <div style="position: absolute; top: 0; left: 0; right: 0; background: var(--ramp-brand-world-600); padding: 1.5px 0; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.12em; line-height: 1;">NEW</span></div></div>
+                <div style="position: absolute; top: 0; left: 0; right: 0; background: var(--success); padding: 3.5px 0; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 8px; font-weight: 500; color: #FFF8DC; letter-spacing: 0.16em; line-height: 1;">NEW</span></div></div>
                 <div style="flex: 1; min-width: 0;">
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary-85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Behind the Mask</p>
                   <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 86 BPM · Chill Boom Bap</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
@@ -2795,11 +2828,11 @@
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary-85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Enchanted</p>
                   <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 92 BPM · Chill Boom Bap</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
-              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px; background: linear-gradient(90deg, rgba(245,198,72,0.08) 0%, rgba(245,198,72,0) 100%); border-left: 2px solid var(--accent-bright); border-radius: 4px; margin-left: -2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px; background: linear-gradient(90deg, rgba(var(--accent-bright-rgb),0.08) 0%, transparent 100%); border-left: 2px solid var(--accent-bright); border-radius: 4px; margin-left: -2px;">
                 <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.18);">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
                   <div style="position: absolute; inset: 0; background: var(--surface-mid-bg-70); display: flex; align-items: center; justify-content: center;">
@@ -2830,7 +2863,7 @@
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary-85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Floating</p>
                   <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 78 BPM · Lo-fi</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
@@ -2860,12 +2893,12 @@
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary-85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Velvet Hour</p>
                   <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 95 BPM · Trap (Chill)</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
               <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px;">
-                <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em; box-shadow: 0 1px 3px rgba(0,0,0,0.18); position: relative; overflow: hidden;">dumblit<div style="position: absolute; top: 0; left: 0; right: 0; background: var(--ramp-brand-world-600); padding: 1.5px 0; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 7px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.12em; line-height: 1;">NEW</span></div></div>
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em; box-shadow: 0 1px 3px rgba(0,0,0,0.18); position: relative; overflow: hidden;">dumblit<div style="position: absolute; top: 0; left: 0; right: 0; background: var(--success); padding: 3.5px 0; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Fredoka', sans-serif; font-size: 8px; font-weight: 500; color: #FFF8DC; letter-spacing: 0.16em; line-height: 1;">NEW</span></div></div>
                 <div style="flex: 1; min-width: 0;">
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tide</p>
                   <p style="font-size: 11px; color: var(--text-secondary-85); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dumblit · 88 BPM · Lo-fi</p>
@@ -2885,7 +2918,7 @@
                   <p style="font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-primary-85); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Reverie</p>
                   <p style="font-size: 11px; color: var(--grid-bar-label); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bizzle Beats · 102 BPM · Drill</p>
                 </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;"><span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span></div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
@@ -2938,7 +2971,7 @@
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--text-primary)" stroke="none"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round"/></svg>
 
                   <div style="position: relative;">
-                    <div style="position: absolute; width: 84px; height: 84px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(14px); top: -16px; left: -16px;"></div>
+                    <div style="position: absolute; width: 84px; height: 84px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(var(--accent-bright-rgb),0.12) 40%, transparent 72%); pointer-events: none; filter: blur(14px); top: -16px; left: -16px;"></div>
                     <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 8px 18px var(--orb-shadow); position: relative;">
                       <svg width="22" height="22" viewBox="0 0 24 24" style="margin-left: 2px;"><polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/></svg>
                     </div>
@@ -3044,7 +3077,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary-45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
               </div>
 
-              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px; background: linear-gradient(90deg, rgba(245,198,72,0.08) 0%, rgba(245,198,72,0) 100%); border-left: 2px solid var(--accent-bright); border-radius: 4px; margin-left: -2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 6px; background: linear-gradient(90deg, rgba(var(--accent-bright-rgb),0.08) 0%, transparent 100%); border-left: 2px solid var(--accent-bright); border-radius: 4px; margin-left: -2px;">
                 <div style="width: 44px; height: 44px; border-radius: 8px; background: #FBF8F0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.18);">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 9px; font-weight: 700; color: var(--text-on-light); letter-spacing: 0.05em;">dumblit</span>
                   <div style="position: absolute; inset: 0; background: var(--surface-mid-bg-70); display: flex; align-items: center; justify-content: center;">
@@ -3185,7 +3218,7 @@
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--text-primary)" stroke="none"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round"/></svg>
 
                   <div style="position: relative;">
-                    <div style="position: absolute; width: 84px; height: 84px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(232,168,0,0.12) 40%, transparent 72%); pointer-events: none; filter: blur(14px); top: -16px; left: -16px;"></div>
+                    <div style="position: absolute; width: 84px; height: 84px; background: radial-gradient(circle, var(--gem-bloom) 0%, rgba(var(--accent-bright-rgb),0.12) 40%, transparent 72%); pointer-events: none; filter: blur(14px); top: -16px; left: -16px;"></div>
                     <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-orb); display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 0 rgba(255,255,255,0.36) inset, 0 8px 18px var(--orb-shadow); position: relative;">
                       <svg width="22" height="22" viewBox="0 0 24 24" style="margin-left: 2px;"><polygon points="6,4 6,20 20,12" fill="var(--icon-on-accent)"/></svg>
                     </div>
@@ -3243,16 +3276,16 @@
             <div style="position: absolute; inset: 0; background: var(--surface-deep-bg-70); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">
 
               <!-- LAYER 1: Outermost atmospheric haze — biggest, softest -->
-              <div style="position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(245,198,72,0.30) 0%, rgba(245,198,72,0.08) 35%, rgba(245,198,72,0) 60%); filter: blur(28px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(var(--accent-bright-rgb),0.30) 0%, rgba(var(--accent-bright-rgb),0.08) 35%, transparent 60%); filter: blur(28px); pointer-events: none;"></div>
 
               <!-- LAYER 2: Mid-glow burst — dense gold halo -->
-              <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(245,198,72,0.55) 0%, rgba(245,198,72,0.25) 25%, rgba(245,198,72,0) 55%); filter: blur(14px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(var(--accent-bright-rgb),0.55) 0%, rgba(var(--accent-bright-rgb),0.25) 25%, transparent 55%); filter: blur(14px); pointer-events: none;"></div>
 
               <!-- LAYER 3: Tight core glow — saturated bright -->
-              <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(255,220,120,0.45) 0%, rgba(245,198,72,0.20) 40%, rgba(245,198,72,0) 65%); filter: blur(6px); pointer-events: none;"></div>
+              <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(255,220,120,0.45) 0%, rgba(var(--accent-bright-rgb),0.20) 40%, transparent 65%); filter: blur(6px); pointer-events: none;"></div>
 
               <!-- THE CARD — opaque, double-bordered, dramatic shadow (achievement-style chrome) -->
-              <div style="position: relative; width: 320px; background: linear-gradient(180deg, var(--ramp-brand-world-800) 0%, var(--ramp-brand-world-900) 100%); border: 1.5px solid var(--accent-bright); border-radius: 22px; padding: 24px 24px 22px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 0 0 4px rgba(245,198,72,0.30), 0 0 36px rgba(245,198,72,0.55), 0 0 60px rgba(245,198,72,0.30), 0 16px 48px rgba(0,0,0,0.65); display: flex; flex-direction: column; align-items: center;">
+              <div style="position: relative; width: 320px; background: linear-gradient(180deg, var(--ramp-brand-world-800) 0%, var(--ramp-brand-world-900) 100%); border: 1.5px solid var(--accent-bright); border-radius: 22px; padding: 24px 24px 22px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 0 0 4px rgba(var(--accent-bright-rgb),0.30), 0 0 36px rgba(var(--accent-bright-rgb),0.55), 0 0 60px rgba(var(--accent-bright-rgb),0.30), 0 16px 48px rgba(0,0,0,0.65); display: flex; flex-direction: column; align-items: center;">
 
                 <!-- Inner top highlight band -->
                 <div style="position: absolute; top: 0; left: 0; right: 0; height: 38%; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 70%, transparent 100%); border-top-left-radius: 22px; border-top-right-radius: 22px; pointer-events: none;"></div>
@@ -3462,14 +3495,14 @@
 
               <p style="font-size: 11px; color: var(--grid-bar-label); margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Genre</p>
               <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(196,140,0,0.3);">
+                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(var(--accent-deep-rgb),0.3);">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--accent-text);">Trap</span>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </div>
                 <div style="background: var(--surface-chip-inactive); border: 0.5px solid var(--grid-empty-bg); border-radius: 999px; padding: 8px 16px;">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 500; color: var(--text-primary-85);">Boom Bap</span>
                 </div>
-                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(196,140,0,0.3);">
+                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(var(--accent-deep-rgb),0.3);">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--accent-text);">Drill</span>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </div>
@@ -3483,7 +3516,7 @@
 
               <p style="font-size: 11px; color: var(--grid-bar-label); margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;">Mood</p>
               <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(196,140,0,0.3);">
+                <div style="background: var(--gradient-gem); border-radius: 999px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 4px 10px rgba(var(--accent-deep-rgb),0.3);">
                   <span style="font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 700; color: var(--accent-text);">Chill</span>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </div>
@@ -3851,8 +3884,8 @@
               </div>
               <!-- Hint of cards -->
               <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 10px;">
-                <div style="height: 280px; background: rgba(184,164,255,0.08); border: 0.5px solid var(--text-primary-10); border-radius: 18px;"></div>
-                <div style="height: 100px; background: rgba(184,164,255,0.08); border: 0.5px solid var(--text-primary-10); border-radius: 18px;"></div>
+                <div style="height: 280px; background: var(--text-secondary-10); border: 0.5px solid var(--text-primary-10); border-radius: 18px;"></div>
+                <div style="height: 100px; background: var(--text-secondary-10); border: 0.5px solid var(--text-primary-10); border-radius: 18px;"></div>
               </div>
             </div>
 
@@ -3923,8 +3956,8 @@
               <div style="flex: 1; overflow-y: auto; padding: 0 22px 16px; display: flex; flex-direction: column; gap: 8px;">
 
                 <!-- Currently selected: Food & Cooking (gold-bordered) -->
-                <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: rgba(245,198,72,0.08); border: 1px solid rgba(245,198,72,0.35); border-radius: 14px;">
-      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #F08838 0%, #B85A1A 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: rgba(var(--accent-bright-rgb),0.08); border: 1px solid rgba(var(--accent-bright-rgb),0.35); border-radius: 14px;">
+      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--rhyme-orange-block) 0%, var(--rhyme-orange-shadow) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">🍴</span>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -3969,7 +4002,7 @@
     </div>
 
                 <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface-deep-bg-35); border: 0.5px solid var(--text-primary-08); border-radius: 14px;">
-      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #2A1466 0%, #4A2BA8 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
+      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--ramp-brand-world-900) 0%, var(--ramp-brand-world-600) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">🌃</span>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -3993,13 +4026,13 @@
         </div>
         <p style="font-size: 11px; color: var(--text-secondary-75); margin: 2px 0 0; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Iconic words from 50 years of rap.</p>
       </div>
-      <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;">
+      <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;">
           <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span>
         </div>
     </div>
 
                 <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface-deep-bg-35); border: 0.5px solid var(--text-primary-08); border-radius: 14px;">
-      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #4A1545 0%, #2A1466 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
+      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--ramp-brand-world-800) 0%, var(--ramp-brand-world-900) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">🎬</span>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -4009,7 +4042,7 @@
         </div>
         <p style="font-size: 11px; color: var(--text-secondary-75); margin: 2px 0 0; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">Character, setting, and plot words to spark a narrative.</p>
       </div>
-      <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 7px; padding: 3px 8px;">
+      <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 7px; padding: 3px 8px;">
           <span style="font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.1em;">PRO</span>
         </div>
     </div>
@@ -4029,7 +4062,7 @@
     </div>
 
                 <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface-deep-bg-35); border: 0.5px solid var(--text-primary-08); border-radius: 14px;">
-      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #EC6BC4 0%, #9145A0 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
+      <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--ramp-brand-world-400) 0%, var(--ramp-brand-world-600) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.20); overflow: hidden; position: relative;">
         <span style="font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">🎲</span>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -4813,7 +4846,7 @@
                 <div style="flex-shrink: 0; padding: 7px 14px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-75); letter-spacing: 0.005em;">Syl-A-Builder</span>
             </div>
-                <div style="flex-shrink: 0; background: rgba(245,198,72,0.16); border: 0.5px solid rgba(245,198,72,0.45); border-radius: 999px; padding: 7px 14px;">
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 999px; padding: 7px 14px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.005em;">Rhymes</span>
             </div>
                 <div style="flex-shrink: 0; padding: 7px 14px;">
@@ -4839,7 +4872,7 @@
               <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">map</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4847,7 +4880,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">cap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4855,7 +4888,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">gap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4863,7 +4896,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">app</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4871,7 +4904,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">wrap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4879,7 +4912,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">strap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4887,7 +4920,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">tap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4895,7 +4928,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">snap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4903,7 +4936,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">sap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4911,7 +4944,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">trap</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(79,204,133,0.18); border: 0.5px solid rgba(79,204,133,0.50); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-green-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-green-rgb),0.50); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-green-block); letter-spacing: 0.02em;">Perfect</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4919,7 +4952,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">back</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(232,168,0,0.16); border: 0.5px solid rgba(232,168,0,0.45); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.02em;">Near</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4927,7 +4960,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">crack</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(232,168,0,0.16); border: 0.5px solid rgba(232,168,0,0.45); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.02em;">Near</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4935,7 +4968,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">rack</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(232,168,0,0.16); border: 0.5px solid rgba(232,168,0,0.45); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--accent-bright-rgb),0.16); border: 0.5px solid rgba(var(--accent-bright-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-bright); letter-spacing: 0.02em;">Near</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4943,7 +4976,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">rep</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(64,140,224,0.18); border: 0.5px solid rgba(64,140,224,0.45); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-blue-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-blue-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-blue-block); letter-spacing: 0.02em;">Slant</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
@@ -4951,7 +4984,7 @@
             </div><div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 0.5px solid var(--text-primary-08);">
               <div style="display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; background: var(--grid-cream-bg); border-radius: 9px; box-shadow: 0 3px 0 var(--grid-cream-shadow), 0 5px 7px rgba(0,0,0,0.16);"><span style="font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-on-light); letter-spacing: -0.01em;">rip</span></div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="flex-shrink: 0; background: rgba(64,140,224,0.18); border: 0.5px solid rgba(64,140,224,0.45); border-radius: 8px; padding: 4px 10px;">
+                <div style="flex-shrink: 0; background: rgba(var(--rhyme-blue-rgb),0.18); border: 0.5px solid rgba(var(--rhyme-blue-rgb),0.45); border-radius: 8px; padding: 4px 10px;">
               <span style="font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: var(--rhyme-blue-block); letter-spacing: 0.02em;">Slant</span>
             </div>
                 <span style="font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-secondary-60); min-width: 38px; text-align: right;">1 syl</span>
